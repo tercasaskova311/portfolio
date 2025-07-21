@@ -7,29 +7,30 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "en-US"
-site_theme               : "default"
-title                    : "Your Name / Site Title"
-title_separator          : "-"
-name                     : &name "Your Name"
-description              : &description "personal description"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+title                    : "Tereza Saskova Portfolio"
+name                     : &name "Tereza Saskova"
+description              : &description "Data science student, ex-pro MTB racer"
+url                      : "https://terezasaskova.github.io"
+baseurl                  : ""
+repository               : "tercasaskova311/terezasaskova.github.io"
+
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
-  # Biographic information
-  avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
-  uri              : # URL
-  email            : "none@example.org" 
+  avatar           : "profile.png"  # make sure you have a file with this name
+  name             : "Tereza Saskova"
+  bio              : "Data science student • Ex-pro mountain biker • Ski & bike instructor"
+  location         : "Italy, Trento"
+  employer         : "University of Trento"
+  uri              : "https://www.linkedin.com/in/tereza-saskova-527326235"
+  email            : "tercasaskova311@gmail.com"
+
+  linkedin         : "tereza-saskova-527326235"
+  github           : "tercasaskova311"
+  kaggle           : "terezasaskova"
+
 
   # Academic websites
   academia         : # URL
