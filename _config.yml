@@ -1,14 +1,12 @@
-# Basic Site Settings
 title: "Tereza Saskova Portfolio"
-name: &name "Tereza Saskova"
-description: &description "Data science student, ex-pro MTB racer"
 url: "https://tercasaskova311.github.io"
-baseurl: "/terezasaskova.github.io"   # <-- must not be empty for a project site
-repository: "tercasaskova311/terezasaskova.github.io"
+baseurl: "/portfolio"                     # <— repo name with a leading slash
+repository: "tercasaskova311/portfolio"   # <— match the repo you’re deploying
+minimal_mistakes_skin: "burgundy"         # keep your skin
 
-# Site Author
 author:
-  avatar: "images/profile.png"     # put the file at /images/profile.png
+  avatar: "images/profile.png"            # make sure the file exists here
+
   name: "Tereza Saskova"
   bio: "Data science student • Ex-pro mountain biker • Ski & bike instructor"
   location: "Italy, Trento"
