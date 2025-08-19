@@ -8,7 +8,7 @@ minimal_mistakes_skin: "burgundy"
 author:
   avatar: "images/profile.jpg"            # make sure the file exists here
 
-  name: "Tereza Saskova"
+  name: "Tereza Sásková"
   bio: "Data science student • Ex-pro mountain biker • Ski & bike instructor"
   location: "Italy, Trento"
   employer: "University of Trento"
@@ -35,7 +35,7 @@ atom_feed:
 # Social SEO
 social:
   type: Person
-  name: Tereza Saskova
+  name: Tereza Sásková
   links:
     - https://www.linkedin.com/in/tereza-saskova-527326235
     - https://github.com/tercasaskova311

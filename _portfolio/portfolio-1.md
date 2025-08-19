@@ -1,7 +1,18 @@
----
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
-collection: portfolio
+## Portfolio
+
+### [From CNNs to Transformers: Top-k Image Retrieval](https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-)
+**Category**: Machine Learning  
+Implemented and evaluated CLIP, DINOv2, EfficientNet, ResNet, and GoogLeNet for Top-K image retrieval. Compared frozen and fine-tuned encoders, GAP vs. GeM pooling, and cosine similarity metrics.
+
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+### [Podcast Analytics & Recommendation Platform](https://github.com/tercasaskova311/podcast-recommendation-platform)
+**Category**: Big Data Technologies  
+Real-time + batch ingestion system using Apache Spark, Delta Lake, and MongoDB. Recommends podcasts using user interaction data and metadata.
+
+---
+
+### [Reddit & Conflict: Israel–Palestine Discourse Analysis](https://github.com/tercasaskova311/Israel-Palestine-CSS-project)
+**Category**: Computational Social Science  
+Combined Reddit comments and verified conflict events from ACLED to analyze public discourse during major geopolitical events.
+

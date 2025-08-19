@@ -33,6 +33,7 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+
 /* === Burgundy + White + Gray overrides (no full-screen overlay) === */
 $burgundy: #800020;
 $bg: #ffffff;
@@ -45,7 +46,6 @@ body { background: #f7f7f8; color: $text; }
 
 /* Navbar */
 .masthead, .greedy-nav { background-color: $burgundy; }
-.greedy-nav a, .masthead__menu-item a { color: #fff !important; }
 
 /* Footer */
 .page__footer { background: $light-gray; color: $text; }
