@@ -1,0 +1,20 @@
+/* Burgundy + White + Gray skin */
+
+/* Base */
+$background-color: #ffffff;          // white background
+$text-color: #222222;                // dark gray text
+$muted-text-color: #555555;          // lighter gray for secondary text
+
+/* Links */
+$link-color: #800020;                // burgundy
+$link-color-hover: darken($link-color, 10%);
+
+/* Header & footer */
+$header-background-color: #800020;   // burgundy navbar
+$header-text-color: #ffffff;         // white text on navbar
+$footer-background-color: #f5f5f5;   // light gray footer
+$footer-text-color: #222222;         // dark gray footer text
+
+/* Buttons */
+$button-color: #800020;              // burgundy buttons
+$button-text-color: #ffffff;         // white button text

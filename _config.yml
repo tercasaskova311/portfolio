@@ -152,6 +152,9 @@ sass:
   sass_dir: _sass
   style: compressed
 
+minimal_mistakes_skin: "burgundy"
+
+
 # Output
 permalink: /:categories/:title/
 timezone: Europe/Rome
