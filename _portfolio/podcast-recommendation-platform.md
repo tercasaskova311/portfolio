@@ -7,7 +7,7 @@ excerpt: "Real-time + batch ingestion with Spark & Delta Lake; MongoDB serving; 
 external_url: https://github.com/tercasaskova311/podcast-recommendation-platform
 tags: [Spark, Delta Lake, Recommenders, Big Data]
 header:
-  teaser: /images/portfolio/podcast-teaser.jpg
+  teaser: /images/pofile.jpg   # optional; add the file or remove this line
 ---
 **Category:** Big Data Technologies
 

@@ -7,7 +7,7 @@ excerpt: "CLIP, DINOv2, EfficientNet, ResNet, GoogLeNet; frozen vs fine-tuned; G
 external_url: https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-
 tags: [Computer Vision, Retrieval, PyTorch]
 header:
-  teaser: /images/portfolio/topk-teaser.jpg   # optional; add the file or remove this line
+  teaser: /images/pofile.jpg   # optional; add the file or remove this line
 ---
 **Category:** Machine Learning
 
