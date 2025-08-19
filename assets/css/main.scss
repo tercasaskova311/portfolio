@@ -33,10 +33,14 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+/* === Brand tokens (define once) === */
+$burgundy: #800020;
+$bg: #ffffff;
+$text: #222222;
+$muted: #555555;
+$light-gray: #f5f5f5;
 
 /* === Solid burgundy masthead (cover every nested piece) === */
-$burgundy: #800020;
-
 .masthead,
 .masthead__inner-wrap,
 .greedy-nav,
@@ -47,7 +51,7 @@ $burgundy: #800020;
   box-shadow: none !important;
 }
 
-/* Text/icons in the navbar */
+/* Navbar text/icons */
 .site-title,
 .site-title a,
 .greedy-nav a,
@@ -57,7 +61,7 @@ $burgundy: #800020;
   color: #fff !important;
 }
 
-/* Hover states */
+/* Navbar hover */
 .greedy-nav .visible-links a:hover {
   background: rgba(255,255,255,.08) !important;
   color: #fff !important;
@@ -65,10 +69,21 @@ $burgundy: #800020;
 
 /* Remove thin separators some skins add */
 .masthead::after,
-.greedy-nav::after {
-  display: none !important;
-}
+.greedy-nav::after { display: none !important; }
 
+/* === Base === */
+body { background: #f7f7f8; color: $text; }
+
+/* Footer */
+.page__footer { background: $light-gray; color: $text; }
+.page__footer a { color: $burgundy; }
+
+/* Links & buttons */
+a { color: $burgundy; }
+a:hover { color: darken($burgundy, 10%); }
+.btn, .btn--primary { background: $burgundy; border-color: $burgundy; color: #fff; }
+.btn--light-outline { background: transparent; border: 2px solid $burgundy; color: $burgundy; }
+.btn:hover { background: darken($burgundy, 5%); border-color: darken($burgundy, 5%); }
 
 /* === HERO CARD === */
 .home-hero .page__inner-wrap { padding: 0; background: transparent; border: 0; }
@@ -108,6 +123,6 @@ $burgundy: #800020;
   .hero__image img { width: min(240px, 70%); }
 }
 
-/* --- optional: gallery grid --- */
+/* --- Gallery grid --- */
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1rem; }
 .gallery-grid img { width: 100%; height: auto; border-radius: 8px; display: block; }
