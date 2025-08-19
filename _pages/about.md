@@ -5,7 +5,7 @@ permalink: /about/
 author_profile: true
 ---
 
-I'm **Tereza Saskova**, a student of Master program in Data Science at the University of Trento and a former professional mountain biker.  
+I'm **Tereza Sásková**, a student of Master program in Data Science at the University of Trento and a former professional mountain biker.  
 My background blends sports, marketing, and tech — from organizing events and instructing at ski resorts to analyzing data and supporting NGOs.
 
 **Currently:**  
