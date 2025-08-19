@@ -129,7 +129,7 @@ a:hover { color: darken($burgundy, 10%); }
   height: 360px;
   background:
     linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
-    url("{{ '/IMG_4952.jpg' | relative_url }}") center/cover no-repeat; /* change filename if needed */
+    url("{{ '/images/DSC_9069.jpg' | relative_url }}") center/cover no-repeat; /* change filename if needed */
   z-index: 0;
   border-bottom-left-radius: 28px;
   border-bottom-right-radius: 28px;
