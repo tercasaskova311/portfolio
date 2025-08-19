@@ -5,7 +5,7 @@ repository: "tercasaskova311/portfolio"
 minimal_mistakes_skin: "burgundy"
 
 author:
-  avatar: "images/profile.png"            # make sure the file exists here
+  avatar: "images/profile.jpg"            # make sure the file exists here
 
   name: "Tereza Saskova"
   bio: "Data science student • Ex-pro mountain biker • Ski & bike instructor"
