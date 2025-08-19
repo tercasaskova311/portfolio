@@ -4,7 +4,7 @@
 @import
     "vendor/breakpoint/breakpoint",
 
-    "themes",
+    /* use ONE base theme only */
     "theme/default",
 
     "include/mixins",
@@ -40,7 +40,7 @@ $text: #222222;
 $muted: #555555;
 $light-gray: #f5f5f5;
 
-/* ===== Solid burgundy masthead (paint ALL nested pieces) ===== */
+/* ===== NAVBAR: force ALL layers to burgundy ===== */
 .masthead,
 .masthead__inner-wrap,
 .greedy-nav,
@@ -49,6 +49,7 @@ $light-gray: #f5f5f5;
 .greedy-nav .visible-links > li,
 .greedy-nav .visible-links > li > a {
   background: $burgundy !important;
+  background-image: none !important;  /* kills any skin gradient */
   border: 0 !important;
   box-shadow: none !important;
 }
@@ -62,12 +63,11 @@ $light-gray: #f5f5f5;
   background: rgba(255,255,255,.08) !important;
   color: #fff !important;
 }
-/* remove any skin separators/overlays */
-.masthead::after,
 .masthead::before,
-.greedy-nav::after,
-.greedy-nav::before { display: none !important; }
-/* force the same in dark-mode */
+.masthead::after,
+.greedy-nav::before,
+.greedy-nav::after { display: none !important; }
+/* dark-mode too */
 html[data-theme="dark"] .masthead,
 html[data-theme="dark"] .masthead__inner-wrap,
 html[data-theme="dark"] .greedy-nav,
@@ -86,8 +86,9 @@ a:hover { color: darken($burgundy, 10%); }
 .btn--light-outline { background: transparent; border: 2px solid $burgundy; color: $burgundy; }
 .btn:hover { background: darken($burgundy, 5%); border-color: darken($burgundy, 5%); }
 
-/* ===== Hero card ===== */
-.home-hero .page__inner-wrap { padding: 0; background: transparent; border: 0; }
+/* ===== HERO CARD ===== */
+.home-hero { position: relative; background: transparent !important; } /* <-- let the band show */
+.home-hero .page__inner-wrap { padding: 0; background: transparent !important; border: 0; }
 
 .hero {
   display: grid;
@@ -121,7 +122,6 @@ a:hover { color: darken($burgundy, 10%); }
 }
 
 /* ===== Background band behind the hero ===== */
-.home-hero { position: relative; }
 .home-hero::before {
   content: "";
   position: absolute;
@@ -129,7 +129,7 @@ a:hover { color: darken($burgundy, 10%); }
   height: 360px;
   background:
     linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
-    url("{{ '/IMG_4952.jpg' | relative_url }}") center/cover no-repeat; /* <- uses the file you have */
+    url("{{ '/IMG_4952.jpg' | relative_url }}") center/cover no-repeat; /* change filename if needed */
   z-index: 0;
   border-bottom-left-radius: 28px;
   border-bottom-right-radius: 28px;
