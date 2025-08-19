@@ -80,3 +80,16 @@ a:hover, .page__content a:hover { color: darken($burgundy, 10%); }
 .notice--primary, .label, .tag {
   background: $burgundy; border-color: $burgundy; color: #ffffff;
 }
+
+/* --- Gallery grid --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}

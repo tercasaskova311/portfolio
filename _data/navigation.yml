@@ -4,18 +4,15 @@ main:
     
   - title: "Portfolio"
     url: /portfolio/
+  
+  - title: "Gallery"
+    url: /gallery/
 
   - title: "CV"
     url: /cv/   # or /cv-json/ if you're using the JSON-based version
 
   - title: "Blog"
-    url: /year-archive/
-
-  - title: "Talks"
-    url: /talks/    
-
-  - title: "Teaching"
-    url: /teaching/    
+    url: /year-archive/ 
 
   - title: "Contact"
     url: /contact/  # You can create a simple contact.md or mailto link
