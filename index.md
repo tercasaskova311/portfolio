@@ -9,8 +9,8 @@ classes: wide home-hero
 <section class="hero">
   <div class="hero__content">
     <p class="eyebrow">Hi, I’m</p>
-    <h1>Tereza <span class="accent">Saskova</span></h1>
-    <p class="lead">Data science student. Ex-pro MTB rider. I turn messy data into clear stories.</p>
+    <h1>Tereza <span class="accent">Sásková</span></h1>
+    <p class="lead">Data science student. Ex-pro MTB rider. From race lines to data pipelines.</p>
 
     <div class="hero__actions">
       <a class="btn btn--primary" href="{{ '/portfolio/' | relative_url }}">See my work</a>
