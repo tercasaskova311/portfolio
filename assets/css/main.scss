@@ -93,3 +93,51 @@ a:hover, .page__content a:hover { color: darken($burgundy, 10%); }
   border-radius: 8px;
   display: block;
 }
+
+
+
+/* === Full-page background + readable cards (burgundy tint) === */
+
+$burgundy: #800020;
+$card-bg: rgba(255, 255, 255, 0.92);
+$card-text: #222;
+
+/* Paint the background image behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("{{ '/images/profile.jpg' | relative_url }}") center / cover no-repeat fixed;
+  z-index: -2; /* sit behind the page */
+}
+
+/* Soft burgundy overlay for contrast/readability */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(128, 0, 32, 0.35);
+  z-index: -1;
+}
+
+/* Keep the header burgundy and legible */
+.masthead, .greedy-nav { background-color: $burgundy; }
+.greedy-nav a, .masthead__menu-item a { color: #fff !important; }
+
+/* Make content readable on top of the image */
+.page,
+.page__inner-wrap,
+.sidebar {
+  background: $card-bg;
+  color: $card-text;
+  border-radius: 10px;
+}
+
+/* Optional: a little breathing room so cards don’t touch edges */
+.page__inner-wrap { padding: 1.25rem; }
+
+/* Links & buttons in burgundy to match the palette */
+a { color: $burgundy; }
+a:hover { color: darken($burgundy, 10%); }
+.btn, .btn--primary { background: $burgundy; border-color: $burgundy; color: #fff; }
+.btn:hover { background: darken($burgundy, 5%); border-color: darken($burgundy, 5%); }
