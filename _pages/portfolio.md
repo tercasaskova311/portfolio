@@ -2,9 +2,9 @@
 layout: archive
 title: "Portfolio"
 permalink: /portfolio/
-author_profile: false     # set true if you want the left sidebar
-entries_layout: grid      # <-- card/grid layout
-classes: wide             # optional: wider content area
+author_profile: false
+entries_layout: grid
+classes: wide
 ---
 
 {% include base_path %}
