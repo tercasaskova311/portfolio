@@ -6,12 +6,12 @@ repository: "tercasaskova311/portfolio"
 minimal_mistakes_skin: "burgundy"
 
 author:
-  avatar: "images/bio-photo-2.jpg"            # make sure the file exists here
+  avatar: "/images/bio-photo-2.jpg"            # make sure the file exists here
 
 
   name: "Tereza Sásková"
   bio: "Data science student • Ex-pro mountain biker • Ski & bike instructor"
-  teaser: "images/bio-photo-2.jpg"
+  teaser: "/images/bio-photo-2.jpg"
   location: "Italy, Trento"
   employer: "University of Trento"
   uri: "https://www.linkedin.com/in/tereza-saskova-527326235"
