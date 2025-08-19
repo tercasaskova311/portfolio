@@ -1,7 +1,8 @@
 title: "Tereza Saskova Portfolio"
 url: "https://tercasaskova311.github.io"
-baseurl: "/portfolio"                     # <— repo name with a leading slash
-repository: "tercasaskova311/portfolio"   # <— match the repo you’re deploying
+baseurl: "/portfolio"
+repository: "tercasaskova311/portfolio"
+minimal_mistakes_skin: "burgundy"
 
 author:
   avatar: "images/profile.png"            # make sure the file exists here
