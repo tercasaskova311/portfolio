@@ -1,13 +1,6 @@
 ---
 ---
 
-/*
- * This file controls what is imported from /_sass
- *
- * Note that the files are processed in the order they are imported, so they are partly
-   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
- */
-
 @import
     "vendor/breakpoint/breakpoint",
 
@@ -40,6 +33,7 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+/* (your burgundy overrides can be appended below) */
 
 /* === Burgundy + White + Gray overrides === */
 /* Palette */
