@@ -40,7 +40,7 @@ $text: #222222;
 $muted: #555555;
 $light-gray: #f5f5f5;
 
-/* ===== Solid burgundy masthead (all nested pieces) ===== */
+/* ===== Solid burgundy masthead (paint ALL nested pieces) ===== */
 .masthead,
 .masthead__inner-wrap,
 .greedy-nav,
@@ -62,9 +62,12 @@ $light-gray: #f5f5f5;
   background: rgba(255,255,255,.08) !important;
   color: #fff !important;
 }
+/* remove any skin separators/overlays */
 .masthead::after,
-.greedy-nav::after { display: none !important; }
-/* force in dark-mode too, just in case */
+.masthead::before,
+.greedy-nav::after,
+.greedy-nav::before { display: none !important; }
+/* force the same in dark-mode */
 html[data-theme="dark"] .masthead,
 html[data-theme="dark"] .masthead__inner-wrap,
 html[data-theme="dark"] .greedy-nav,
@@ -85,6 +88,7 @@ a:hover { color: darken($burgundy, 10%); }
 
 /* ===== Hero card ===== */
 .home-hero .page__inner-wrap { padding: 0; background: transparent; border: 0; }
+
 .hero {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -125,7 +129,7 @@ a:hover { color: darken($burgundy, 10%); }
   height: 360px;
   background:
     linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
-    url("{{ '/images/DSC_9069.jpg' | relative_url }}") center/cover no-repeat;
+    url("{{ '/IMG_4952.jpg' | relative_url }}") center/cover no-repeat; /* <- uses the file you have */
   z-index: 0;
   border-bottom-left-radius: 28px;
   border-bottom-right-radius: 28px;

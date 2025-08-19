@@ -25,7 +25,7 @@ classes: wide home-hero
   </div>
 
   <div class="hero__image">
-    <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Tereza Saskova">
+    <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Tereza Sásková">
   </div>
 </section>
 
