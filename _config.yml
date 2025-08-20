@@ -1,7 +1,7 @@
 title: "Tereza Sásková"        # was: "Tereza Saskova Portfolio"
 masthead_title: "Tereza Sásková"  # optional: forces the same text in the nav
 url: "https://tercasaskova311.github.io/portfolio/"
-baseurl: "/portfolio"
+baseurl: ""
 repository: "tercasaskova311/portfolio"
 minimal_mistakes_skin: "burgundy"
 
