@@ -4,7 +4,7 @@ permalink: /portfolio/topk-image-retrieval/
 excerpt: "CLIP, DINOv2, EfficientNet, ResNet, GoogLeNet; frozen vs fine-tuned; GAP vs GeM; cosine similarity."
 external_url: https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-
 header:
-  teaser: /images/preview.png  # replace with your own teaser later
+  teaser: profile.jpg   # only filename
 ---
 **Category:** Machine Learning
 

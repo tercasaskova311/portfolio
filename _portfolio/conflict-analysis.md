@@ -7,7 +7,7 @@ excerpt: "Reddit comments joined with ACLED events to analyze public discourse a
 external_url: https://github.com/tercasaskova311/Israel-Palestine-CSS-project
 tags: [NLP, Social Science, Python]
 header:
-  teaser: /images/pofile.jpg   # optional; add the file or remove this line
+  teaser: profile.jpg   # only filename
 ---
 **Category:** Computational Social Science
 
