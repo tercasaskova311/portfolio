@@ -1,9 +1,9 @@
 {
   "basics": {
-    "name": "Tereza Saskova",
+    "name": "Tereza Sásková",
     "email": "tercasaskova311@gmail.com",
     "phone": "",
-    "website": "https://terezasaskova.com",
+    "website": "https://tercasaskova311.github.io/portfolio/",
     "summary": "Data science student at University of Trento with a background in professional mountain biking.",
     "location": {
       "address": "",
@@ -33,16 +33,30 @@
 
   "work": [
     {
-      "company": "Sport Šumava, Viadomd, MTB Italy",
-      "position": "Bike and Ski Instructor",
+      "company": "Sport Šumava",
+      "position": "Marketing and Sport Lead",
       "website": "",
-      "startDate": "2020-01-01",
+      "startDate": "2023-01-01",
       "endDate": "",
-      "summary": "Taught mountain biking and skiing to various age groups and levels, combining physical instruction with performance analysis.",
+      "summary": "Leading marketing strategy and execution across performance, brand, and visual identity. Leading a summer program of a bike school.",
       "highlights": [
-        "Built customized trainings",
-        "Organize big groups and lead the trainings",
-        "Understands individual needs"
+        "Marketing Analytics: Google Ads, Google Tag Manager, indexing and SEO improvements",
+        "Brand Marketing: blog posts, Instagram campaigns, and newsletters",
+        "Visual Branding: Canva/Figma for content design and brand consistency",
+        "Performance Analytics: data-driven evaluation of channels and engagement metrics"
+      ]
+    },
+    {
+      "company": "MTB Italy, Viadomd (Switzerland, Italy)",
+      "position": "Ski & Bike Instructor",
+      "website": "",
+      "startDate": "2022-05-01",
+      "endDate": "2023-12-31",
+      "summary": "Taught mountain biking and skiing to diverse age groups and skill levels; combined coaching with performance analysis.",
+      "highlights": [
+        "Built customized training plans and skill progressions",
+        "Organized and led large group sessions and camps",
+        "Adapted instruction to individual needs, goals, and safety requirements"
       ]
     }
   ],
@@ -54,7 +68,12 @@
       "studyType": "Master's Degree",
       "startDate": "2024-09-01",
       "endDate": "2026",
-      "courses": ["Machine Learning", "Statistics for Data Science", "Scientific Programming", "Big Data Technologies"]
+      "courses": [
+        "Machine Learning",
+        "Statistics for Data Science",
+        "Scientific Programming",
+        "Big Data Technologies"
+      ]
     },
     {
       "institution": "University of Finance and Administration",

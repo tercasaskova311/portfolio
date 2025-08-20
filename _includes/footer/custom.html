@@ -1,19 +1,38 @@
 <!-- start custom footer snippets -->
 
-<a href="/sitemap/">Sitemap</a>
+<a href="{{ '/sitemap/' | relative_url }}">Sitemap</a>
 
-<!-- Support for MatJax -->
-<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<!-- MathJax (configure BEFORE loading the script) -->
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
 
-<!-- Support for Plotly -->
-<script defer src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js'></script>
+<!-- Plotly (defer is fine; loads when needed) -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- Support for Mermaid -->
+<!-- Mermaid v11 -->
 <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({startOnLoad:true, theme:'default'});
-    await mermaid.run({querySelector:'code.language-mermaid'});
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+  // 1) initialize but don't auto-run to avoid racing with the DOM
+  mermaid.initialize({ startOnLoad: false, theme: "default" });
+
+  // 2) convert Markdown code fences to <div class="mermaid"> blocks, then render
+  document.addEventListener("DOMContentLoaded", async () => {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre code.language-mermaid");
+    blocks.forEach(code => {
+      const container = document.createElement("div");
+      container.className = "mermaid";
+      container.textContent = code.textContent;
+      const pre = code.closest("pre");
+      pre ? pre.replaceWith(container) : code.replaceWith(container);
+    });
+    await mermaid.run(); // render all .mermaid
+  });
 </script>
 
 <!-- end custom footer snippets -->
