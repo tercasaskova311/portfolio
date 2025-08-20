@@ -2,8 +2,6 @@
 layout: compress
 ---
 
-{% include base_path %}
-
 <!doctype html>
 <html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
   <head>
@@ -13,8 +11,17 @@ layout: compress
     <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %} | {{ site.name | default: site.title }}</title>
     {% include head.html %}
     {% include head/custom.html %}
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/cv-layout.css">
+  
+    <!-- Core CV layout styles -->
+    <link rel="stylesheet" href="{{ "/assets/css/cv-layout.css" | relative_url }}">
+
+    <!-- Extra CV styles -->
+    <link rel="stylesheet" href="{{ "/assets/css/cv-style.css" | relative_url }}">
+
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
+
 
   <body class="cv-layout">
     {% include browser-upgrade.html %}
@@ -34,6 +41,5 @@ layout: compress
     </div>
 
     {% include scripts.html %}
-
   </body>
 </html>

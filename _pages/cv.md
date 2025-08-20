@@ -21,9 +21,16 @@ redirect_from:
 ---
 
 ## Work Experience
+- **Marketing and Sport Lead at Sport Šumava**
+  *2023-06-01 - present*
+  Leading marketing strategy and execution across performance, brand, and visual identity. Leading a summer program of a bike school.",
+  **Highlights**
+  - Marketing Analytics: Google Ads, Google Tag Manager, indexing and SEO improvements
+  - Brand Marketing: blog posts, Instagram campaigns, and newsletters,
 
 - **Bike & Ski Instructor**  
-  *Sport Šumava, Viadomd, MTB Italy* — *2020–Present*  
+  *Sport Šumava, Viadomd, MTB Italy* — 
+  *2020–2023*  
   Led individual and group sessions for skiing and mountain biking. Focused on safety, skill-building, and performance analysis.  
   **Highlights**:
   - Designed personalized training plans  

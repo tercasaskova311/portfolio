@@ -1,7 +1,5 @@
-{% include base_path %}
-
 {% if include.id %}
-  {% assign gallery = page.[include.id] %}
+  {% assign gallery = page[include.id] %}
 {% else %}
   {% assign gallery = page.gallery %}
 {% endif %}
@@ -21,26 +19,26 @@
         {% if img.url contains "://" %}
           "{{ img.url }}"
         {% else %}
-          "{{ img.url | prepend: "/images/" | prepend: base_path }}"
+          "{{ '/images/' | append: img.url | relative_url }}"
         {% endif %}
-        {% if img.title %}title="{{ img.title }}"{% endif %}
+        {% if img.title %} title="{{ img.title }}"{% endif %}
       >
         <img src=
           {% if img.image_path contains "://" %}
             "{{ img.image_path }}"
           {% else %}
-            "{{ img.image_path | prepend: "/images/" | prepend: base_path }}"
+            "{{ '/images/' | append: img.image_path | relative_url }}"
           {% endif %}
-          alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+          alt="{{ img.alt | default: '' }}">
       </a>
     {% else %}
       <img src=
         {% if img.image_path contains "://" %}
           "{{ img.image_path }}"
         {% else %}
-          "{{ img.image_path | prepend: "/images/" | prepend: base_path }}"
+          "{{ '/images/' | append: img.image_path | relative_url }}"
         {% endif %}
-        alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+        alt="{{ img.alt | default: '' }}">
     {% endif %}
   {% endfor %}
   {% if include.caption %}

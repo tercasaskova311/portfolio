@@ -10,7 +10,6 @@ A collection of thoughts, projects, and learnings from my journey through data s
 
 ## 📚 Recent Posts
 
-{% include base_path %}
 {% for post in site.posts %}
   {% include archive-single.html %}
 {% endfor %}
