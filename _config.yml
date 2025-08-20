@@ -2,13 +2,11 @@ title: "Tereza Sásková"        # was: "Tereza Saskova Portfolio"
 masthead_title: "Tereza Sásková"  # optional: forces the same text in the nav
 url: "https://tercasaskova311.github.io"
 baseurl: "/portfolio"
-repository: "/portfolio"
+repository: "tercasaskova311/portfolio"   # not "/portfolio"
 minimal_mistakes_skin: "burgundy"
 
 author:
   avatar: "/images/bio-photo-2.jpg"            # make sure the file exists here
-
-
   name: "Tereza Sásková"
   bio: "Data science student • Ex-pro mountain biker • Ski & bike instructor"
   teaser: "/images/bio-photo-2.jpg"
