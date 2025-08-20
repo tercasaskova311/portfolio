@@ -1,7 +1,7 @@
 title: "Tereza Sásková"        # was: "Tereza Saskova Portfolio"
 masthead_title: "Tereza Sásková"  # optional: forces the same text in the nav
-url: "https://tercasaskova311.github.io/portfolio/"
-baseurl: ""
+url: "https://tercasaskova311.github.io"
+baseurl: "/portfolio"
 repository: "tercasaskova311/portfolio"
 minimal_mistakes_skin: "burgundy"
 
@@ -16,7 +16,7 @@ author:
   employer: "University of Trento"
   uri: "https://www.linkedin.com/in/tereza-saskova-527326235"
   email: "tercasaskova311@gmail.com"
-  linkedin: "teresa-saskova-527326235"
+  linkedin: "tereza-saskova-527326235"
   github: "tercasaskova311"
   kaggle: "terezasaskova"
 
