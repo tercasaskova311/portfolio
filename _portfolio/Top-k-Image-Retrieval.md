@@ -2,7 +2,7 @@
 title: "From CNNs to Transformers: Top-k Image Retrieval"
 permalink: /portfolio/topk-image-retrieval/
 excerpt: "CLIP, DINOv2, EfficientNet, ResNet, GoogLeNet; frozen vs fine-tuned; GAP vs GeM; cosine similarity."
-external_url: https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-
+link: https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-
 header:
   teaser: profile.jpg   # only filename
 ---

@@ -4,7 +4,7 @@ collection: portfolio
 permalink: /portfolio/reddit-conflict/
 date: 2025-03-01
 excerpt: "Reddit comments joined with ACLED events to analyze public discourse around major geopolitical incidents."
-external_url: https://github.com/tercasaskova311/Israel-Palestine-CSS-project
+link: https://github.com/tercasaskova311/Israel-Palestine-CSS-project
 tags: [NLP, Social Science, Python]
 header:
   teaser: profile.jpg   # only filename
