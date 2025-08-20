@@ -1,14 +1,14 @@
 ---
-title: "Podcast Recommendation Platform"
+title: "Reddit & Conflict: Israel–Palestine Discourse Analysis"
 collection: portfolio
-permalink: /portfolio/podcast-analytics/
-date: 2025-04-01
-excerpt: "Real-time + batch ingestion with Spark & Delta Lake; MongoDB serving; recommendations from user interactions + metadata."
-external_url: https://github.com/tercasaskova311/podcast-recommendation-platform
-tags: [Spark, Delta Lake, Recommenders, Big Data]
+permalink: /portfolio/reddit-conflict/
+date: 2025-03-01
+excerpt: "Reddit comments joined with ACLED events to analyze public discourse around major geopolitical incidents."
+link: https://github.com/tercasaskova311/Israel-Palestine-CSS-project   # use `link`
+tags: [NLP, Social Science, Python]
 header:
-  teaser: /images/pofile.jpg   # optional; add the file or remove this line
+  teaser: profile.jpg   # only filename
 ---
-**Category:** Big Data Technologies
+**Category:** Computational Social Science
 
-Real-time + batch ingestion system using Apache Spark, Delta Lake, and MongoDB. Recommends podcasts using user interaction data and metadata.
+Combined Reddit comments and verified conflict events from ACLED to analyze public discourse during major geopolitical events.
