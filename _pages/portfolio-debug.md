@@ -4,8 +4,13 @@ title: "Portfolio Debug"
 permalink: /portfolio-debug/
 ---
 
-Found items: {{ site.portfolio | size }}
+Total items: {{ site.portfolio | size }}
 
-{% for it in site.portfolio %}
-- {{ it.path }} — **{{ it.title | default: "(no title)" }}**
+{% for p in site.portfolio %}
+- title: {{ p.title }}
+  path: {{ p.path }}
+  output: {{ p.output }}
+  url: {{ p.url }}
+  link: {{ p.link }}
+  teaser: {{ p.header.teaser }}
 {% endfor %}

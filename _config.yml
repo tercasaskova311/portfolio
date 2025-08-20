@@ -1,6 +1,6 @@
 title: "Tereza Sásková"        # was: "Tereza Saskova Portfolio"
 masthead_title: "Tereza Sásková"  # optional: forces the same text in the nav
-url: "https://tercasaskova311.github.io"
+url: "https://tercasaskova311.github.io/portfolio/"
 baseurl: "/portfolio"
 repository: "tercasaskova311/portfolio"
 minimal_mistakes_skin: "burgundy"
@@ -123,17 +123,14 @@ defaults:
     values:
       layout: single
       author_profile: true
-  - scope: { path: "", type: portfolio }
+  - scope: 
+      path: ""
+      type: portfolio
     values:
       layout: single
       author_profile: true
       share: true
-      comments: true
-  - scope: { path: "", type: talks }
-    values:
-      layout: talk
-      author_profile: true
-      share: true
+
 
 # Sass/SCSS
 sass:
