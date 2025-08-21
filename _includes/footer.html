@@ -1,4 +1,4 @@
-{% comment %} Site footer (Liquid comments are hidden at build time) {% endcomment %}
+{% comment %} Clean footer override {% endcomment %}
 {% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
 <div class="page__footer-follow">
   <ul class="social-icons">
@@ -6,24 +6,12 @@
       <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
     {% endif %}
     {% if site.author.github %}
-      <li>
-        <a href="https://github.com/{{ site.author.github }}">
-          <i class="fab fa-github" aria-hidden="true"></i> GitHub
-        </a>
-      </li>
-    {% endif %}
-    {% if site.author.bitbucket %}
-      <li>
-        <a href="https://bitbucket.org/{{ site.author.bitbucket }}">
-          <i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket
-        </a>
-      </li>
+      <li><a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github"></i> GitHub</a></li>
     {% endif %}
     {% if site.atom_feed.hide != true %}
       <li>
         <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path | relative_url }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}">
-          <i class="fa fa-fw fa-rss-square" aria-hidden="true"></i>
-          {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}
+          <i class="fa fa-fw fa-rss-square"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}
         </a>
       </li>
     {% endif %}
@@ -36,6 +24,5 @@
   {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }}
   <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> ·
   <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
-  <br />
-  Last updated {{ "now" | date: '%Y-%m-%d' }}
+  <br/>Last updated {{ "now" | date: '%Y-%m-%d' }}
 </div>

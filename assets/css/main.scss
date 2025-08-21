@@ -9,6 +9,14 @@
 /* === NAVBAR cleanup === */
 .masthead,
 .masthead__inner-wrap,
+/* Navbar cleanup (force over theme) */
+.masthead .greedy-nav { display: flex; align-items: center; }
+.masthead .greedy-nav .visible-links { order: 1 !important; }        /* links left  */
+.masthead .greedy-nav .site-title    { order: 2 !important; margin-left: auto !important; } /* name right */
+
+/* hide the hamburger everywhere */
+.masthead .greedy-nav__toggle { display: none !important; }
+
 .greedy-nav {
   background: #800020 !important;   /* burgundy */
   border: 0 !important;
@@ -89,5 +97,12 @@
 
 
 /* 3) About page sidebar: round avatar + slightly smaller bio text */
-.author__avatar img { border-radius: 50% !important; }
+/* Sidebar profile: force square crop + circle */
+.author__avatar img {
+  width: 120px;                /* adjust to taste */
+  height: 120px;
+  object-fit: cover;           /* crop to square, no distortion */
+  border-radius: 50% !important;
+  border: none;                /* remove any rim */
+}
 .author__bio { font-size: .95rem; line-height: 1.55; }
