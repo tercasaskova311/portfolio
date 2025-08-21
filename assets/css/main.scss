@@ -6,14 +6,15 @@
 @import "minimal-mistakes/skins/default";   /* use 'default' since GH Pages locks older MM */
 @import "minimal-mistakes";
 
-/* === NAVBAR (make it one consistent color) === */
-/* === FULL-BLEED BURGUNDY MASTHEAD (no white gutters) === */
-.masthead {
-  background: #800020 !important;           /* color the outer bar */
+/* === FULL-WIDTH BURGUNDY MASTHEAD === */
+.masthead {                           /* color the outer strip */
+  background: #800020 !important;
 }
 
-/* stretch the inner wrap to edge-to-edge and remove side padding */
-.masthead__inner-wrap {
+/* stretch the inner container; remove side padding/margins */
+.masthead__inner-wrap,
+.masthead .wrapper,
+.masthead .masthead__menu {
   max-width: 100% !important;
   width: 100% !important;
   margin: 0 !important;
@@ -21,31 +22,38 @@
   padding-right: 0 !important;
 }
 
-/* make the inner nav transparent and square (no pill look) */
+/* make inner nav transparent (no “pill”), square corners */
 .masthead .greedy-nav {
   background: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   display: flex; align-items: center;
+  margin: 0 !important;               /* kill any auto-centering margin */
 }
 
-/* links left, name right; white text */
+/* links left, site title right; white text */
 .masthead .greedy-nav .visible-links { order: 1 !important; }
 .masthead .greedy-nav .site-title    { order: 2 !important; margin-left: auto !important; }
 .masthead .greedy-nav a,
 .masthead .greedy-nav .site-title { color: #fff !important; }
 
-/* hamburger styled to match burgundy/white */
+/* === HAMBURGER: just three white lines, no white pill === */
 .masthead .greedy-nav__toggle {
-  display: block !important;              /* keep it for mobile */
-  background: transparent !important;     /* masthead is already burgundy */
-  border: 0 !important; box-shadow: none !important;
+  background: transparent !important;   /* remove the white/rounded pill */
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  height: 2.25rem !important;           /* reasonable tap target */
+  padding: 0 .5rem !important;
 }
 .masthead .greedy-nav__toggle span,
 .masthead .greedy-nav__toggle::before,
-.masthead .greedy-nav__toggle::after { background: #fff !important; }
+.masthead .greedy-nav__toggle::after {
+  background: #fff !important;          /* the three bars become white */
+}
 
-/* hide any left logo slot */
+/* hide any stray logo slot that might push the toggle in */
 .masthead .site-logo { display: none !important; }
 
 
