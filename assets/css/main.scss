@@ -2,37 +2,34 @@
 # Only the main Sass file needs front matter for Jekyll to process it
 ---
 
-@import "minimal-mistakes/skins/default"; // skin
+/* 0) Theme */
+@import "minimal-mistakes/skins/default";   /* use 'default' since GH Pages locks older MM */
 @import "minimal-mistakes";
 
-/* === Your overrides === */
-/* Example: Burgundy navbar */
+/* 1) Navbar (burgundy + layout) */
 .masthead,
 .masthead__inner-wrap,
 .greedy-nav {
   background: #800020 !important;
-}
-
-/* NAVBAR override */
-.masthead,
-.masthead__inner-wrap,
-.greedy-nav {
-  background: #800020 !important;
-  border: none !important;
+  border: 0 !important;
   box-shadow: none !important;
 }
-.site-title a,
-.greedy-nav a { color: #fff !important; }
-/* Move site title in navbar to the right */
-.greedy-nav { display: flex; }
-.greedy-nav .visible-links { order: 1; }
-.greedy-nav .site-title    { order: 2; margin-left: auto; }
 
-/* HERO */
-.home-hero {
-  position: relative;
-  background: transparent !important;
+/* put nav links on the left, site title on the right */
+.greedy-nav { display: flex; align-items: center; }
+.greedy-nav .visible-links { order: 1; }           /* links first (left) */
+.greedy-nav .site-title    { order: 2; margin-left: auto; } /* title to the right */
+.greedy-nav .site-title,
+.greedy-nav a { color: #fff !important; }
+
+/* hide the hamburger toggle on wide screens (the “sign” on the left) */
+@media (min-width: 992px) {
+  .greedy-nav__toggle { display: none !important; }
 }
+
+/* 2) Hero (card + round photo + burgundy name) */
+.home-hero { position: relative; background: transparent !important; }
+
 .hero {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -44,24 +41,29 @@
   margin: 2rem 0;
   box-shadow: 0 12px 30px rgba(0,0,0,.08);
 }
-.eyebrow{ color:#6b7280; font-weight:600; letter-spacing:.02em; margin:0 0 .25rem; }
-.hero .lead{ color:#6b7280; max-width:38ch; }
 
-.hero h1 { color: #800020; }   /* burgundy */
-.hero__image img{
+.eyebrow { color:#6b7280; font-weight:600; letter-spacing:.02em; margin:0 0 .25rem; }
+.hero .lead { color:#6b7280; max-width:38ch; }
+
+/* name in burgundy (either wrap in .accent or color the whole h1) */
+.hero .accent, .hero h1 .accent { color: #800020 !important; }
+/* fallback if you didn’t wrap: */
+.hero h1 { color: #800020; }
+
+/* perfectly circular photo */
+.hero__image img {
   width: min(360px, 100%);
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 50%;
-  border: 8px solid #fff;     /* crisp white rim */
+  border-radius: 50% !important;
+  border: 8px solid #fff;
   box-shadow: 0 10px 25px rgba(0,0,0,.12);
 }
 
-/* Background band behind hero */
+/* optional background band behind hero */
 .home-hero::before {
   content: "";
-  position: absolute;
-  left: 0; right: 0; top: 0;
+  position: absolute; left: 0; right: 0; top: 0;
   height: 360px;
   background:
     linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
@@ -71,4 +73,6 @@
   border-bottom-right-radius: 28px;
 }
 
-
+/* 3) About page sidebar: round avatar + slightly smaller bio text */
+.author__avatar img { border-radius: 50% !important; }
+.author__bio { font-size: .95rem; line-height: 1.55; }
