@@ -9,5 +9,6 @@ classes: wide
 
 {% assign portfolio_items = site.portfolio | sort: "date" | reverse %}
 {% for post in portfolio_items %}
-  {% include archive-single.html type="list" %}  {# one item per row #}
+  {% include archive-single.html type="list" %}
 {% endfor %}
+{%- comment -%} one item per row {%- endcomment -%}
