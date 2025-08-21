@@ -6,26 +6,34 @@
 @import "minimal-mistakes/skins/default";   /* use 'default' since GH Pages locks older MM */
 @import "minimal-mistakes";
 
-/* 1) Navbar (burgundy + layout) */
+/* === NAVBAR cleanup === */
 .masthead,
 .masthead__inner-wrap,
 .greedy-nav {
-  background: #800020 !important;
+  background: #800020 !important;   /* burgundy */
   border: 0 !important;
   box-shadow: none !important;
 }
 
-/* put nav links on the left, site title on the right */
-.greedy-nav { display: flex; align-items: center; }
-.greedy-nav .visible-links { order: 1; }           /* links first (left) */
-.greedy-nav .site-title    { order: 2; margin-left: auto; } /* title to the right */
-.greedy-nav .site-title,
-.greedy-nav a { color: #fff !important; }
-
-/* hide the hamburger toggle on wide screens (the “sign” on the left) */
-@media (min-width: 992px) {
-  .greedy-nav__toggle { display: none !important; }
+/* flexbox: links on left, site title on right */
+.greedy-nav {
+  display: flex;
+  align-items: center;
 }
+.greedy-nav .visible-links { order: 1; }             /* links stay left */
+.greedy-nav .site-title    { order: 2; margin-left: auto; } /* name floats right */
+
+/* hide the hamburger everywhere (not just desktop) */
+.greedy-nav__toggle {
+  display: none !important;
+}
+
+/* text color */
+.greedy-nav .site-title,
+.greedy-nav a {
+  color: #fff !important;
+}
+
 
 /* 2) Hero (card + round photo + burgundy name) */
 .home-hero { position: relative; background: transparent !important; }
