@@ -45,33 +45,40 @@
 .eyebrow { color:#6b7280; font-weight:600; letter-spacing:.02em; margin:0 0 .25rem; }
 .hero .lead { color:#6b7280; max-width:38ch; }
 
-/* name in burgundy (either wrap in .accent or color the whole h1) */
-.hero .accent, .hero h1 .accent { color: #800020 !important; }
+/* Bigger hero photo, no white rim */
+.hero__image img {
+  width: min(480px, 100%);   /* bump up from 360px to 480px */
+  max-width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;        /* keeps it a circle */
+  border: none;              /* remove white border */
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);  /* keep soft shadow */
+}
+/* If your H1 wraps the name in <span class="accent">…</span> */
+.hero .accent { color: #800020 !important; }
 /* fallback if you didn’t wrap: */
 .hero h1 { color: #800020; }
 
-/* perfectly circular photo */
-.hero__image img {
-  width: min(360px, 100%);
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50% !important;
-  border: 8px solid #fff;
-  box-shadow: 0 10px 25px rgba(0,0,0,.12);
-}
+/* Background band behind the hero (uses page class from front matter) */
+.home-hero { position: relative; }  /* establishes containing block */
 
-/* optional background band behind hero */
 .home-hero::before {
   content: "";
-  position: absolute; left: 0; right: 0; top: 0;
-  height: 360px;
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 360px;                 /* band height */
   background:
     linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
-    url("{{ '/images/DSC_9069.jpg' | relative_url }}") center/cover no-repeat;
-  z-index: 0;
+    url("{{ '/images/home-bg.jpg' | relative_url }}") center/cover no-repeat;
+  z-index: 0;                    /* under the hero card */
   border-bottom-left-radius: 28px;
   border-bottom-right-radius: 28px;
 }
+
+/* Ensure the hero card sits above the band */
+.home-hero .hero { position: relative; z-index: 1; }
+
 
 /* 3) About page sidebar: round avatar + slightly smaller bio text */
 .author__avatar img { border-radius: 50% !important; }
