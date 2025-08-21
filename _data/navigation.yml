@@ -3,7 +3,8 @@ main:
     url: /about/
     
   - title: "Portfolio"
-    permalink: /portfolio/
+    url: /portfolio/
+
   
   - title: "Gallery"
     url: /gallery/
