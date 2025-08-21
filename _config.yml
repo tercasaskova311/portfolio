@@ -148,6 +148,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jemoji
+  - jekyll-include-cache   
 
 # HTML Compression (safe defaults)
 compress_html:
