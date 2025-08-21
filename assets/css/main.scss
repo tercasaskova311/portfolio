@@ -6,16 +6,28 @@
 @import "minimal-mistakes/skins/default";   /* use 'default' since GH Pages locks older MM */
 @import "minimal-mistakes";
 
-/* === NAVBAR cleanup === */
-.masthead,
-.masthead__inner-wrap,
-/* Navbar cleanup (force over theme) */
-.masthead .greedy-nav { display: flex; align-items: center; }
-.masthead .greedy-nav .visible-links { order: 1 !important; }        /* links left  */
-.masthead .greedy-nav .site-title    { order: 2 !important; margin-left: auto !important; } /* name right */
+/* === NAVBAR layout + colors === */
+.masthead .greedy-nav {
+  display: flex;
+  align-items: center;
+  background: #800020 !important;   /* burgundy */
+  border: 0 !important;
+  box-shadow: none !important;
+}
 
-/* hide the hamburger everywhere */
+/* order: links left, title right */
+.masthead .greedy-nav .visible-links { order: 1 !important; }
+.masthead .greedy-nav .site-title    { order: 2 !important; margin-left: auto !important; }
+
+/* white text */
+.masthead .greedy-nav .site-title,
+.masthead .greedy-nav a { color: #fff !important; }
+
+/* nuke the hamburger everywhere */
 .masthead .greedy-nav__toggle { display: none !important; }
+
+/* also hide any stray logo */
+.masthead .site-logo { display: none !important; }
 
 .greedy-nav {
   background: #800020 !important;   /* burgundy */
