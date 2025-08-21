@@ -140,7 +140,9 @@ sass:
 permalink: /:categories/:title/
 timezone: Europe/Rome
 
-remote_theme: "mmistakes/minimal-mistakes@latest"
+
+remote_theme: "mmistakes/minimal-mistakes"   # ← no @latest
+
 plugins:
   - jekyll-feed
   - jekyll-gist
@@ -148,8 +150,8 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jemoji
-  - jekyll-include-cache   # important for MM
-
+  - jekyll-include-cache
+  - jekyll-remote-theme
 
 # HTML Compression (safe defaults)
 compress_html:
