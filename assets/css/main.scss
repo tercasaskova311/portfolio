@@ -121,6 +121,15 @@
 
 /* Ensure the hero card sits above the band */
 .home-hero .hero { position: relative; z-index: 1; }
+/* Make the secondary button quieter next to the primary */
+.hero__actions .btn { margin-right: .5rem; }
+.hero__actions .btn--light-outline {
+  border-color: rgba(128,0,32,.30);   /* faint burgundy */
+  color: #800020;
+}
+.hero__actions .btn--light-outline:hover {
+  background: rgba(128,0,32,.06);
+}
 
 
 /* 3) About page sidebar: round avatar + slightly smaller bio text */
