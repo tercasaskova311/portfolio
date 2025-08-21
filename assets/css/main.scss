@@ -122,3 +122,37 @@
   border: none;                /* remove any rim */
 }
 .author__bio { font-size: .95rem; line-height: 1.55; }
+
+/* === Portfolio: one-per-row card layout === */
+.archive .list__item {
+  display: grid;
+  grid-template-columns: 240px 1fr;    /* teaser left, text right */
+  gap: 1.25rem;
+  align-items: start;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+
+.archive .list__item .archive__item-teaser {
+  width: 100%;
+  height: 160px;                       /* consistent thumbnail height */
+  overflow: hidden;
+  border-radius: 10px;
+}
+.archive .list__item .archive__item-teaser img {
+  width: 100%; height: 100%;
+  object-fit: cover;                    /* uniform crop */
+}
+
+/* Tighter text rhythm */
+.archive .list__item .archive__item-title { margin: 0 0 .25rem; }
+.archive .list__item .archive__item-excerpt { margin: .25rem 0 0; color: #475569; }
+
+/* Mobile: stack image on top */
+@media (max-width: 720px) {
+  .archive .list__item { grid-template-columns: 1fr; }
+  .archive .list__item .archive__item-teaser { height: 200px; }
+}

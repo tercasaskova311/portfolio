@@ -2,12 +2,12 @@
 title: "Reddit & Conflict: Israel–Palestine Discourse Analysis"
 collection: portfolio
 permalink: /portfolio/reddit-conflict/
-date: 2025-03-01
+date: 2025-06-30
 excerpt: "Reddit comments joined with ACLED events to analyze public discourse around major geopolitical incidents."
 link: https://github.com/tercasaskova311/Israel-Palestine-CSS-project
 tags: [NLP, Social Science, Python]
 header:
-  teaser: profile.jpg   # only filename
+  teaser: reddit_top5_LDA.png
 ---
 **Category:** Computational Social Science
 
