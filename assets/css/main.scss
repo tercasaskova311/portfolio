@@ -6,7 +6,7 @@
 @import "minimal-mistakes/skins/default";   /* use 'default' since GH Pages locks older MM */
 @import "minimal-mistakes";
 
-/* === NAVBAR (Minimal Mistakes greedy-nav) === */
+/* === NAVBAR (make it one consistent color) === */
 .masthead .greedy-nav {
   display: flex;
   align-items: center;
@@ -15,50 +15,34 @@
   box-shadow: none !important;
 }
 
-/* order: links left, title right */
-.masthead .greedy-nav .visible-links { order: 1 !important; }
-.masthead .greedy-nav .site-title    { order: 2 !important; margin-left: auto !important; }
-
-/* white text for title and links */
+/* white text for title + links */
 .masthead .greedy-nav .site-title,
-.masthead .greedy-nav a { color: #fff !important; }
-
-/* keep hamburger for small screens (remove any previous “display:none”) */
-.masthead .greedy-nav__toggle { display: block !important; }
-
-/* optional: white icon/chevron inside the toggle */
-.masthead .greedy-nav__toggle span,
-.masthead .greedy-nav__toggle::before,
-.masthead .greedy-nav__toggle::after { background: #fff !important; }
-
-/* hide any logo slot on the far left if theme tries to render one */
-.masthead .site-logo { display: none !important; }
-
-
-.greedy-nav {
-  background: #800020 !important;   /* burgundy */
-  border: 0 !important;
-  box-shadow: none !important;
+.masthead .greedy-nav a {
+  color: #fff !important;
 }
 
-/* flexbox: links on left, site title on right */
+/* order: links left, site title right */
 .greedy-nav {
   display: flex;
   align-items: center;
 }
-.greedy-nav .visible-links { order: 1; }             /* links stay left */
-.greedy-nav .site-title    { order: 2; margin-left: auto; } /* name floats right */
+.greedy-nav .visible-links { order: 1; }
+.greedy-nav .site-title    { order: 2; margin-left: auto; }
 
-/* hide the hamburger everywhere (not just desktop) */
-.greedy-nav__toggle {
-  display: none !important;
+/* HAMBURGER (visible on mobile, styled) */
+.masthead .greedy-nav__toggle {
+  background: #800020 !important;   /* blend in */
+  border: none !important;
+  box-shadow: none !important;
+}
+.masthead .greedy-nav__toggle span,
+.masthead .greedy-nav__toggle::before,
+.masthead .greedy-nav__toggle::after {
+  background: #fff !important;  /* white bars */
 }
 
-/* text color */
-.greedy-nav .site-title,
-.greedy-nav a {
-  color: #fff !important;
-}
+/* hide any logo slot */
+.masthead .site-logo { display: none !important; }
 
 
 /* 2) Hero (card + round photo + burgundy name) */
