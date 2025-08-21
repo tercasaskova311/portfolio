@@ -7,42 +7,48 @@
 @import "minimal-mistakes";
 
 /* === NAVBAR (make it one consistent color) === */
+/* === FULL-BLEED BURGUNDY MASTHEAD (no white gutters) === */
+.masthead {
+  background: #800020 !important;           /* color the outer bar */
+}
+
+/* stretch the inner wrap to edge-to-edge and remove side padding */
+.masthead__inner-wrap {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* make the inner nav transparent and square (no pill look) */
 .masthead .greedy-nav {
-  display: flex;
-  align-items: center;
-  background: #800020 !important; /* burgundy */
-  border: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
+  display: flex; align-items: center;
 }
 
-/* white text for title + links */
-.masthead .greedy-nav .site-title,
-.masthead .greedy-nav a {
-  color: #fff !important;
-}
+/* links left, name right; white text */
+.masthead .greedy-nav .visible-links { order: 1 !important; }
+.masthead .greedy-nav .site-title    { order: 2 !important; margin-left: auto !important; }
+.masthead .greedy-nav a,
+.masthead .greedy-nav .site-title { color: #fff !important; }
 
-/* order: links left, site title right */
-.greedy-nav {
-  display: flex;
-  align-items: center;
-}
-.greedy-nav .visible-links { order: 1; }
-.greedy-nav .site-title    { order: 2; margin-left: auto; }
-
-/* HAMBURGER (visible on mobile, styled) */
+/* hamburger styled to match burgundy/white */
 .masthead .greedy-nav__toggle {
-  background: #800020 !important;   /* blend in */
-  border: none !important;
-  box-shadow: none !important;
+  display: block !important;              /* keep it for mobile */
+  background: transparent !important;     /* masthead is already burgundy */
+  border: 0 !important; box-shadow: none !important;
 }
 .masthead .greedy-nav__toggle span,
 .masthead .greedy-nav__toggle::before,
-.masthead .greedy-nav__toggle::after {
-  background: #fff !important;  /* white bars */
-}
+.masthead .greedy-nav__toggle::after { background: #fff !important; }
 
-/* hide any logo slot */
+/* hide any left logo slot */
 .masthead .site-logo { display: none !important; }
+
+
 
 
 /* 2) Hero (card + round photo + burgundy name) */
