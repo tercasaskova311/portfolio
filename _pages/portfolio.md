@@ -2,8 +2,8 @@
 layout: archive
 title: "Portfolio"
 permalink: /portfolio/
-author_profile: false      # ← remove the left author sidebar to gain width
-entries_layout: list       # ← was grid
+author_profile: false
+entries_layout: list
 classes: wide
 ---
 
@@ -11,4 +11,3 @@ classes: wide
 {% for post in portfolio_items %}
   {% include archive-single.html type="list" %}
 {% endfor %}
-{%- comment -%} one item per row {%- endcomment -%}
