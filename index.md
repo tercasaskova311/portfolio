@@ -9,7 +9,7 @@ classes: wide home-hero
 <section class="hero">
   <div class="hero__content">
     <p class="eyebrow">Hi, I’m</p>
-    <h1>Tereza <span class="accent">Sásková</span></h1>
+    <h1><span class="accent">Tereza Sásková</span></h1>
     <p class="lead">Data science student. Ex-pro MTB rider. From race lines to data pipelines.</p>
 
     <div class="hero__actions">
@@ -28,4 +28,3 @@ classes: wide home-hero
     <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Tereza Sásková">
   </div>
 </section>
-
