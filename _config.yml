@@ -140,7 +140,7 @@ sass:
 permalink: /:categories/:title/
 timezone: Europe/Rome
 
-# Plugins (GitHub Pages–compatible)
+remote_theme: "mmistakes/minimal-mistakes@latest"
 plugins:
   - jekyll-feed
   - jekyll-gist
@@ -148,7 +148,8 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jemoji
-  - jekyll-include-cache   
+  - jekyll-include-cache   # important for MM
+
 
 # HTML Compression (safe defaults)
 compress_html:
