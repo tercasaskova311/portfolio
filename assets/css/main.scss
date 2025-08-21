@@ -2,10 +2,16 @@
 # Only the main Sass file needs front matter for Jekyll to process it
 ---
 
-@import "minimal-mistakes/skins/burgundy"; // match _config.yml skin
+@import "minimal-mistakes/skins/burgundy"; // skin from _config.yml
 @import "minimal-mistakes";
 
-/* === Your custom overrides === */
+/* === Your overrides === */
+/* Example: Burgundy navbar */
+.masthead,
+.masthead__inner-wrap,
+.greedy-nav {
+  background: #800020 !important;
+}
 
 /* NAVBAR override */
 .masthead,
