@@ -11,13 +11,11 @@ header:
 
 [View code on GitHub]({{ page.repo }}){: .btn .btn--primary target="_blank" }
 
-## TL;DR
 Built a retrieval pipeline that turns images → embeddings → nearest-neighbor search. Compared classic CNNs (EfficientNet, ResNet, GoogLeNet) with modern transformer encoders (CLIP, DINOv2). Tested *frozen vs. fine-tuned* backbones, **GAP vs. GeM** pooling, and **cosine similarity** for ranking.
 
-## Intuition (1Blue3Brown vibe)
 Think of each image as a point in a high-dimensional space. A good encoder **clusters semantically similar images** so the “nearest neighbors” are the right matches. Pooling (GAP/GeM) is how we compress a feature map into that single point; the distance metric is how we **measure closeness**.
 
-## What I built
+## What We have built
 - Data pipeline: loaders, augmentations, train/val split.
 - Encoders: CLIP (ViT), DINOv2 (ViT), EfficientNet, ResNet, GoogLeNet.
 - Pooling heads: **GAP** (average) and **GeM** (generalized mean).

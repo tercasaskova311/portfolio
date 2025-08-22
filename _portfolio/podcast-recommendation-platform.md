@@ -13,10 +13,8 @@ classes: wide
 
 [View code on GitHub]({{ page.repo }}){: .btn .btn--primary target="_blank" }
 
-## TL;DR
 Built an end-to-end pipeline that ingests podcast events (plays, likes, follows) in **real time**, lands them in **Delta Lake** (bronze → silver → gold), and serves **personalized recommendations** backed by **MongoDB** + a small API layer.
 
-## Intuition (1Blue3Brown style)
 Imagine each user and each podcast as points in a space shaped by behavior and metadata. **Streaming updates** nudge the user’s point a little with every interaction; **batch jobs** periodically reshape the space (retrain models), keeping the geometry stable but responsive.
 
 ## Architecture
