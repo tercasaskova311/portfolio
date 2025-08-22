@@ -13,7 +13,6 @@ classes: wide
 **Repo / Notebook:**  
 [tercasaskova311/mountain_safety — CSS_assigment-1.ipynb](https://github.com/tercasaskova311/mountain_safety/blob/main/CSS_assigment-1.ipynb){: .btn .btn--primary target="_blank" }
 
-## TL;DR
 I analyzed avalanche-safety conversations on **Reddit** and **YouTube**. The emotional tone on YouTube is largely positive/cheerful, and topics often skew to reactions (“wow”, “wtf”, “bro”) rather than explicit safety training. Reddit is more neutral, with some negative posts; gear (e.g., helmets) pops up, but structured safety talk is sparse. Together, the platforms act more like **reaction theaters** than **safety classrooms**.
 
 ---
