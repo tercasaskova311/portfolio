@@ -60,37 +60,9 @@ Target users include outdoor enthusiasts, educators, rescue teams, and policy ma
 
 ---
 
-## So what? (practical takeaways)
-- **Educators & rescue teams:** pair viral clips with **clear safety calls-to-action**; reaction energy is a hook, not the lesson.  
-- **Creators:** annotate videos with **time-stamped safety tips** and link to avalanche forecasts/training modules.  
-- **Communicators:** seed **gear checklists** (beacon, probe, shovel, helmet context) and **decision frameworks** (ALPTRUTh, FACETS) into descriptions/pins.
-
----
-
-## How I’d improve next
-1. **Refine queries**: target niche subreddits/videos with explicit safety instruction to raise the signal. :contentReference[oaicite:15]{index=15}  
-2. **Richer labels**: hand-tag a small set of comments as “training/safety vs. reaction” to validate topic results.  
-3. **Temporal lens**: align comment spikes with avalanche news cycles; test whether sentiment shifts after incidents.  
-4. **Toxicity context**: cross-tab Detoxify scores by topic to see where discourse gets unproductive. :contentReference[oaicite:16]{index=16}
-
----
-
 ## Mini “how to reproduce”
 1. Pull Reddit threads via **Communalytic**; pull YouTube metadata + comments via API. :contentReference[oaicite:17]{index=17}  
 2. Clean text; remove short/duplicate comments; keep language filters.  
 3. **Sentiment** (e.g., VADER/TextBlob or platform metrics) + **Detoxify** for toxicity. :contentReference[oaicite:18]{index=18}  
 4. Vectorize (TF-IDF) → **LDA** for topics; plot top words per topic. :contentReference[oaicite:19]{index=19}  
 5. Compare platform-level sentiment/topic distributions.
-
----
-
-## Study tips
-- Draw the **embedding picture**: safety-instruction comments should cluster; reactions should scatter. If not, revisit preprocessing.  
-- Validate topics with **human labels** on a small sample; use them to tune the number of topics and stop-words.  
-- Report **confidence**: show a few prototypical comments per topic so readers can judge quality.
-
-## Common mistakes
-- Treating engagement metrics as truth (it’s a **visibility filter**, not ground reality). :contentReference[oaicite:20]{index=20}  
-- Reading LDA topics literally; they’re **probabilistic mixtures**, not hard labels.  
-- Ignoring **ethics/consent** norms on user-generated content and platform ToS.
-
