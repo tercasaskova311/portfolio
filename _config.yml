@@ -139,6 +139,7 @@ sass:
 permalink: /:categories/:title/
 timezone: Europe/Rome
 
+theme: ~                 # (= null) disables any gem theme if present
 remote_theme: "mmistakes/minimal-mistakes"
 
 plugins:
