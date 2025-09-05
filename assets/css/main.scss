@@ -2,16 +2,13 @@
 # Only the main Sass file needs front matter for Jekyll to process it
 ---
 
-/* 0) Theme */
-@import "minimal-mistakes/skins/default";   /* use 'default' since GH Pages locks older MM */
+/* 0) Theme (order matters: skin first, then theme) */
+@import "minimal-mistakes/skins/default";
 @import "minimal-mistakes";
 
-/* === FULL-WIDTH BURGUNDY MASTHEAD === */
-.masthead {                           /* color the outer strip */
-  background: #800020 !important;
-}
+/* 1) Masthead: full-width burgundy */
+.masthead { background: #800020 !important; }
 
-/* stretch the inner container; remove side padding/margins */
 .masthead__inner-wrap,
 .masthead .wrapper,
 .masthead .masthead__menu {
@@ -22,55 +19,43 @@
   padding-right: 0 !important;
 }
 
-/* make inner nav transparent (no “pill”), square corners */
+/* Nav “pill” → transparent */
 .masthead .greedy-nav {
   background: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   display: flex; align-items: center;
-  margin: 0 !important;               /* kill any auto-centering margin */
+  margin: 0 !important;
 }
 
-/* links left, site title right; white text */
+/* Links left, title right; white text */
 .masthead .greedy-nav .visible-links { order: 1 !important; }
 .masthead .greedy-nav .site-title    { order: 2 !important; margin-left: auto !important; }
 .masthead .greedy-nav a,
 .masthead .greedy-nav .site-title { color: #fff !important; }
 
-/* === HAMBURGER: just three white lines, no white pill === */
-/* Minimal hamburger */
+/* Hamburger: simple white lines, no pill */
 .masthead .greedy-nav__toggle{
-  position:absolute; left:16px; right:auto; top:50%; transform:translateY(-50%);
+  position:absolute; left:16px; top:50%; transform:translateY(-50%);
   width:28px; height:22px; padding:0; margin:0;
   background:transparent !important; border:0 !important; border-radius:0 !important; box-shadow:none !important;
   outline:none !important; cursor:pointer;
 }
-
-/* draw three white bars */
 .masthead .greedy-nav__toggle::before,
 .masthead .greedy-nav__toggle::after{
-  content:""; position:absolute; left:0; width:100%; height:2px; background:#fff; border-radius:0;
+  content:""; position:absolute; left:0; width:100%; height:2px; background:#fff;
 }
 .masthead .greedy-nav__toggle::before{ top:4px; }
 .masthead .greedy-nav__toggle::after { bottom:4px; }
-/* middle bar using a child span; theme provides one, but we ensure it exists */
 .masthead .greedy-nav__toggle span{
   position:absolute; left:0; top:50%; transform:translateY(-50%);
-  display:block; width:100%; height:2px; background:#fff; border-radius:0;
-  /* keep SR-only text hidden from layout if theme uses .visually-hidden */
+  display:block; width:100%; height:2px; background:#fff;
 }
+.masthead .greedy-nav__toggle{ display:block !important; }
 
-/* keep it visible (don’t hide the toggle) */
-.greedy-nav__toggle{ display:block !important; }
-
-
-/* hide any stray logo slot that might push the toggle in */
 .masthead .site-logo { display: none !important; }
 
-
-
-
-/* 2) Hero (card + round photo + burgundy name) */
+/* 2) Hero card + backdrop band */
 .home-hero { position: relative; background: transparent !important; }
 
 .hero {
@@ -88,62 +73,54 @@
 .eyebrow { color:#6b7280; font-weight:600; letter-spacing:.02em; margin:0 0 .25rem; }
 .hero .lead { color:#6b7280; max-width:38ch; }
 
-/* Bigger hero photo, no white rim */
 .hero__image img {
-  width: min(480px, 100%);   /* bump up from 360px to 480px */
+  width: min(480px, 100%);
   max-width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 50%;        /* keeps it a circle */
-  border: none;              /* remove white border */
-  box-shadow: 0 10px 25px rgba(0,0,0,.12);  /* keep soft shadow */
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
 }
-/* If your H1 wraps the name in <span class="accent">…</span> */
+
+/* Name accent */
 .hero .accent { color: #800020 !important; }
-/* fallback if you didn’t wrap: */
 .hero h1 { color: #800020; }
 
-/* Background band behind the hero (uses page class from front matter) */
-.home-hero { position: relative; }  /* establishes containing block */
-
+/* Background band behind hero */
 .home-hero::before {
   content: "";
-  position: absolute;
-  left: 0; right: 0; top: 0;
-  height: 360px;                 /* band height */
+  position: absolute; inset: 0 auto auto 0;
+  right: 0; top: 0; left: 0;
+  height: 360px;
   background:
     linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
     url("{{ '/images/home-bg.jpg' | relative_url }}") center/cover no-repeat;
-  z-index: 0;                    /* under the hero card */
+  z-index: 0;
   border-bottom-left-radius: 28px;
   border-bottom-right-radius: 28px;
 }
-
-/* Ensure the hero card sits above the band */
 .home-hero .hero { position: relative; z-index: 1; }
-/* Make the secondary button quieter next to the primary */
+
 .hero__actions .btn { margin-right: .5rem; }
 .hero__actions .btn--light-outline {
-  border-color: rgba(128,0,32,.30);   /* faint burgundy */
+  border-color: rgba(128,0,32,.30);
   color: #800020;
 }
 .hero__actions .btn--light-outline:hover {
   background: rgba(128,0,32,.06);
 }
 
-
-/* 3) About page sidebar: round avatar + slightly smaller bio text */
-/* Sidebar profile: force square crop + circle */
+/* 3) About page sidebar */
 .author__avatar img {
-  width: 120px;                /* adjust to taste */
-  height: 120px;
-  object-fit: cover;           /* crop to square, no distortion */
+  width: 120px; height: 120px;
+  object-fit: cover;
   border-radius: 50% !important;
-  border: none;                /* remove any rim */
+  border: none;
 }
 .author__bio { font-size: .95rem; line-height: 1.55; }
 
-/* One-per-row portfolio with image left */
+/* 4) Archive/portfolio cards */
 .archive .list__item{
   display:grid;
   grid-template-columns: 240px 1fr;
@@ -161,13 +138,24 @@
 .archive .list__item .archive__item-teaser img{
   width:100%; height:100%; object-fit:cover;
 }
-/* If there is NO teaser, collapse to one column */
-.archive .list__item:not(:has(.archive__item-teaser)){
-  grid-template-columns: 1fr;
-  padding-left:1.25rem; /* aligns text nicely when no image */
-}
-/* Mobile */
+
+/* Avoid :has() for broader compatibility; use a helper class instead if needed */
+/* .archive .list__item:not(:has(.archive__item-teaser)){ ... } */
+
 @media (max-width: 720px){
   .archive .list__item{ grid-template-columns:1fr; }
   .archive .list__item .archive__item-teaser{ height:200px; }
+}
+
+/* 5) Burgundy, fully painted button (for “See my work”) */
+.btn--burgundy {
+  background: #800020 !important;
+  color: #fff !important;
+  border-color: #800020 !important;
+}
+.btn--burgundy:hover,
+.btn--burgundy:focus {
+  background: #6d001b !important;   /* slightly darker on hover */
+  border-color: #6d001b !important;
+  color: #fff !important;
 }
