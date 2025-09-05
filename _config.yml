@@ -1,13 +1,13 @@
-title: "Home"        # was: "Tereza Saskova Portfolio"
+title: "Home"
 masthead_title: "Home"
 
 url: "https://tercasaskova311.github.io"
-baseurl: "/portfolio"
-repository: "tercasaskova311/portfolio"   # not "/portfolio"
+baseurl: "/portfolio"                 # project site (repo name = portfolio)
+repository: "tercasaskova311/portfolio"
 minimal_mistakes_skin: "burgundy"
 
 author:
-  avatar: "/images/profile.jpg"            # make sure the file exists here
+  avatar: "/images/profile.jpg"
   name: "Tereza Sásková"
   bio: "Data science student • Ex-pro mountain biker • Ski & bike instructor"
   teaser: "/images/profile.jpg"
@@ -19,7 +19,6 @@ author:
   github: "tercasaskova311"
   kaggle: "terezasaskova"
 
-# Site Settings
 teaser: "preview.png"
 breadcrumbs: false
 words_per_minute: 160
@@ -33,7 +32,6 @@ comments:
 atom_feed:
   hide: false
 
-# Social SEO
 social:
   type: Person
   name: Tereza Sásková
@@ -42,11 +40,9 @@ social:
     - https://github.com/tercasaskova311
     - https://www.kaggle.com/terezasaskova
 
-# Analytics
 analytics:
   provider: false
 
-# Reading Files
 include:
   - .htaccess
   - _pages
@@ -78,20 +74,20 @@ exclude:
   - README
   - tmp
   - vendor
+
 keep_files:
   - .git
   - .svn
+
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
-# Conversion
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-# Markdown Processing
 kramdown:
   input: GFM
   hard_wrap: false
@@ -105,12 +101,14 @@ kramdown:
 collections:
   portfolio:
     output: true
-    permalink: /portfolio/:path/
+    # IMPORTANT: because baseurl is "/portfolio", avoid doubling the path.
+    # This makes item URLs like /portfolio/<title>/.
+    permalink: /:title/
 
-
-# Defaults
 defaults:
-  - scope: { path: "", type: posts }
+  - scope:
+      path: ""
+      type: posts
     values:
       layout: single
       author_profile: true
@@ -118,31 +116,30 @@ defaults:
       comments: true
       share: true
       related: true
-  - scope: { path: "", type: pages }
+  - scope:
+      path: ""
+      type: pages
     values:
       layout: single
       author_profile: true
-  - scope: 
+  - scope:
       path: ""
       type: portfolio
     values:
       layout: single
       author_profile: true
       share: true
+      classes: wide
 
-
-# Sass/SCSS
 sass:
   sass_dir: _sass
   style: compressed
 
-
-# Output
+# site-wide permalinks for posts (collections have their own setting above)
 permalink: /:categories/:title/
 timezone: Europe/Rome
 
-
-remote_theme: "mmistakes/minimal-mistakes"   # ← no @latest
+remote_theme: "mmistakes/minimal-mistakes"
 
 plugins:
   - jekyll-feed
@@ -153,9 +150,11 @@ plugins:
   - jemoji
   - jekyll-include-cache
   - jekyll-remote-theme
+  - jekyll-seo-tag
 
-# HTML Compression (safe defaults)
 compress_html:
   clippings: all
   ignore:
-    envs: [development, docker]
+    envs:
+      - development
+      - docker
