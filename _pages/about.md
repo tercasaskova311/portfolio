@@ -3,6 +3,7 @@ layout: single
 title: "About Me"
 permalink: /about/
 author_profile: true
+classes: wide
 ---
 
 I'm **Tereza Sásková**, a student of the Master’s program in Data Science at the University of Trento and a former professional mountain biker.  
