@@ -6,7 +6,7 @@ permalink: /posts/2025/08/mountain-safety-social-media/
 tags: [avalanche, safety, social-media, Reddit, YouTube, NLP, sentiment, topic-modeling, detoxify]
 excerpt: "What are people actually discussing about avalanche safety online? A small, transparent analysis of Reddit threads and YouTube comments."
 header:
-  teaser: /images/mountain_safety_1.png
+  teaser: /assets/images/mountain_safety_1.png
 classes: wide
 toc: true
 toc_sticky: true
