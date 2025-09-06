@@ -1,68 +1,131 @@
 ---
 layout: single
-title: "Avalanche Safety on Social Media: What Reddit Really Talk About"
-date: 2025-08-21
+title: "Analyzing Avalanche Safety Perception on Social Media. "
+date: 2025-05-01
 permalink: /posts/2025/08/mountain-safety-social-media/
 tags: [avalanche, safety, social-media, Reddit, YouTube, NLP, sentiment, topic-modeling, detoxify]
-excerpt: "Do people learn safety—or just react—when watching avalanche content online? An exploration across Reddit and YouTube using sentiment, topics, and toxicity."
+excerpt: "How do people perceive avalanche safety in online discussions on Reddit and YouTube?"
 header:
-  teaser: /images/portfolio/mountain-safety/teaser.png  # add an image at this path
+  teaser: /images/mountain-safety/teaser.png  # add an image at this path
 classes: wide
 ---
 
 **Repo / Notebook:**  
 [tercasaskova311/mountain_safety — CSS_assigment-1.ipynb](https://github.com/tercasaskova311/mountain_safety/blob/main/CSS_assigment-1.ipynb){: .btn .btn--primary target="_blank" }
 
-I analyzed avalanche-safety conversations on **Reddit** and **YouTube**. The emotional tone on YouTube is largely positive/cheerful, and topics often skew to reactions (“wow”, “wtf”, “bro”) rather than explicit safety training. Reddit is more neutral, with some negative posts; gear (e.g., helmets) pops up, but structured safety talk is sparse. Together, the platforms act more like **reaction theaters** than **safety classrooms**.
+This study aims to explore what are the most frequently discussed avalanche safety concerns on Reddit and YouTube.
+
+## Avalanche Safety in Online Discussions
+Social media (Reddit & YouTube) is a key source of outdoor safety information. Avalanche safety is critical for skiers, mountaineers, and outdoor enthusiasts.Understanding how social media shapes risk perception & safety behaviour is crucial. The possible takeaways can improve communication strategies for outdoor safety professionals.
 
 ---
 
 ## Research question
-**What avalanche-safety topics and sentiments dominate online discussions on Reddit and YouTube?**  
-Target users include outdoor enthusiasts, educators, rescue teams, and policy makers who want to shape safer communication. 
+**What are the most common topics about avalanche safety expressed in online discussions on Reddit and YouTube?**  
 
 ---
 
-## Data
-- **Reddit** — Avalanche awareness subreddit discussions; 155 posts/comments with IDs, text, scores, flairs, etc. :contentReference[oaicite:1]{index=1}  
-- **YouTube** — 100 “avalanche safety” videos with metadata and engagement (views, likes, comments); comment text included for analysis. :contentReference[oaicite:2]{index=2}
+## Platform selection
+- **Reddit** — A platform with discussion forums such as r/AvalancheAwareness, Avalanche Safety, Backcountry
+User-generated discussions In-depth conversations 
+- **YouTube** — A video-based platform where outdoor professionals, rescue organisations and others share safety content.
+Allows access to engagement data (likes, shares, comments) to analyze how users interact with safety content.
 
-**Collection tools**  
-- **Communalytic** for Reddit threads and sentiment. :contentReference[oaicite:3]{index=3}  
-- **YouTube Data API v3** for video/engagement data; Python for comment retrieval. :contentReference[oaicite:4]{index=4}
+**Data Collection Method**  
+- **Reddit** Communalytic: Used to collect posts and comment threads from relevant subreddits.Data collected from r/AvalancheAwareness subreddit using Communalytic. 
+- **YouTube** YouTube Data API v3: To retrieve video details, metadata and engagement statistics.Search for "avalanche safety" videos and retrieve metadata for 100 videos. Using the YouTube API v3 and video statistics through Python API requests
+---
+
+## Avalanche Awareness Discussions
+(Reddit) - Communalytics
+ID, Date, Author, Title:
+Text: Content of the post or comment
+Comment_on: Indicates whether it's a reply to another comment (logical)
+Type: Post or comment classification
+Score: Number of upvotes/downvotes received (Min: 1, Max: 47, Mean: 4.148)
+Upvote_ratio: Proportion of upvotes (Min: 0.67, Max: 1.0, Mean: 0.9542)
+User Flair: User profile tags (if available)
+Submission Flair: Category of the post (if applicable)
+
+- Number of cases: 155 posts/comments
 
 ---
 
-## Methods (quick sketch)
-- **Sentiment analysis** to estimate the emotional valence of posts/comments (Communalytic; plus toxicity with **Detoxify**). :contentReference[oaicite:5]{index=5}  
-- **Topic modeling** via **LDA** to uncover frequent themes in YouTube comments. :contentReference[oaicite:6]{index=6}  
+## YouTube Avalanche Safety
+(YouTube)
+Video_ID: Unique identifier for videos
+Title: Video title
+Description: Video description
+Published Date: When the video was published Views: Total video views
+Likes: Number of likes
+Comments: Number of comments
+Video Sentiment: Sentiment analysis on comments Comment Text: Content of each comment
+Likes on Comments: Number of likes for individual comments
 
-> Intuition (1Blue3Brown vibe): Map each comment to a point in a semantic space. Topic modeling finds **dense ridges** (themes). Sentiment/toxicity estimate the **vector field**—which way the conversation leans emotionally.
+- Number of Cases: 100 videos
+
+---
+## Analytical Strategy
+- 1. Sentiment Analysis: using Communalytics to understadn the emotional tone. 
+Sentiment Insights: uncover a general sentiment around avalanche risk and safety on
+both Reddit and YouTube.
+
+- 2. Topic Analysis: Identify and categoriez the most frequent discussed topics. 
+Expect to identify which specific avalanche safety topics are discussed most frequently.
 
 ---
 
-## Key results
-### Sentiment
-- **YouTube**: broadly **positive** (≈81% positive, ≈7% negative), suggesting enthusiastic or entertainment-oriented reactions to avalanche content. :contentReference[oaicite:7]{index=7}  
-- **Reddit**: **neutral-leaning** (≈72% neutral, ≈12% negative, ≈16% positive), aligning with more matter-of-fact thread discussions. :contentReference[oaicite:8]{index=8}
+## Youtube - Avalanche Safety videos
+Sentiment Analysis
+Both used libraries agree on:
+(7.14%) posts with negative sentiments (polarity scores <= -0.05) (80.95%) posts with positive sentiments (polarity scores >= 0.05).
+The Civility Analyzer identifies toxic and prosocial interactions in a dataset. Using Detoxify ML model. The module calculates toxicity scores.
 
-### Topics (YouTube comments)
-- Dominant terms reflect **reaction language** (“wtf”, “bro”, “lol”, “amazing”, “wow”), not procedural safety. :contentReference[oaicite:9]{index=9}  
-- Some mentions of **helmets/safety gear**; scattered references to incidents (“RIP”). :contentReference[oaicite:10]{index=10}  
-- **Conclusion:** high emotional engagement; limited explicit avalanche-training discourse. :contentReference[oaicite:11]{index=11}
+## Reddit: Avalanche Awareness
+Sentiment Analysis
+12 (12.12%) posts with negative sentiments (polarity scores <= -0.05),
+71 (71.72%) posts with neutral sentiments (polarity scores between -0.05 and 0.05), and 16 (16.16%) posts with positive sentiments (polarity scores >= 0.05).
 
----
 
-## Ethical & data caveats
-- **Platform bias**: Reddit/YouTube audiences aren’t the general public; engagement ≠ belief. :contentReference[oaicite:12]{index=12}  
-- **Data availability limits**: few focused subreddits; video context/comments can be partial or skewed toward sensational content. :contentReference[oaicite:13]{index=13}  
-- **Topic ambiguity**: LDA can surface noisy clusters; safety talk is hard to isolate from reaction chatter. :contentReference[oaicite:14]{index=14}
+## Youtube - Avalanche Safety videos - comments
+Topic Analysis
+1.Initialize the LatentDirichletAllocation model 2.Fit the LDA model
+3.Display the top words for each topic
+Topic 1: ever love please video get dont avalanche lol man thats
+Topic 2: time think air got dont looks bro avalanche snow like
+Topic 3: wtf didnt cameraman one test god oh im snow avalanche
+Topic 4: brad music good rip thank really helmet would great video
+Topic 5: amazing run wallet stupid go thank never wow clean thanks
 
----
+Surprisingly, no strong mentions of "avalanche safety," "training," or "how to survive".
+Possible conclusion: People aren’t learning about avalanche safety as much as they are reacting emotionally to videos.
+High emotional engagement
+Many words indicate strong reactions: wtf, bro, lol, oh, god, amazing, wow, stupid.
+Possible conclusion: Avalanche safety videos on YouTube attract shock and entertainment rather than serious safety discussions.
+Helmet and safety gear discussion (Topic 4)
+This could indicate some discussion around protective equipment.
+If you look deeper into these comments, you might find debates on whether helmets help in an avalanche.
+Some tragedy discussions (RIP in Topic 4)
+If the dataset includes videos of real avalanche accidents, this might indicate people reacting to fatal incidents.
 
-## Mini “how to reproduce”
-1. Pull Reddit threads via **Communalytic**; pull YouTube metadata + comments via API. :contentReference[oaicite:17]{index=17}  
-2. Clean text; remove short/duplicate comments; keep language filters.  
-3. **Sentiment** (e.g., VADER/TextBlob or platform metrics) + **Detoxify** for toxicity. :contentReference[oaicite:18]{index=18}  
-4. Vectorize (TF-IDF) → **LDA** for topics; plot top words per topic. :contentReference[oaicite:19]{index=19}  
-5. Compare platform-level sentiment/topic distributions.
+Code here: https://github.com/tercasaskova311/mountain_safety
+## Ethical Considerations Ethical Concerns with Social Media Data
+Bias: Data from Reddit and YouTube may not reflect the general population, as these platforms have specific user demographics and engagement patterns.
+User Engagement: Interactions may not represent users' true beliefs but their engagement with certain content, potentially skewing the analysis.
+
+## Limitations
+Limitations
+Data Availability
+Reddit: Limited relevant subreddits for avalanche safety, leading to broader, off- topic discussions.
+YouTube: Restricted to video metadata and comments, lacking full context and access to older content.
+
+Bias in Data
+Platform Demographics: Users on Reddit and YouTube may not represent the general public.
+Engagement Bias: Popular content may skew analysis, as more emotional or sensational content gets more interaction.
+Topic Analysis Challenges
+Identifying Topics: Avalanche safety discussions are hard to isolate in comments or videos. Context Loss: Sentiment and topic modeling may miss nuanced meanings or user intent.
+
+
+## Final considerations
+Research Question Refinement
+After data collection, the research question may need to be narrowed or refined based on the actual data available, focusing on specific aspects of avalanche risk perception that emerge.

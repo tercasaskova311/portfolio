@@ -2,11 +2,9 @@
 layout: single
 title: "Training vs. Sleep in Professional Cycling"
 date: 2024-08-01
-permalink: /posts/2025/08/training-vs-sleep/
 tags: [cycling, sleep, WHOOP, Garmin, pandas, matplotlib, SQL, data-cleaning, sports-science]
-excerpt: "Do better nights lead to better rides? Exploratory analysis combining WHOOP sleep metrics with Garmin training load for a World Cup MTB rider."
 header:
-  teaser: _posts/Scatterplot.png  
+  teaser: /images/Scatterplot.png
 ---
 
 **Repo:** [tercasaskova311/training-vs-sleep](https://github.com/tercasaskova311/training-vs-sleep)
