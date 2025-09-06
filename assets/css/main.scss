@@ -2,8 +2,8 @@
 # required blank front matter so Jekyll compiles this file
 ---
 
-@import "minimal-mistakes/skins/burgundy"; // matches your _config.yml skin
-@import "minimal-mistakes";                // pulls in the theme CSS
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
 
 /* 1) Masthead: full-width burgundy */
 .masthead { background: #800020 !important; }

@@ -4,7 +4,7 @@ masthead_title: "Home"
 url: "https://tercasaskova311.github.io"
 baseurl: "/portfolio"                 # project site (repo name = portfolio)
 repository: "tercasaskova311/portfolio"
-minimal_mistakes_skin: "burgundy"
+minimal_mistakes_skin: "default"   # or "plum", "air", "dark", ...
 
 author:
   avatar: "/images/profile.jpg"
