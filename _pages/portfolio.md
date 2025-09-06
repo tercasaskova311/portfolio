@@ -1,13 +1,9 @@
 ---
-layout: archive
 title: "Portfolio"
+layout: collection
 permalink: /portfolio/
-author_profile: false
-entries_layout: list
+collection: portfolio
+entries_layout: list   # or "grid"
 classes: wide
+author_profile: false
 ---
-
-{% assign portfolio_items = site.portfolio | sort: "date" | reverse %}
-{% for post in portfolio_items %}
-  {% include archive-single.html type="list" %}
-{% endfor %}

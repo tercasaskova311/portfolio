@@ -120,14 +120,11 @@ defaults:
     values:
       layout: single
       author_profile: true
-  - scope:
-      path: ""
-      type: portfolio
+  - scope: { path: "", type: portfolio }
     values:
       layout: single
-      author_profile: true
-      share: true
-      classes: wide
+      author_profile: false
+
 
 sass:
   sass_dir: _sass
