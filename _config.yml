@@ -101,9 +101,7 @@ kramdown:
 collections:
   portfolio:
     output: true
-    # IMPORTANT: because baseurl is "/portfolio", avoid doubling the path.
-    # This makes item URLs like /portfolio/<title>/.
-    permalink: /:title/
+    permalink: /portfolio/:name/
 
 defaults:
   - scope:
