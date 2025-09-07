@@ -1,0 +1,106 @@
+---
+layout: single
+title: "Scaling Hybrid Podcast Recommendations: Engineering Lessons Learned"
+date: 2025-08-01
+tags: [big data, spark, kafka, delta lake, mongodb, airflow, nlp, recommendation-systems]
+classes: wide
+toc: true
+toc_sticky: true
+---
+
+**Repo:** [tercasaskova311/podcast-recommendation-platform](https://github.com/tercasaskova311/podcast-recommendation-platform){: .btn .btn--primary target="_blank" }
+
+# Scaling Hybrid Podcast Recommendations: Engineering Lessons Learned
+
+Our project aimed to build a **hybrid podcast recommendation system** combining collaborative filtering (ALS on user events) with transcript-based similarity (embeddings + KNN).  
+
+The implementation was straightforward in theory, but the real work started when we hit **engineering constraints**. This post focuses on those struggles and what we learned from them.
+
+---
+
+## 1. Transcript Processing 
+**Problem:** Long-form audio (30–60 minutes) produced transcripts far too large for embedding and downstream similarity search.  
+**Issues we faced:**
+- Naïve embeddings on full transcripts exhausted memory.  
+- Spark shuffles ballooned when processing high-dimensional embeddings.  
+
+**Solutions:**
+- **Chunking strategy**: transcripts segmented into ~500-token windows with overlaps to preserve context.  
+- **Parallelized embedding**: distributed embedding computation across Spark executors.  
+- **Repartitioning + caching**: reduced shuffle overhead and avoided recomputation during KNN similarity.  
+
+**Trade-off:** Chunking increased compute cost but improved semantic accuracy and stability of similarity search.
+
+---
+
+## 2. Voice-to-Text at Scale
+**Problem:** Fast-Whisper handled small batches, but 1-hour audio files pushed GPU memory limits and slowed the pipeline.  
+
+**Solutions:**
+- Adopted **batch segmentation** before transcription.  
+- Experimented with **WhisperX**, which introduced alignment + segmentation → 12× faster throughput.  
+- Optimized I/O: transcripts stored in **Delta Lake** to enable incremental loading instead of full reloads.  
+
+**Bottleneck still remains**: at larger scale, voice-to-text will be the first system component to break.
+
+** Later on we also had switched from Fast-Whisper to Vosk
+
+---
+
+## 3. Orchestration Complexity
+Initially, ingestion, training, and serving were handled by ad-hoc scripts. This became unmanageable as soon as multiple pipelines (events, transcripts, hybrid ranking) had to run in sequence.  
+
+**Fix:** Migrated to **Airflow DAGs** with explicit dependencies:
+- Episode ingestion → transcript processing → embedding generation.  
+- User events simulation → ALS training.  
+- Hybrid ranking DAG merges both outputs.  
+
+This shift improved reproducibility but added another layer of operational complexity (monitoring, retries, container orchestration).
+
+---
+
+## 4. Data Access & Integration
+Spotify/Apple APIs are closed, so we had to rely on **PodcastIndex**. Limitations included:  
+- Inconsistent metadata quality.  
+- Rate-limited fetches, requiring batching + retries.  
+
+**Fix:** Custom Kafka producers + retry logic for ingestion.  
+
+---
+
+## 5. Hybrid Scoring Trade-offs
+**Design choice:** hybrid recommendation = `score = 0.7 * ALS + 0.3 * similarity`.  
+
+- Higher ALS weighting stabilized recommendations but risked “filter bubble” behavior.  
+- Increasing similarity weighting surfaced novel episodes but decreased precision.  
+
+**Current approach:** keep α configurable per experiment; log user engagement metrics for offline evaluation.  
+
+---
+
+## 6. Serving & Analytics
+- **MongoDB** chosen for storing recommendation results due to flexible schema + fast reads.  
+- **DuckDB over Delta** proved more efficient than Spark for dashboard queries, eliminating cluster overhead for lightweight analytics.  
+- **Streamlit** provided a simple interface but would need to be replaced with a production-ready serving layer at scale.  
+
+---
+
+## Lessons Learned
+- **Voice-to-text is the critical bottleneck**: scaling transcription is harder than scaling embeddings or ALS.  
+- **Chunking strategy is non-negotiable** for long-form transcripts.  
+- **Spark shuffle optimization** (partitioning, caching) is key for embedding pipelines.  
+- **Orchestration matters more than code**: moving from scripts → DAGs stabilized the entire system.  
+- **DuckDB is underrated**: excellent for analytical queries without Spark overhead.  
+
+---
+
+## Future Work
+- Replace Vosk with a cloud-scale voice-to-text API or GPU-optimized service.  
+- Integrate a vector database (e.g., Weaviate, Pinecone) for similarity search instead of KNN over embeddings in Spark.  
+- Explore richer hybrid models (e.g., LightFM, deep hybrid recommenders).  
+- Productionize the serving layer beyond Streamlit/MongoDB.  
+
+---
+
+✍️ **Authors**: [Tereza Sásková](#), [Tommaso Battistotti](#), [Mateo](#)  
+🔗 GitHub repo: [Podcast Recommendation Platform](https://github.com/tercasaskova311/podcast-recommendation-platform)
