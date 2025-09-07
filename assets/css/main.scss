@@ -94,11 +94,12 @@
   height: 360px;
   background:
     linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
-    url("{{ '/images/home-bg.jpg' | relative_url }}") center/cover no-repeat;
+    url("{{ '/assets/images/home-bg.jpg' | relative_url }}") center/cover no-repeat;
   z-index: 0;
   border-bottom-left-radius: 28px;
   border-bottom-right-radius: 28px;
 }
+.home-hero { position: relative; z-index: 0; }
 .home-hero .hero { position: relative; z-index: 1; }
 
 .hero__actions .btn { margin-right: .5rem; }
