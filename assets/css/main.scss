@@ -94,7 +94,7 @@
   height: 360px;
   background:
     linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
-    url("{{ '/assets/images/home-bg.jpg' | relative_url }}") center/cover no-repeat;
+    url('/assets/images/home-bg.jpg') center/cover no-repeat;
   z-index: 0;
   border-bottom-left-radius: 28px;
   border-bottom-right-radius: 28px;
@@ -163,15 +163,15 @@
 /* wider, single-column portfolio cards */
 .wide .archive { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
 
-.list .archive__item {
-  display: grid;
+.list .archive__item{
+  display:grid;
   grid-template-columns: 320px 1fr;
-  gap: 1.25rem;
-  padding: 1.5rem;
-  border: 1px solid #eee; border-radius: 12px; background: #fff;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  margin-bottom: 2rem;
+  gap:1.25rem;
+  padding:1.5rem;
+  margin-bottom:2rem;
+  border:1px solid #eee; border-radius:12px; background:#fff;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
 }
-.list .archive__item-teaser { height: 200px; border-radius: 10px; overflow: hidden; }
-.list .archive__item-teaser img { width:100%; height:100%; object-fit:cover; }
-@media (max-width: 900px){ .list .archive__item{ grid-template-columns:1fr; } }
+.list .archive__item-teaser{ height:200px; border-radius:10px; overflow:hidden; }
+.list .archive__item-teaser img{ width:100%; height:100%; object-fit:cover; }
+@media (max-width:900px){ .list .archive__item{ grid-template-columns:1fr; } }
