@@ -3,7 +3,7 @@ title: "From CNNs to Transformers: Top-k Image Retrieval"
 collection: portfolio
 permalink: /portfolio/topk-image-retrieval/
 date: 2025-05-01
-excerpt: "CLIP, DINOv2, EfficientNet, ResNet, GoogLeNet; frozen vs fine-tuned; GAP vs GeM; cosine similarity."
+excerpt: "CLIP, DINOv2, EfficientNet, ResNet, GoogLeNet; frozen vs fine-tuned; GAP vs GeM; hybrid losses; cosine similarity."
 repo: https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-
 tags: [Deep Learning, Computer Vision, Transformers, CNNs, Metric Learning, Image Retrieval]
 header:
@@ -15,72 +15,71 @@ header:
 ---
 
 ## Overview
-Developed a **top-k image retrieval system** for the *Image Retrieval Competition* (University of Trento). The task: retrieve the 10 most similar gallery images for each query image.  
+This project was developed for the **Image Retrieval Competition** at the University of Trento. The task: given a real celebrity photo (query), retrieve the 10 most similar synthetic images (gallery).  
 
-We built a retrieval pipeline that turns **images → embeddings → nearest-neighbor search**, and systematically compared **CNN backbones** (EfficientNet, ResNet, GoogLeNet) with **transformer encoders** (CLIP, DINOv2).  
+Submissions were evaluated with a **weighted top-k accuracy metric**:  
+- Top-1 = 600 pts  
+- Top-5 = 300 pts  
+- Top-10 = 100 pts  
 
----
-
-## What We Built
-- **Encoders**: CLIP (ViT), DINOv2 (ViT), EfficientNet, ResNet, GoogLeNet.  
-- **Pooling**: GAP (average pooling) vs GeM (generalized mean).  
-- **Training**: frozen vs fine-tuned backbones; tested both contrastive and cross-entropy objectives.  
-- **Evaluation**: recall@K, precision@K, competition-weighted Top-k accuracy.  
-- **Visualization**: qualitative nearest-neighbor grids and retrieval dashboards.  
-- **Implementation**: PyTorch, FAISS for nearest-neighbor search.  
+We compared **CNNs** (ResNet, EfficientNet, GoogLeNet) against **transformer-based encoders** (CLIP, DINOv2), exploring both **frozen vs fine-tuned backbones** and pooling strategies (**GAP vs GeM**).  
 
 ---
 
-## Engineering Challenges & Solutions
+## Key Engineering Challenges
 
-### 1. High-Dimensional Embeddings
-- **Problem**: Large transformer embeddings slowed retrieval and ballooned memory usage.  
-- **Solution**: Applied **vector normalization + cosine similarity**, integrated FAISS for fast ANN search.  
+### 1. Model Scaling & Memory Limits
+- **Problem:** Larger models like CLIP ViT-L/14 repeatedly ran out of GPU memory during competition.  
+- **Fix:** Post-competition, we added **gradient accumulation + explicit memory management (`torch.cuda.empty_cache()`)**, enabling full fine-tuning.  
+- **Outcome:** This unlocked a jump from **510.24 → 791.82 weighted Top-k accuracy**.  
 
-### 2. Pooling Trade-offs
-- **Observation**: GAP pooled away strong local features; retrieval suffered.  
-- **Solution**: GeM pooling retained sharp activations, consistently boosting retrieval scores.  
+### 2. Pooling Strategy
+- **Observation:** GAP (average pooling) often smoothed out strong local activations, hurting retrieval.  
+- **Solution:** **GeM pooling** preserved discriminative signals, improving recall@K across CNNs.  
 
-### 3. Fine-Tuning Stability
-- **Problem**: Fine-tuning large backbones (CLIP ViT-L/14) often diverged due to small dataset size.  
-- **Solution**: Layer freezing, smaller learning rates, contrastive loss with hard negative mining.  
+### 3. Training Pipeline Bugs
+- **Issue:** On competition day, fine-tuning was not correctly updating transformer blocks due to flawed training logic.  
+- **Fix:** Post-competition we redesigned the pipeline with proper layer unfreezing, small LR schedules, and hybrid losses.  
 
-### 4. Competition Constraints
-- **Challenge**: Competition required celebrity face retrieval across **real vs synthetic domains**.  
-- **Solution**: Used CLIP embeddings (pretrained on multimodal data) to bridge style/domain gap.  
+### 4. Loss Functions for Retrieval
+- **Problem:** Cross-entropy loss alone produced discriminative but poorly structured embeddings.  
+- **Solution:** Combined **cross-entropy + contrastive loss on normalized embeddings**.  
+- **Impact:** Preserved both **class separation** and **semantic continuity**, crucial under domain shift (real ↔ synthetic).  
 
 ---
 
 ## Results
 
-- **Competition metric (weighted Top-k accuracy):**  
-  - Best: **791.82** (CLIP ViT-L/14, fully fine-tuned, contrastive + cross-entropy).  
+- **Competition Day Best:**  
+  - CLIP ViT-B/16, frozen, **510.24 weighted Top-k**.  
 
-- **Precision@K (public Animal dataset):**  
-  - Best: **0.8513** (EfficientNet-B3, fine-tuned, GAP pooling).  
+- **Post-Competition Best:**  
+  - CLIP ViT-L/14, fully fine-tuned, **791.82 weighted Top-k**.  
 
-**Key takeaways:**
-- Fine-tuning helps when domain labels are available, but frozen CLIP still performed strongly on domain-shifted tasks.  
-- GeM > GAP for retrieval robustness.  
-- Cosine similarity + normalization stabilized comparisons across models.  
+- **Auxiliary Dataset (Animals):**  
+  - EfficientNet-B3, fine-tuned, GAP pooling → **0.8513 Precision@K**.  
+
+**Key Takeaways:**
+- Transformers (CLIP, DINOv2) outperformed CNNs when **semantic similarity** mattered more than pixel-level similarity.  
+- **Training design matters as much as architecture**: fixing fine-tuning and adopting hybrid losses made a bigger difference than model choice alone.  
+- Resource-aware techniques (gradient accumulation, memory clearing) are essential for scaling large models.  
 
 ---
 
-## Project Structure
-- `models/` — model scripts (CLIP, DINOv2, EfficientNet, ResNet, GoogLeNet).  
-- `src/` — metric computation + visualization tools.  
-- `results/` — logged JSON performance per model.  
-- `report/` — CVPR-style technical report with figures/tables.  
+## Lessons Learned
+- **Architectures alone don’t guarantee performance** — the pipeline (losses, fine-tuning, memory management) is equally critical.  
+- **Hybrid objectives** (classification + contrastive) yield embeddings that are both discriminative and semantically meaningful.  
+- **Scaling laws hold**: larger vision transformers consistently improve when given enough compute and a well-designed pipeline.  
 
 ---
 
 ## Skills Demonstrated
-- **Deep Learning Architectures**: CNNs vs Vision Transformers for retrieval.  
-- **Metric Learning**: contrastive loss, triplet loss, cosine similarity, recall@K.  
-- **Optimization**: layer freezing, pooling strategy comparisons, hard negative sampling.  
-- **System Design**: FAISS ANN search pipeline for scalable top-k retrieval.  
-- **Evaluation**: experimental design across multiple datasets, formal CVPR-style report.  
+- **Deep Learning**: CNNs vs Transformers for retrieval.  
+- **Metric Learning**: cosine similarity, recall@K, hybrid loss design.  
+- **Optimization**: gradient accumulation, fine-tuning strategies, memory management.  
+- **System Design**: FAISS-based ANN search for scalable retrieval.  
+- **Experimental Rigor**: systematic model comparison, post-competition ablation, CVPR-style report.  
 
 ---
 
-📂 **Repo**: [From CNNs to Transformers: Top-k Image Retrieval]({{ page.repo }})  
+📂 **Repo**: [From CNNs to Transformers: Top-k Image Retrieval]({{ page.repo }})

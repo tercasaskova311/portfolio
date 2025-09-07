@@ -158,3 +158,21 @@
   border-color: #6d001b !important;
   color: #fff !important;
 }
+
+/* Make portfolio grid use the full width */
+.page__content {
+  max-width: 1200px;   /* increase this value to stretch wider */
+  margin: 0 auto;      /* keep it centered */
+}
+
+.grid__item {
+  flex: 1 1 45%;       /* two cards per row on medium screens */
+  max-width: 45%;
+}
+
+@media (min-width: 1200px) {
+  .grid__item {
+    flex: 1 1 30%;     /* three cards per row on large screens */
+    max-width: 30%;
+  }
+}
