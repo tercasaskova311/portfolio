@@ -176,3 +176,10 @@
     max-width: 30%;
   }
 }
+
+.grid .archive { max-width: 1200px; }
+.grid .grid__item { flex: 1 1 47%; max-width: 47%; }
+@media (min-width: 1200px) {
+  .grid .grid__item { flex: 1 1 30%; max-width: 30%; } /* 3 columns */
+}
+.grid .archive__item-teaser { max-height: 200px; }

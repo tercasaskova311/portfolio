@@ -7,8 +7,9 @@ excerpt: "CLIP, DINOv2, EfficientNet, ResNet, GoogLeNet; frozen vs fine-tuned; G
 repo: https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-
 tags: [Deep Learning, Computer Vision, Transformers, CNNs, Metric Learning, Image Retrieval]
 header:
-  teaser: _portfolio/0fe88234-21a7-42d4-ad46-ad00cee64ee4.JPG
+  teaser: /Users/terezasaskova/Desktop/portfolio-1/assets/images/home-bg.jpg
 ---
+
 
 [View code on GitHub]({{ page.repo }}){: .btn .btn--primary target="_blank" }
 
