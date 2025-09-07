@@ -1,9 +1,10 @@
 ---
 title: "Portfolio"
-layout: archive
+layout: collection            # use the theme's collection layout
 permalink: /portfolio/
-collection: portfolio
-entries_layout: grid
+collection: portfolio         # name of your collection
+entries_layout: list          # or "grid" (see CSS below)
 classes: wide
 author_profile: false
 ---
+
