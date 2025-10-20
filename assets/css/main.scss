@@ -73,9 +73,13 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background:
+  background-image: 
     linear-gradient(to bottom, rgba(128,0,32,.3), rgba(128,0,32,0.1)),
-    url("/images/homepage.JPG") center/cover no-repeat;
+    url("/portfolio/images/homepage.JPG");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
   z-index: -1;
 }
 
