@@ -54,57 +54,23 @@
 
 .masthead .site-logo { display: none !important; }
 
-* Full-screen background for home page */
-.home-hero {
-  position: relative;
-  min-height: 100vh; /* Full viewport height */
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-}
+/* 2) Hero card + backdrop band */
+.home-hero { position: relative; background: transparent !important; }
 
-.home-hero::before {
-  content: "";
-  position: fixed; /* Changed from absolute to fixed for true full-screen */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0.15)),
-    url("{{ '/images/IMG_8250 2.JPG' | relative_url }}") center/cover no-repeat;
-  z-index: -1; /* Behind everything */
-}
-
-/* Hero card floats above the background */
 .hero {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 2rem;
   align-items: center;
-  background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
-  backdrop-filter: blur(10px); /* Optional: adds a nice glass effect */
+  background: #fff;
   border-radius: 18px;
   padding: 3rem;
-  margin: 2rem auto;
-  max-width: 1200px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+  margin: 2rem 0;
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
 }
 
-/* Rest of your hero styles remain the same */
-.eyebrow { 
-  color: #6b7280; 
-  font-weight: 600; 
-  letter-spacing: .02em; 
-  margin: 0 0 .25rem; 
-}
-
-.hero .lead { 
-  color: #6b7280; 
-  max-width: 38ch; 
-}
+.eyebrow { color:#6b7280; font-weight:600; letter-spacing:.02em; margin:0 0 .25rem; }
+.hero .lead { color:#6b7280; max-width:38ch; }
 
 .hero__image img {
   width: min(480px, 100%);
@@ -116,37 +82,37 @@
   box-shadow: 0 10px 25px rgba(0,0,0,.12);
 }
 
-.hero .accent { 
-  color: #800020 !important; 
+/* Name accent */
+.hero .accent { color: #800020 !important; }
+.hero h1 { color: #800020; }
+
+/* Background band behind hero */
+.home-hero::before {
+  content: "";
+  position: absolute; inset: 0 auto auto 0;
+  right: 0; top: 0; left: 0;
+  height: 360px;
+
+  /* Use Jekyll's relative_url so the path works on GitHub Pages / with baseurl */
+  background:
+    linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
+    url("{{ '/images/homepage.JPG' | relative_url }}") center/cover no-repeat !important;
+
+  z-index: 0;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
 }
 
-.hero h1 { 
-  color: #800020; 
-}
+.home-hero { position: relative; z-index: 0; }
+.home-hero .hero { position: relative; z-index: 1; }
 
-.hero__actions .btn { 
-  margin-right: .5rem; 
-}
-
+.hero__actions .btn { margin-right: .5rem; }
 .hero__actions .btn--light-outline {
   border-color: rgba(128,0,32,.30);
   color: #800020;
 }
-
 .hero__actions .btn--light-outline:hover {
   background: rgba(128,0,32,.06);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 2rem 1.5rem;
-  }
-  
-  .home-hero {
-    padding: 1rem;
-  }
 }
 
 /* 3) About page sidebar */
