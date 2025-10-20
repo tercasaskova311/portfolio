@@ -1,5 +1,5 @@
 ---
-title: "Podcast Analytics & Recommendation Platform"
+title: "Podcast Recommendation Platform"
 collection: portfolio
 permalink: /portfolio/podcast-platform/
 date: 2025-09-01
