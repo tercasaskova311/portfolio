@@ -18,7 +18,7 @@
   padding-right: 0 !important;
 }
 
-/* Nav “pill” → transparent */
+/* Nav "pill" → transparent */
 .masthead .greedy-nav {
   background: transparent !important;
   border-radius: 0 !important;
@@ -54,19 +54,46 @@
 
 .masthead .site-logo { display: none !important; }
 
-/* 2) Hero card + backdrop band */
-.home-hero { position: relative; background: transparent !important; }
+/* 2) FULL-SCREEN BACKGROUND for home page */
+.home-hero { 
+  position: relative; 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+}
 
+/* Full-screen background image - FIXED position */
+.home-hero::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(to bottom, rgba(128,0,32,.3), rgba(128,0,32,0.1)),
+    url("{{ '/images/homepage.JPG' | relative_url }}") center/cover no-repeat;
+  z-index: -1;
+}
+
+/* Hero card floats above background */
 .hero {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 2rem;
   align-items: center;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-radius: 18px;
   padding: 3rem;
-  margin: 2rem 0;
-  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
 }
 
 .eyebrow { color:#6b7280; font-weight:600; letter-spacing:.02em; margin:0 0 .25rem; }
@@ -86,26 +113,6 @@
 .hero .accent { color: #800020 !important; }
 .hero h1 { color: #800020; }
 
-/* Background band behind hero */
-.home-hero::before {
-  content: "";
-  position: absolute; inset: 0 auto auto 0;
-  right: 0; top: 0; left: 0;
-  height: 360px;
-
-  /* Use Jekyll's relative_url so the path works on GitHub Pages / with baseurl */
-  background:
-    linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
-    url("{{ '/images/homepage.JPG' | relative_url }}") center/cover no-repeat !important;
-
-  z-index: 0;
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
-}
-
-.home-hero { position: relative; z-index: 0; }
-.home-hero .hero { position: relative; z-index: 1; }
-
 .hero__actions .btn { margin-right: .5rem; }
 .hero__actions .btn--light-outline {
   border-color: rgba(128,0,32,.30);
@@ -113,6 +120,17 @@
 }
 .hero__actions .btn--light-outline:hover {
   background: rgba(128,0,32,.06);
+}
+
+/* Responsive hero */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+  }
+  .home-hero {
+    padding: 1rem;
+  }
 }
 
 /* 3) About page sidebar */
@@ -143,15 +161,12 @@
   width:100%; height:100%; object-fit:cover;
 }
 
-/* Avoid :has() for broader compatibility; use a helper class instead if needed */
-/* .archive .list__item:not(:has(.archive__item-teaser)){ ... } */
-
 @media (max-width: 720px){
   .archive .list__item{ grid-template-columns:1fr; }
   .archive .list__item .archive__item-teaser{ height:200px; }
 }
 
-/* 5) Burgundy, fully painted button (for “See my work”) */
+/* 5) Burgundy, fully painted button (for "See my work") */
 .btn--burgundy {
   background: #800020 !important;
   color: #fff !important;
@@ -159,7 +174,7 @@
 }
 .btn--burgundy:hover,
 .btn--burgundy:focus {
-  background: #6d001b !important;   /* slightly darker on hover */
+  background: #6d001b !important;
   border-color: #6d001b !important;
   color: #fff !important;
 }
