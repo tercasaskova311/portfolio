@@ -92,13 +92,17 @@
   position: absolute; inset: 0 auto auto 0;
   right: 0; top: 0; left: 0;
   height: 360px;
+
+  /* Use Jekyll's relative_url so the path works on GitHub Pages / with baseurl */
   background:
     linear-gradient(to bottom, rgba(128,0,32,.25), rgba(128,0,32,0)),
-    url('/assets/images/home-bg.jpg') center/cover no-repeat;
+    url("{{ '/images/home-bg.jpg' | relative_url }}") center/cover no-repeat;
+
   z-index: 0;
   border-bottom-left-radius: 28px;
   border-bottom-right-radius: 28px;
 }
+
 .home-hero { position: relative; z-index: 0; }
 .home-hero .hero { position: relative; z-index: 1; }
 
