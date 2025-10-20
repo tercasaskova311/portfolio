@@ -8,13 +8,13 @@ classes: wide
 
 If you’d like to collaborate or have questions, the fastest way is email.
 
-- 📧 **Email:** [tercasaskova311@gmail.com](mailto:tercasaskova311@gmail.com)
+- 📧 **Email:** [tereza.saskova@proton.me](mailto:tereza.saskova@proton.me)
 - 🔗 **LinkedIn:** [Tereza Sásková](https://www.linkedin.com/in/tereza-saskova-527326235)
 - 🐙 **GitHub:** [@tercasaskova311](https://github.com/tercasaskova311)
 - 🧠 **Kaggle:** [terezasaskova](https://www.kaggle.com/terezasaskova)
 - 📍 **Location:** Italy, Trento
 
-[Email me](mailto:tercasaskova311@gmail.com){: .btn .btn--primary }  [LinkedIn](https://www.linkedin.com/in/tereza-saskova-527326235){: .btn }  [GitHub](https://github.com/tercasaskova311){: .btn }
+[Email me](mailto:tereza.saskova@proton.me){: .btn .btn--primary }  [LinkedIn](https://www.linkedin.com/in/tereza-saskova-527326235){: .btn }  [GitHub](https://github.com/tercasaskova311){: .btn }
 
 ---
 

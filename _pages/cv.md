@@ -7,42 +7,95 @@ redirect_from:
   - /resume
 ---
 
+## Summary
+
+Data Science graduate student at University of Trento with focus on geospatial analysis and data engineering. Current work includes urban development prediction using satellite imagery (Google Earth Engine, Sentinel) and building data pipeline frameworks with PostgreSQL. Technical skills: Python, SQL, Apache Spark, Kafka, GIS tools, machine learning. Interest areas: environmental monitoring, urban analytics, scalable data systems. Former professional mountain biker (Junior Vice-World Champion).
+
+---
+
 ## Education
 
 - **MSc. in Data Science**  
   University of Trento, Italy — *2024–2026 (ongoing)*  
-  Courses: Machine Learning, Scientific Programming, Big Data Technologies, Statistics for Data Science
+  *Relevant Coursework:* Statistical Learning, Machine Learning, Big Data Technologies, High performance computing, Foundation models, Geospacial analysis, Signal, Image, Video
 
 - **BA in Marketing Communication**  
   University of Finance and Administration, Prague — *2020–2023*
 
 ---
 
-## Work Experience
-- **Marketing and Sport Lead at Sport Šumava**
-  *2023-06-01 - present*
-  Leading marketing strategy and execution across performance, brand, and visual identity. Leading a summer program of a bike school.",
-  **Highlights**
-  - Marketing Analytics: Google Ads, Google Tag Manager, indexing and SEO improvements
-  - Brand Marketing: blog posts, Instagram campaigns, and newsletters,
+## Current Projects
 
-- **Bike & Ski Instructor**  
-  *Sport Šumava, Viadomd, MTB Italy* — 
-  *2020–2023*  
-  Led individual and group sessions for skiing and mountain biking. Focused on safety, skill-building, and performance analysis.  
-  **Highlights**:
-  - Designed personalized training plans  
-  - Organized and led large group activities  
-  - Applied pedagogical methods for all ages and skill levels  
+**Urban Environment Change Prediction** | *In Progress*  
+Developing predictive models for urban development in Trentino region using Sentinel satellite imagery. Applying remote sensing techniques and geospatial analysis to track environmental changes over time.  
+*Technologies:* Google Earth Engine, Python, QGIS
+
+**Data Pipeline Framework for Course Management** | *In Progress*  
+Building automated data pipeline connecting online registration forms to PostgreSQL database. Creating dynamic reporting system for weekly course participant tracking.  
+*Technologies:* PostgreSQL, Python, Flask, data automation
 
 ---
 
-## Skills
+## Projects
 
-- **Data Science**: Python, pandas, NumPy, matplotlib, seaborn  
-- **Machine Learning**: scikit-learn, supervised learning, model evaluation, image recognition  
-- **Big Data**: Apache Spark, Delta Lake, MongoDB (project-based)  
-- **Communication & Teaching**: Public speaking, coaching, teamwork
+**Podcast Recommendation Platform**  
+Built scalable recommendation engine using distributed computing architecture. Implemented ALS collaborative filtering and text similarity models for personalized recommendations.  
+*Technologies:* Kafka, Apache Spark, MongoDB, Delta Lake, Python  
+[GitHub](https://github.com/tercasaskova311/podcast-recommendation-platform)
+
+**Top-k Image Retrieval & Recognition**  
+Compared CLIP and DINO model performance in classifying real vs. AI-generated faces. Evaluated deep learning architectures for image retrieval tasks.  
+*Technologies:* Python, PyTorch, Computer Vision libraries  
+[GitHub](https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-)
+
+**LLM Sentiment Analysis via EmoAtlas**  
+Analyzed sentiment differences in Mistral LLM responses between Italian and English. Applied emotional scoring methodologies to multilingual model outputs.  
+*Technologies:* Python, Transformers, NLP libraries, EmoAtlas framework
+
+**Reddit & Conflict: Israel–Palestine Discourse Analysis**  
+Combined Reddit comments and verified conflict events from ACLED to analyze public discourse during major geopolitical events.  
+*Technologies:* Python, NLP, data analysis  
+[GitHub](https://github.com/tercasaskova311/Israel-Palestine-CSS-project)
+
+---
+
+## Technical Skills
+
+**Programming Languages:** Python, SQL, R, C
+
+**Data Engineering & Big Data:** Apache Spark, Kafka, Docker, Delta Lake, MongoDB, PostgreSQL, DuckDB
+
+**Geospatial & Remote Sensing:** Google Earth Engine, QGIS, Sentinel imagery processing, GIS analysis
+
+**Machine Learning:** Scikit-learn, Pandas, NumPy, Machine Learning pipelines, Text Processing, NLP
+
+**Development Tools:** Git, GitHub, Azure, Flask (introductory)
+
+---
+---
+
+## Professional Experience
+
+**Marketing and Program Lead**  
+Sport Šumava — *June 2023 – Present*
+
+- **Marketing Analytics:** Implemented Google Ads campaigns, Google Tag Manager, web indexing, and SEO strategies
+- **Brand Development:** Created content for blog, Instagram, and newsletters to drive engagement
+- **Visual Design:** Developed brand materials using Canva and Figma for consistent brand identity
+- **Performance Analysis:** Conducted data-driven evaluation of marketing channels and engagement metrics to optimize campaigns
+- **Program Leadership:** Led summer bike school program with focus on safety and skill development
+
+**Bike & MTB Instructor**  
+Sport Šumava, Viadomd, MTB Italy — *2020–2023*  
+Led individual and group sessions for skiing and mountain biking across Switzerland and Italy. Designed personalized training plans and applied pedagogical methods for all ages and skill levels.
+
+---
+
+## Athletic Achievements
+
+**Junior Vice-World Champion** | Mountain Biking  
+**Multiple-time Czech National Champion** | Mountain Biking  
+**Professional Instructor** | Ski & MTB instruction in Switzerland and Italy
 
 ---
 
@@ -50,42 +103,25 @@ redirect_from:
 
 - **Czech**: Native  
 - **English**: C2 (Fluent)  
-- **Italian**: Beginner (actively learning)
-
----
-
-## Portfolio
-
-### [From CNNs to Transformers: Top-k Image Retrieval](https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-)
-**Category**: Machine Learning  
-Implemented and evaluated CLIP, DINOv2, EfficientNet, ResNet, and GoogLeNet for Top-K image retrieval. Compared frozen and fine-tuned encoders, GAP vs. GeM pooling, and cosine similarity metrics.
-
----
-
-### [Podcast Analytics & Recommendation Platform](https://github.com/tercasaskova311/podcast-recommendation-platform)
-**Category**: Big Data Technologies  
-Real-time + batch ingestion system using Apache Spark, Delta Lake, and MongoDB. Recommends podcasts using user interaction data and metadata.
-
----
-
-### [Reddit & Conflict: Israel–Palestine Discourse Analysis](https://github.com/tercasaskova311/Israel-Palestine-CSS-project)
-**Category**: Computational Social Science  
-Combined Reddit comments and verified conflict events from ACLED to analyze public discourse during major geopolitical events.
+- **Italian**: A2 (actively learning)
 
 ---
 
 ## Interests
 
+- Geospatial analysis and urban development 🗺️
+- Environmental data science 🌍
 - Mountain biking 🚵‍♀️  
 - Ski touring 🎿  
-- Cognitive science 🧠  
-- Data visualization 📊  
-- Social data and conflict analysis 🌍
 
 ---
 
 ## Service & Leadership
 
-- Volunteered as an instructor at community outdoor events  
-- Mentor for new riders and beginners  
-- Participated in university tech meetups and ML study groups
+- Mentor for outdoor sports beginners and new instructors
+- Volunteer instructor at community outdoor events  
+- Active participant in university tech meetups and ML study groups
+
+---
+
+📄 [Download PDF Version]({{ "/files/TerezaSaskova_CV.pdf" | relative_url }})
