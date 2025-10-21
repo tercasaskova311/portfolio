@@ -4,6 +4,7 @@ title: "Curriculum Vitae"
 permalink: /cv/
 author_profile: true
 ---
+<img src="{{ '/images/ALD76447e_data.jpg' | relative_url }}" alt="Tereza Sásková" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
 
 Master’s student in **Data Science** at the University of Trento, focusing on **geospatial analysis**, **data engineering**, and **machine learning**. Current projects include **urban change prediction** from satellite imagery and **automated data pipelines** for ski school management. Passionate about connecting data, technology, and real-world impact.  
 
