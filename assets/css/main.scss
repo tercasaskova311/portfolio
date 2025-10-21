@@ -294,16 +294,15 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 /* ===== Carousel styles ===== */
 .carousel-wrap { margin: 2rem auto; max-width: 1100px; padding: 0 1rem; }
 .carousel {
-  position: relative;
   width: 100%;
-  aspect-ratio: 16 / 7;
+  /* remove aspect-ratio */
+  height: 60vh; /* or let JS dynamically adjust */
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 14px 40px rgba(0,0,0,.10);
   background: #000;
 }
 
-/* Slide stack — only one visible at a time via opacity */
 .carousel .slide {
   position: absolute;
   inset: 0;
@@ -313,24 +312,19 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1.02);
-}
-
-/* active slide */
-.carousel .slide.is-active {
-  opacity: 1;
-  visibility: visible;
+  /* remove scale(1.02) */
   transform: scale(1);
-  z-index: 2;
+}
+.carousel .slide.is-active {
+  transform: scale(1);
 }
 
-/* image sizing */
 .carousel .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
+
 
 /* controls (prev/next) */
 .carousel__control {
