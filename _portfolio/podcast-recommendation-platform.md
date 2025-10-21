@@ -36,7 +36,7 @@ Two parallel tracks:
 **Serving**  
 The final recommendations are a weighted blend: `0.7 × ALS_score + 0.3 × content_similarity`. Everything lands in MongoDB for sub-100ms lookups, and built a Streamlit dashboard that runs DuckDB queries directly against Delta for live analytics—no need to spin up Spark just to check last hour's engagement.
 
-![Architecture](/images/Architecture.png)
+![Architecture](images/Architecture.png)
 
 ---
 
@@ -92,7 +92,7 @@ Finally, We'd split the monolithic Airflow DAG into smaller, more composable pie
 
 ## Results
 
-![Dashboard](/images/dashboard.png)
+![Dashboard](images/dashboard.png)
 
 ---
 
