@@ -6,6 +6,8 @@ author_profile: true
 classes: wide
 ---
 
+<img src="{{ '/images/NSE09830.JPG' | relative_url }}" alt="Tereza Sásková" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
+
 I'm **Tereza Sásková**, a Master of Science student in **Data Science at the University of Trento** and a former professional mountain biker.
 
 ---
