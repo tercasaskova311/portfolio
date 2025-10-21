@@ -7,9 +7,10 @@ classes: wide
 ---
 
 I'm **Tereza Sásková**, a Master of Science student in **Data Science at the University of Trento** and a former professional mountain biker.
+
 ---
 
-### 🔬 What I'm Working On
+### What I'm Working On
 
 I’m currently working on two projects that combine my interests in **geospatial analysis** and **data engineering**:
 
@@ -31,7 +32,7 @@ These projects bring together my aim to learn more from **GIS technology**, **sc
 
 ---
 
-### 🧠 **Technical Skills**
+### **Technical Skills**
 
 | Category | Tools & Technologies |
 |-----------|----------------------|
