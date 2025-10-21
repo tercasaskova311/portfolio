@@ -102,19 +102,8 @@ Creating a dynamic reporting system for weekly course participant tracking.
 ## 🏆 Athletic Achievements
 
 > **Junior Vice-World Champion** — Mountain Biking  
-> **U23 13th Overall** — MTB XCO World Cup  
-> **World Cup Winner & Multiple-time Czech National Champion** — MTB XCO  
-> **Professional Ski & MTB Instructor** — Switzerland · Austria · Czech Republic · Italy
-
----
-
-## 🏆 Athletic Achievements
-
-| Achievement | Discipline |
-|-------------|-----------------|
-| Junior Vice-World Champion | Mountain Biking |
-| U23 13th Overall | MTB XCO World Cup |
-| World Cup Winner & Multiple-time Czech National Champion | MTB XCO |
+> **13th** U23 Overall standing MTB XCO World Cup  
+> **World Cup Winner** & Multiple-time Czech National Champion MTB XCO  
 
 ---
 
