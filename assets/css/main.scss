@@ -290,3 +290,110 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 @media (prefers-reduced-motion: reduce) {
   .hero-card, .hero-card img { transition: none !important; animation: none !important; }
 }
+
+/* ===== Carousel styles ===== */
+.carousel-wrap { margin: 2rem auto; max-width: 1100px; padding: 0 1rem; }
+.carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.10);
+  background: #000;
+}
+
+/* Slide stack — only one visible at a time via opacity */
+.carousel .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 800ms cubic-bezier(.2,.9,.2,1), transform 800ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1.02);
+}
+
+/* active slide */
+.carousel .slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+/* image sizing */
+.carousel .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* controls (prev/next) */
+.carousel__control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  color: #111;
+  font-size: 22px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.carousel__control.prev { left: 12px; }
+.carousel__control.next { right: 12px; }
+.carousel__control:focus { outline: 3px solid rgba(128,0,32,0.12); outline-offset: 3px; }
+
+/* dots */
+.carousel-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  z-index: 6;
+  display: flex;
+  gap: .5rem;
+}
+.carousel-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,0.7);
+  cursor: pointer;
+  padding: 0;
+}
+.carousel-dots button.is-active { background: #800020; }
+
+/* pause hint (small) */
+.carousel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* small-screen adjustments */
+@media (max-width: 700px) {
+  .carousel { aspect-ratio: 4 / 3; border-radius: 10px; }
+  .carousel__control { width: 38px; height: 38px; font-size: 18px; }
+  .carousel-dots { bottom: 8px; }
+}
+
+/* noscript fallback grid */
+.gallery-grid-noscript {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: .6rem;
+}
+.gallery-grid-noscript img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }

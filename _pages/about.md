@@ -66,6 +66,7 @@ A **career-ending injury** eventually pushed me to rethink and starts something 
 Today I'm particulary interested in projects where data engineering meets real-world impact — whether that's **monitoring environmental changes from space or building systems that make organizations run more efficiently**. While I'm always open to exploring new domains and learning from different areas of data science. 
 
 ---
+<img src="{{ '/images/MS-mtb-juniorky_tereza-cil.jpg' | relative_url }}" alt="Tereza Sásková" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
 
 ### 🏔️ **Athletic Background**
 - Junior Vice-World Champion in MTB  
