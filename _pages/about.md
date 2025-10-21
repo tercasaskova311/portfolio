@@ -23,18 +23,26 @@ These projects combine my interests in GIS technology, scalable data systems, an
 - Master of Science in Data Science, University of Trento (2024–2026)  
 - Marketing and Program Lead at Sport Šumava  
 
-**Technical Skills:**  
-- **Programming Languages:** Python, SQL, R, C  
-- **Data Engineering:** Apache Spark, Kafka, Docker, Delta Lakes, MongoDB, DuckDB, PostgreSQL  
-- **Geospatial & Remote Sensing:** GIS, Google Earth Engine, Sentinel imagery processing  
-- **Machine Learning:** ML pipelines, Text Processing  
-- **Development Tools:** GitHub, Azure  
+---
 
-**Research Interests:**  
-- Geospatial data analysis and Earth observation  
-- Data pipeline architecture and automation  
-- Big data processing and distributed computing  
-- Machine learning for environmental and social applications  
+### 🧠 **Technical Skills**
+
+| Category | Tools & Technologies |
+|-----------|----------------------|
+| **Programming Languages** | Python · SQL · R · C |
+| **Data Engineering** | Apache Spark · Kafka · Docker · Delta Lakes · MongoDB · DuckDB · PostgreSQL |
+| **Geospatial & Remote Sensing** | GIS · Google Earth Engine · Sentinel imagery processing |
+| **Machine Learning** | ML pipelines · Text Processing |
+| **Development Tools** | GitHub · Azure |
+
+---
+
+### **Research Interests**
+
+> 🌍 Geospatial data analysis and Earth observation  
+> ⚙️ Data pipeline architecture and automation  
+> 💾 Big data processing and distributed computing  
+> 🤖 Machine learning for environmental and social applications
 
 ---
 
