@@ -14,8 +14,6 @@ classes: wide
 [View code on GitHub]({{ page.repo }}){: .btn .btn--primary target="_blank" }  
 [Read full paper (CVPR format)]({{ page.repo }}/blob/main/report/report_cvpr2025.pdf){: .btn .btn--light-outline target="_blank" }
 
-## The Challenge
-
 This was a competition project for our Machine Learning course—four of us had one goal: retrieve the top-10 most similar images for each query. Queries were real photos of celebrities, and the gallery was synthetic AI-generated portraits of the same people, but rendered in completely different artistic styles.
 
 This wasn't a pixel-matching problem. A real photo of someone in a suit and a cartoon-style portrait of the same person share almost nothing at the texture level. We needed semantic understanding—models that could reason about identity despite radical visual differences.
