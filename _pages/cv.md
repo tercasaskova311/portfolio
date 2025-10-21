@@ -14,13 +14,14 @@ Passionate about connecting data, technology, and real-world impact.
 
 ## Education
 **MSc. in Data Science** — *University of Trento, Italy (2024–2026)*  
+- Relevant Coursework: Statistical Learning, Machine Learning, Big Data Technologies, High performance computing, Foundation models, Geospacial analysis, Signal, Image, Video
 **BA in Marketing Communication** — *University of Finance and Administration, Prague (2020–2023)*  
 
 ---
 
 ## Current Work
-- 🛰️ **Urban Environment Prediction** — Remote sensing with Sentinel imagery & Google Earth Engine  
-- ⚙️ **Automated online form system (postgreSQL based)** — Automated PostgreSQL system for ski school participant management  
+- 🛰️ **Urban Environment Prediction** — Remote sensing with Sentinel imagery & Google Earth Engine. Developing predictive models for urban development in Trentino region using Sentinel satellite imagery.   
+- ⚙️ **Automated online form system (postgreSQL based)** — Automated PostgreSQL system for ski school participant management. Creating dynamic reporting system for weekly course participant tracking in a ski school.Technologies: PostgreSQL, Python, Flask, data automation
 
 ---
 
