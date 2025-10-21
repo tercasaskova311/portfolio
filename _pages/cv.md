@@ -13,19 +13,24 @@ Passionate about connecting data, technology, and real-world impact.
 ---
 
 ## Education
+
 **MSc. in Data Science** — *University of Trento, Italy (2024–2026)*  
 - Relevant Coursework: Statistical Learning, Machine Learning, Big Data Technologies, High performance computing, Foundation models, Geospacial analysis, Signal, Image, Video
-**BA in Marketing Communication** — *University of Finance and Administration, Prague (2020–2023)*  
+
+**BA in Marketing Communication** — *University of Finance and Administration, Prague (2020–2023)*
 
 ---
 
 ## Current Work
-- 🛰️ **Urban Environment Prediction** — Remote sensing with Sentinel imagery & Google Earth Engine. Developing predictive models for urban development in Trentino region using Sentinel satellite imagery.   
-- ⚙️ **Automated online form system (postgreSQL based)** — Automated PostgreSQL system for ski school participant management. Creating dynamic reporting system for weekly course participant tracking in a ski school.Technologies: PostgreSQL, Python, Flask, data automation
+
+- 🛰️ **Urban Environment Prediction** — Remote sensing with Sentinel imagery & Google Earth Engine. Developing predictive models for urban development in Trentino region using Sentinel satellite imagery.  
+
+- ⚙️ **Automated online form system (postgreSQL based)** — Automated PostgreSQL system for ski school participant management. Creating dynamic reporting system for weekly course participant tracking in a ski school. Technologies: PostgreSQL, Python, Flask, data automation
 
 ---
 
 ## Selected Projects
+
 | Project | Description | Tech |
 |----------|--------------|------|
 | **Podcast Recommendation Platform** | Built scalable recommendation engine using Spark + MongoDB | Spark · Kafka · Delta Lake |
@@ -38,6 +43,7 @@ Passionate about connecting data, technology, and real-world impact.
 ---
 
 ## Technical Skills
+
 **Languages:** Python · SQL · R · C  
 **Data Engineering:** Spark · Kafka · Docker · PostgreSQL · Delta Lake  
 **Geospatial:** GEE · QGIS · Sentinel Processing  
@@ -47,16 +53,18 @@ Passionate about connecting data, technology, and real-world impact.
 ---
 
 ## Professional Experience
+
 **Marketing & Program Lead**, *Sport Šumava* — 2023 – Present  
-• Marketing analytics, campaign design, data-driven performance evaluation 
-• Led ski & MTB programs emphasizing safety, technique, and engagement  
+• Marketing analytics, campaign design, data-driven performance evaluation  
+• Led ski & MTB programs emphasizing safety, technique, and engagement
 
 ---
 
 ## Athletic Achievements
+
 🏆 **Junior Vice-World Champion**, Mountain Biking  
 🇨🇿 **Multiple-time Czech National Champion**  
-🎿 **Professional Ski & MTB Instructor** in Switzerland & Italy  
+🎿 **Professional Ski & MTB Instructor** in Switzerland and Italy
 
 ---
 
