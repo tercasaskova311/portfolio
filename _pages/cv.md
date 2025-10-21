@@ -50,76 +50,71 @@ Creating a dynamic reporting system for weekly course participant tracking.
 
 ## 🛠️ Technical Skills
 
-<div class="card" style="background:#f9f9f9; padding:1rem; border-radius:12px; margin-bottom:1rem;">
-
-**Programming Languages**  
-Python · SQL · R · C  
-
-**Data Engineering & Big Data**  
-Apache Spark · Kafka · Docker · PostgreSQL · Delta Lake  
-*Designing scalable data pipelines · Stream & batch processing · Large-scale storage solutions*  
-
-**Geospatial & Remote Sensing**  
-Google Earth Engine (GEE) · QGIS  
-*Land-use change detection · Environmental monitoring workflows*  
-
-**Machine Learning**  
-Scikit-learn · PyTorch · NLP frameworks · SparkML  
-*Model development · Text processing · Predictive analytics*  
-
-**Development & DevOps Tools**  
-GitHub · Azure  
-*Version control · Containerization · Lightweight web deployment*
-
-</div>
+> **Programming Languages**  
+> Python · SQL · R · C
+>
+> **Data Engineering & Big Data**  
+> Apache Spark · Kafka · Docker · PostgreSQL · Delta Lake  
+> *Data pipeline design · Stream/batch processing · Scalable storage systems*
+>
+> **Geospatial & Remote Sensing**  
+> Google Earth Engine (GEE) · QGIS  
+> *Land-use change detection · Environmental monitoring workflows*
+>
+> **Machine Learning**  
+> Scikit-learn · PyTorch · NLP frameworks · SparkML
+>
+> **Development & DevOps Tools**  
+> GitHub · Azure  
+> *Version control · Containerization · Lightweight web deployment*
 
 ---
 
 ## 💼 Professional Experience
 
-<div class="card" style="background:#ffffff; padding:1rem; border-radius:12px; margin-bottom:1rem; box-shadow:0 6px 18px rgba(0,0,0,.06);">
-
-**Marketing & Program Lead** — *Sport Šumava* (2023 – Present)  
-- Developed marketing campaigns and performed data-driven analytics to optimize performance  
-- Managed ski & MTB programs, focusing on safety, skill development, and participant engagement  
-
-</div>
+> **Marketing & Program Lead** — *Sport Šumava* (2023 – Present)  
+> • Marketing analytics, campaign design, data-driven performance evaluation  
+> • Led ski & MTB programs emphasizing safety, technique, and engagement
 
 ---
 
 ## 🌱 Other Experience & Community Involvement
 
-<div class="card" style="background:#f5f5f5; padding:1rem; border-radius:12px; margin-bottom:1rem;">
-
-**Česko.Digital** — *Volunteer Content Creator*  
-Created web copy and social media content supporting civic-tech initiatives and digital inclusion.  
-
-**180 Degrees Consulting** — *Student Consultant*  
-Collaborated with NGOs to deliver strategic, data-driven solutions and improve community impact.  
-
-**University for Climate (Prague)** — *Student Member*  
-Participated in interdisciplinary projects promoting environmental awareness and sustainability.  
-
-**English Tutor** — *Freelance, ongoing*  
-
-**MTB Guide** — *Finale Ligure, Italy*  
-Led technical mountain biking tours, ensuring rider safety and skill progression.  
-
-**Ski Instructor** — *Saas Fee, Switzerland (Viamond, International Schools)*  
-Delivered lessons to international students of all ages, fostering confidence and snow proficiency.  
-
-</div>
+> **Česko.Digital** — *Volunteer Content Creator*  
+> Contributed to web copy and social media content supporting civic-tech initiatives.
+>
+> **180 Degrees Consulting** — *Student Consultant*  
+> Worked with NGOs on strategic and data-driven solutions to improve community impact.
+>
+> **University for Climate (Prague)** — *Student Member*  
+> Participated in interdisciplinary projects promoting environmental awareness and sustainability.
+>
+> **English Tutor** — *Freelance, ongoing*
+>
+> **MTB Guide** — *Finale Ligure, Italy*  
+> Led technical mountain biking tours, ensuring rider safety and skill progression.
+>
+> **Ski Instructor** — *Saas Fee, Switzerland (Viamond, International Schools)*  
+> Delivered lessons to international students of all ages, fostering confidence and snow proficiency.
 
 ---
 
 ## 🏆 Athletic Achievements
 
-| Achievement | Discipline / Notes | Locations |
-|-------------|-----------------|-----------|
-| Junior Vice-World Champion | Mountain Biking | — |
-| U23 13th Overall | MTB XCO World Cup | — |
-| World Cup Winner & Multiple-time Czech National Champion | MTB XCO | — |
-| Professional Instructor | Ski & MTB | Switzerland · Austria · Czech Republic · Italy |
+> **Junior Vice-World Champion** — Mountain Biking  
+> **U23 13th Overall** — MTB XCO World Cup  
+> **World Cup Winner & Multiple-time Czech National Champion** — MTB XCO  
+> **Professional Ski & MTB Instructor** — Switzerland · Austria · Czech Republic · Italy
+
+---
+
+## 🏆 Athletic Achievements
+
+| Achievement | Discipline |
+|-------------|-----------------|
+| Junior Vice-World Champion | Mountain Biking |
+| U23 13th Overall | MTB XCO World Cup |
+| World Cup Winner & Multiple-time Czech National Champion | MTB XCO |
 
 ---
 
