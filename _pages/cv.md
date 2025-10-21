@@ -31,7 +31,7 @@ Developing predictive models for urban development in Trentino region using Sent
 *Technologies:* Google Earth Engine, Python, QGIS
 
 **Data Pipeline Framework for Course Management** | *In Progress*  
-Building automated data pipeline connecting online registration forms to PostgreSQL database. Creating dynamic reporting system for weekly course participant tracking.  
+Building automated data pipeline connecting online registration forms to PostgreSQL database. Creating dynamic reporting system for weekly course participant tracking in a ski school.  
 *Technologies:* PostgreSQL, Python, Flask, data automation
 
 ---

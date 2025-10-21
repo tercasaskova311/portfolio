@@ -6,15 +6,16 @@ author_profile: true
 classes: wide
 ---
 
-I'm **Tereza Sásková**, a student of the Master of Science in Data Science at the University of Trento and a former professional mountain biker.
+I'm **Tereza Sásková**, a Master of Science student in Data Science at the University of Trento and a former professional mountain biker.
+
 
 **What I'm working on right now:**
 
-I'm currently diving deep into two areas that fascinate me:
+I'm currently working on two projects that are broadening my knowledge in areas that interest me:
 
-1. **Geospatial Analysis & Remote Sensing** — I'm working on urban environment change prediction using Sentinel satellite imagery, exploring how cities evolve over time through Earth observation data.
+**Geospatial Analysis & Remote Sensing** — I'm working on urban environment change prediction using Sentinel satellite imagery, exploring how cities evolve over time through Earth observation data. 
 
-2. **Data Engineering & Pipeline Development** — I'm building data pipeline frameworks that automate workflows, like connecting online registration forms to PostgreSQL databases and generating dynamic reports for course participants. I love creating systems that make data flow seamlessly.
+**Data Engineering & Pipeline Development** — I'm building data pipeline frameworks that automate workflows, connecting online registration forms to PostgreSQL databases and generating dynamic reports for course participants. This is specifically for a ski school's winter-long course, where participants need to sign up for a given week. I'm building a system based on Docker, PostgreSQL, Google Forms, and HTML forms, all hosted on Wedos.
 
 These projects combine my interests in GIS technology, scalable data systems, and building solutions that have real-world applications.
 
