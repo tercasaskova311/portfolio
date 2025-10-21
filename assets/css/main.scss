@@ -72,8 +72,7 @@
   position: fixed;            /* sits behind everything */
   inset: 0;
   z-index: -2;
-  background-image: linear-gradient(to bottom, rgba(128,0,32,.28), rgba(128,0,32,.08)),
-                    url('{{ "/images/homepage.JPG" | relative_url }}');
+  background-image: url('{{ "/images/homepage.JPG" | relative_url }}');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -142,9 +141,15 @@
 .btn--light-outline {
   background: transparent;
   border: 1px solid rgba(128,0,32,.18);
-  color: #800020;
+  color: #800020 !important;     /* burgundy text */
+  font-weight: 600;
 }
-.btn--light-outline:hover { background: rgba(128,0,32,.04); }
+
+.btn--light-outline:hover {
+  background: rgba(128,0,32,.06);
+  color: #800020 !important;      /* stay burgundy when hovered */
+}
+
 
 /* Right column: portrait image (circular) */
 .hero-card__image {
