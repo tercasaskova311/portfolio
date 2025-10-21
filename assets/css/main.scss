@@ -33,13 +33,7 @@
 .masthead .greedy-nav a,
 .masthead .greedy-nav .site-title { color: #fff !important; }
 
-/* Hamburger: simple white lines, no pill */
-.masthead .greedy-nav__toggle{
-  position:absolute; left:16px; top:50%; transform:translateY(-50%);
-  width:28px; height:22px; padding:0; margin:0;
-  background:transparent !important; border:0 !important; border-radius:0 !important; box-shadow:none !important;
-  outline:none !important; cursor:pointer;
-}
+
 .masthead .greedy-nav__toggle::before,
 .masthead .greedy-nav__toggle::after{
   content:""; position:absolute; left:0; width:100%; height:2px; background:#fff;
@@ -50,8 +44,12 @@
   position:absolute; left:0; top:50%; transform:translateY(-50%);
   display:block; width:100%; height:2px; background:#fff;
 }
-.masthead .greedy-nav__toggle{ display:block !important; }
-
+/* Completely hide the hamburger toggle */
+.masthead .greedy-nav__toggle {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
 .masthead .site-logo { display: none !important; }
 
 /* 2) FULL-SCREEN BACKGROUND for home page */
