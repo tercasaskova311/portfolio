@@ -6,78 +6,47 @@ author_profile: true
 classes: wide
 ---
 
-# 👋 Hi, I'm **Tereza Sásková**
+I'm **Tereza Sásková**, a Master of Science student in Data Science at the University of Trento and a former professional mountain biker.
 
-*MSc Data Science student | Geospatial & Data Engineering enthusiast | Former pro mountain biker turned data scientist.*
 
----
+**What I'm working on right now:**
 
-## What I'm Working On
+I'm currently working on two projects that are broadening my knowledge in areas that interest me:
 
-I’m currently diving deep into two hands-on projects that combine data science with real-world impact:
+**Geospatial Analysis & Remote Sensing** — I'm working on urban environment change prediction using Sentinel satellite imagery, exploring how cities evolve over time through Earth observation data. 
 
-### 🛰️ Geospatial Analysis & Remote Sensing
-Exploring how **urban environments evolve over time** using Sentinel satellite imagery.  
-I’m developing models to predict **urban change** and understand the dynamics of city growth through Earth observation data.
+**Data Engineering & Pipeline Development** — I'm building data pipeline frameworks that automate workflows, connecting online registration forms to PostgreSQL databases and generating dynamic reports for course participants. This is specifically for a ski school's winter-long course, where participants need to sign up for a given week. I'm building a system based on Docker, PostgreSQL, Google Forms, and HTML forms, all hosted on Wedos.
 
-### ⚙️ Data Engineering & Pipeline Development
-Building **automated data pipelines** for a ski school’s winter-long program:  
-- Connects online registration forms → PostgreSQL database  
-- Generates **dynamic reports** for participants  
-- Entirely containerized with **Docker**, **PostgreSQL**, and hosted on **Wedos**
+These projects combine my interests in GIS technology, scalable data systems, and building solutions that have real-world applications.
 
-These projects bridge my interests in **GIS**, **automation**, and **data systems that make a difference**.
+**Currently:**  
+- Master of Science in Data Science, University of Trento (2024–2026)  
+- Marketing and Program Lead at Sport Šumava  
 
----
+**Technical Skills:**  
+- **Programming Languages:** Python, SQL, R, C  
+- **Data Engineering:** Apache Spark, Kafka, Docker, Delta Lakes, MongoDB, DuckDB, PostgreSQL  
+- **Geospatial & Remote Sensing:** GIS, Google Earth Engine, Sentinel imagery processing  
+- **Machine Learning:** ML pipelines, Text Processing  
+- **Development Tools:** GitHub, Azure  
 
-## 🎓 Currently
-- 🎓 **Master of Science in Data Science**, University of Trento *(2024–2026)*  
-- 🏔️ **Marketing & Program Lead**, Sport Šumava  
-
----
-
-## Technical skills
-
-| Domain | Tools & Technologies |
-|:--|:--|
-| **Programming** | Python, SQL, R, C |
-| **Data Engineering** | Apache Spark, Kafka, Docker, Delta Lakes, MongoDB, DuckDB, PostgreSQL |
-| **Geospatial & Remote Sensing** | GIS, Google Earth Engine, Sentinel imagery |
-| **Machine Learning** | ML pipelines, Text Processing |
-| **Dev Tools** | GitHub, Azure |
+**Research Interests:**  
+- Geospatial data analysis and Earth observation  
+- Data pipeline architecture and automation  
+- Big data processing and distributed computing  
+- Machine learning for environmental and social applications  
 
 ---
 
-## Research Interests
-- Geospatial data analysis & Earth observation  
-- Data pipeline architecture & automation  
-- Big data processing & distributed computing  
-- Machine learning for environmental & social insights  
+My background spans **competitive racing** and marketing, but I have transitioned fully into **Data science**. I hold a bachelor's degree in marketing and was a **Junior Vice-World Champion in mountain biking** — experiences that taught me discipline, analytical thinking, and how to perform under pressure, skills I now apply to complex data challenges.
 
----
+While my path may not be the most conventional route to a computationally-focused role, I believe that a great data scientist in today's world needs to be highly adaptable, detail-oriented, and capable of finding new perspectives on problems. These are precisely the skills I developed as a professional athlete, and refined further when a career-ending injury forced me to rebuild my professional identity from the ground up. That experience taught me resilience and the ability to learn rapidly in unfamiliar environments — qualities that continue to drive my work in data science.
 
-## My Journey
+I'm particularly drawn to projects where data engineering meets real-world impact — whether that's **monitoring environmental changes from space or building systems that make organizations run more efficiently**. I'm always open to exploring new domains and learning from different areas of data science.
 
-My story started far from code — on a bike trail.
-
-I was a **Junior Vice-World Champion** in mountain biking and multiple-time **Czech National Champion**, before an injury turned my focus inward — from **racing lines** to **data pipelines**.  
-
-That turning point taught me resilience, analytical thinking, and the value of structured progress — traits that now define how I approach complex data challenges.
-
-My marketing background gave me a foundation in **human behavior** and **communication**, while my athletic career shaped my **discipline** and **adaptability**. These combined experiences drive how I approach data science today: curious, detail-oriented, and focused on impact.
-
----
-
-## 🏅 Athletic Highlights
+**Athletic Background:**  
 - Junior Vice-World Champion in MTB  
 - Multiple-time Czech National MTB Champion  
 - Ski & MTB Instructor in Switzerland and Italy  
 
----
-
-📄 [**Download my CV**]({{ "/files/TerezaSaskova_CV.pdf" | relative_url }})  
-💼 [**LinkedIn**](https://www.linkedin.com/in/terezasaskova) • 🌐 [**GitHub**](https://github.com/terezasaskova)
-
----
-
-✨ *I’m always open to collaboration — especially where data engineering meets environmental or geospatial challenges.*
+📄 [Download my CV]({{ "/files/TerezaSaskova_CV.pdf" | relative_url }})
