@@ -1,4 +1,3 @@
-// assets/js/carousel.js
 document.addEventListener('DOMContentLoaded', function () {
   const carousel = document.getElementById('heroCarousel');
   if (!carousel) return;
@@ -13,21 +12,28 @@ document.addEventListener('DOMContentLoaded', function () {
   const interval = parseInt(carousel.dataset.interval || 4000, 10);
   const autoplay = carousel.dataset.autoplay !== 'false';
 
-  // build dots
+  // --- set slide height dynamically ---
+  function setSlideHeight() {
+    const carouselHeight = window.innerHeight * 0.6; // 60% of viewport height
+    slides.forEach(slide => slide.style.height = `${carouselHeight}px`);
+  }
+  window.addEventListener('resize', setSlideHeight);
+  setSlideHeight(); // initial
+
+  // --- build dots ---
   slides.forEach((_, i) => {
     const btn = document.createElement('button');
-    btn.setAttribute('aria-label', `Go to slide ${i+1}`);
+    btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
     btn.dataset.index = i;
     if (i === 0) btn.classList.add('is-active');
     dotsContainer.appendChild(btn);
   });
-
   const dots = Array.from(dotsContainer.querySelectorAll('button'));
 
+  // --- show a slide ---
   function show(index) {
     slides.forEach((s, i) => {
       s.classList.toggle('is-active', i === index);
-      // update aria-hidden for screen readers
       s.setAttribute('aria-hidden', i === index ? 'false' : 'true');
     });
     dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
@@ -37,42 +43,38 @@ document.addEventListener('DOMContentLoaded', function () {
   function next() { show((current + 1) % slides.length); }
   function prev() { show((current - 1 + slides.length) % slides.length); }
 
-  // wire controls
+  // --- wire controls ---
   if (nextBtn) nextBtn.addEventListener('click', () => { next(); resetTimer(); });
   if (prevBtn) prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
 
-  // dots click
   dots.forEach(d => d.addEventListener('click', (e) => {
     const idx = parseInt(e.currentTarget.dataset.index, 10);
     show(idx);
     resetTimer();
   }));
 
-  // keyboard support
+  // --- keyboard support ---
   carousel.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') { next(); resetTimer(); }
     if (e.key === 'ArrowLeft') { prev(); resetTimer(); }
   });
 
-  // autoplay timer
+  // --- autoplay timer ---
   function startTimer() {
     if (!autoplay) return;
     stopTimer();
-    timer = setInterval(() => next(), interval);
+    timer = setInterval(next, interval);
   }
   function stopTimer() { if (timer) { clearInterval(timer); timer = null; } }
   function resetTimer() { stopTimer(); startTimer(); }
 
-  // pause when hovered or focused for a11y
+  // --- pause when hovered/focused ---
   carousel.addEventListener('mouseenter', stopTimer);
   carousel.addEventListener('mouseleave', startTimer);
   carousel.addEventListener('focusin', stopTimer);
   carousel.addEventListener('focusout', startTimer);
 
-  // init
+  // --- initialize ---
   show(0);
   startTimer();
-
-  // safety: if slides change dynamically, ensure dots reflect that
-  // (not required for static pages)
 });
