@@ -44,11 +44,18 @@ Passionate about connecting data, technology, and real-world impact.
 
 ## Technical Skills
 
-**Languages:** Python · SQL · R · C  
-**Data Engineering:** Spark · Kafka · Docker · PostgreSQL · Delta Lake  
-**Geospatial:** GEE · QGIS · Sentinel Processing  
-**Machine Learning:** Scikit-learn · PyTorch · NLP  
-**Tools:** GitHub · Azure · Flask (intro)
+**Programming Languages** — Python, SQL, R, C  
+
+**Data Engineering & Big Data** — Apache Spark, Kafka, Docker, PostgreSQL, Delta Lake  
+*Data pipeline design, stream/batch processing, scalable storage systems*  
+
+**Geospatial & Remote Sensing** — Google Earth Engine (GEE), QGIS
+
+**Machine Learning** — Scikit-learn, PyTorch, NLP frameworks, SparkML 
+
+**Development & DevOps Tools** — GitHub, Azure
+*Version control, containerization, lightweight web deployment*
+
 
 ---
 
