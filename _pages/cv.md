@@ -59,12 +59,33 @@ Passionate about connecting data, technology, and real-world impact.
 • Led ski & MTB programs emphasizing safety, technique, and engagement
 
 ---
+## Other work experiences, Projects & Community Involvement
+
+**Česko.Digital** — *Volunteer Content Creator*  
+Contributed to communication materials, writing web copy and social media content supporting civic-tech initiatives and digital inclusion in the Czech Republic.
+
+**180 Degrees Consulting** — *Student Consultant*  
+Worked with NGOs on strategic and data-driven solutions to improve community impact. Collaborated with a cross-disciplinary team.
+
+**University for Climate (Prague)** — *Student Member*  
+Participated in interdisciplinary projects raising environmental awareness and promoting sustainable practices across university communities.
+
+**English Tutor** — *Freelance, ongoing*  
+
+**MTB Guide — Finale Ligure, Italy**  
+Led guided mountain biking tours, focusing on technical trail riding and group safety management.
+
+**Ski Instructor — Saas Fee, Switzerland (Viamond, International Schools)**  
+Worked with international schools delivering ski lessons to diverse age groups. Supported skill progression and confidence building on snow.
+
+---
 
 ## Athletic Achievements
 
-🏆 **Junior Vice-World Champion**, Mountain Biking  
-🇨🇿 **Multiple-time Czech National Champion**  
-🎿 **Professional Ski & MTB Instructor** in Switzerland and Italy
+🏆 **Junior Vice-World Champion**, Mountain Biking 
+- **U23 13th in World Cup overall**, MTB XCO World Cup 
+🇨🇿 **World cup winner & Multiple-time Czech National Champion**  
+🎿 **Professional Ski & MTB Instructor** in Switzerland, Austria, Czech republic and Italy
 
 ---
 
