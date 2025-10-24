@@ -1,8 +1,8 @@
 title: "Home"
 masthead_title: "Home"
 
-url: "https://tercasaskova311.github.io"
-baseurl: "/portfolio"                 # project site (repo name = portfolio)
+url: "https://terezasaskova.com"
+baseurl: ""  # Empty when using custom domain!
 repository: "tercasaskova311/portfolio"
 minimal_mistakes_skin: "default"   # or "plum", "air", "dark", ...
 
