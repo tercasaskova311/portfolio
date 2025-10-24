@@ -2,7 +2,7 @@
 title: "Podcast Recommendation Platform"
 collection: portfolio
 permalink: /portfolio/podcast-platform/
-date: 2025-09-01
+date: 2025-09-20
 excerpt: "Building a hybrid recommender that combines user behavior with content understanding—because sometimes the best next listen isn't just what similar users liked."
 repo: https://github.com/tercasaskova311/podcast-recommendation-platform
 tags: [Spark, Delta Lake, MongoDB, Recommender Systems, Airflow, NLP, Kafka]

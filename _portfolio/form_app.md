@@ -2,15 +2,15 @@
 title: "Weekend Ski Course Registration System"
 collection: portfolio
 permalink: /portfolio/ski-registration/
-date: 2025-01-15
-excerpt: "Production-grade Flask application with MySQL, access control, and quota management—handling real ski course registrations with concurrency guarantees and enrollment verification."
-tags: [Flask, PostgreSQL, SQLAlchemy, Docker, Production Systems, Backend Development]
+date: 2025-10-20
+excerpt: "Flask application with MySQL and google foms + html form in order to provide automatic orchestration of seasonal ski courses attendance, when customers can choose 8 out of 12 weeks."
+tags: [Flask, MySQL, SQLAlchemy, Docker, Production Systems, Backend Development]
 header:
   teaser: /images/portfolio/ski-registration/form-preview.png
 classes: wide
 ---
 
-This is a production backend system I built for managing weekend ski course registrations. It handles real users, enforces strict quota limits (max 8 weekends per a kid signed up for a season course), and includes enrollment verification, concurrency control, and automated deadline enforcement.
+This is a production backend system I built (and I am still fine-tuning) for managing weekend ski course registrations. It handles real users, enforces quota limits (max 8 weekends per a kid signed up for a season course), and includes enrollment verification, concurrency control, and automated deadline enforcement.
 
 The system will go live in December 2025 and will be used by course participants to register for weekend ski sessions in Ski Zadov ski schol. It replaces manual spreadsheet management with a robust, automated solution that prevents double-bookings, enforces registration deadlines, and provides real-time attendance tracking.
 
@@ -54,7 +54,7 @@ This wasn't sustainable for a course with around 200 kids registering across 12 
 ### Technology Stack
 
 **Backend**: Flask with SQLAlchemy ORM  
-**Database**: PostgreSQL 
+**Database**: MySQL 
 **Deployment**: Docker Compose (multi-container setup)  
 **Frontend**: Vanilla HTML/CSS/JavaScript (server-rendered, no framework overhead)  
 **Infrastructure**: Wedos - shared DB 
@@ -68,19 +68,13 @@ Three core tables with strategic indexing:
 - Prevents duplicate user creation via INSERT IGNORE
 
 **enrolled_students**:
-- Imported from Wix CSV export (official course enrollment list)
+- Imported from CSV export (official course enrollment list)
 - Columns: email (PK), jmeno (first name), prijmeni (last name), is_active
 - Used for access control: only active enrollees can register
 
-**submissions**:
-- Primary registration records
-- Columns: user_id, weekend_date, day_choice (PATEK/SOBOTA), answer (ANO/NE), status (ACCEPTED/REJECTED)
-- Unique constraint: `(user_id, weekend_date, day_choice)` prevents duplicate registrations
-- Indexed on: `weekend_date` (weekly lookups), `user_id` (quota queries)
+### Concurrency Control: MySQL Named Locks
 
-### Concurrency Control: PostgreSQL Named Locks
-
-The hardest problem was **ensuring atomic quota checks**. Without locking, this race condition was possible:
+The problem was **ensuring atomic quota checks**. Without locking, this race condition was possible:
 
 1. User A and User B both have 7 accepted weekends
 2. Both request their 8th weekend simultaneously
@@ -173,42 +167,7 @@ Past weekends are automatically disabled. The dropdown shows human-readable date
 
 ### 3. Google Sheets Integration
 
-Endpoint `/sheets/attendance/{week_date}` returns CSV formatted for `IMPORTDATA()`:
-```python
-@app.route('/sheets/attendance/<week_date>', methods=['GET'])
-def sheets_attendance(week_date):
-    # Returns: Jméno,Email,Den,Přihlášeno
-    # Format: Jan Novák,jan@email.cz,SOBOTA,20.12.2024 14:30
-```
-
-Instructors embed this in Google Sheets:
-```
-=IMPORTDATA("https://lyzovani.domain.com/sheets/attendance/2025-12-14")
-```
-
-Live-updating attendance list—no manual exports needed.
-
 ### 4. Admin Override System
-
-Endpoint `/admin/override` with token authentication allows manual intervention:
-```bash
-curl -X POST https://lyzovani.domain.com/admin/override \
-  -H "X-ADMIN-TOKEN: secret" \
-  -d '{
-    "user_id": "student@email.cz",
-    "weekend_date": "2025-12-14",
-    "action": "force_accept",
-    "note": "lékařská omluvenka"
-  }'
-```
-
-Actions:
-- `force_accept`: Bypass quota and deadlines (medical emergencies)
-- `force_reject`: Manually reject a registration (disciplinary reasons)
-
-All overrides are logged in the `note` column for auditing.
-
----
 
 ## Deployment & Production Setup
 
@@ -238,24 +197,6 @@ services:
 The `depends_on` with `condition: service_healthy` prevents race conditions during startup (app attempting to connect before MySQL is ready).
 
 ### Cloudflare Tunnel Setup
-
-Exposes local development to HTTPS public domain without port forwarding:
-```yaml
-# cloudflared/config.yml
-tunnel: <tunnel-id>
-credentials-file: /path/to/credentials.json
-
-ingress:
-  - hostname: lyzovani.yourdomain.com
-    service: http://localhost:5000
-  - service: http_status:404
-```
-
-Benefits:
-- Free HTTPS certificates
-- No firewall configuration
-- DDoS protection included
-- Revocable access (no exposed ports)
 
 ### One-Click Setup Script
 
@@ -366,25 +307,7 @@ Handles Czech diacritics (ěščřžýáíé) correctly.
 
 5. **Single-tenant only**: One course per deployment
    - **Fix**: Add `course_id` foreign key for multi-tenant support
-
 ---
-
-## Key Takeaways
-
-**Concurrency is subtle**: The quota race condition wasn't obvious until we stress-tested with concurrent requests. MySQL named locks were the right tool—simpler than distributed locks (Redis) and sufficient for single-database deployments.
-
-**Timezone bugs are silent killers**: Deadline enforcement broke for the first weekend because we forgot Prague != UTC. Always use timezone-aware datetimes in production.
-
-**Production means error handling**: Every database query has exception handling, every endpoint returns structured JSON errors, every transaction has rollback logic. Development code doesn't need this—production code dies without it.
-
-**One-click setup pays dividends**: The 30 minutes spent writing `setup.sh` saved hours of "it doesn't work on my machine" debugging. Automated deployments are worth the upfront investment.
-
-**Real users find edge cases**: We added admin overrides after a student got COVID and needed a last-minute registration change. Production requirements emerge from actual usage, not upfront specs.
-
----
-
-📂 [Full source code and deployment guide]({{ page.repo }})  
-📊 [Live attendance tracker](https://lyzovani.yourdomain.com/attendance.html)
 
 **Tech Stack**: Flask, SQLAlchemy, MySQL, Docker, Cloudflare Tunnel  
 **Project Type**: Production backend system (live since December 2025)  
