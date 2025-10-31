@@ -1,314 +1,57 @@
 ---
-title: "Weekend Ski Course Registration System"
+title: "Weekly Registration System for Ski School Ski Zadov"
 collection: portfolio
-permalink: /portfolio/ski-registration/
-date: 2025-10-20
-excerpt: "Flask application with MySQL and google foms + html form in order to provide automatic orchestration of seasonal ski courses attendance, when customers can choose 8 out of 12 weeks."
-tags: [Flask, MySQL, SQLAlchemy, Docker, Production Systems, Backend Development]
+permalink: /portfolio/registration-system/
+date: 2025-09-20
+excerpt: "Weekly Registration System for Ski School, providing a system for weekly ski school lessons. Customers buy a season course and then have a possibility to choose 8 out of 12 weeks. This app povide a registration platform for each week."
+repo: https://github.com/tercasaskova311/form_app
+tags: [Flask, PostgreSQL, sqlalchemy, python, java, railway.app]
 header:
-  teaser: /images/portfolio/ski-registration/form-preview.png
+  teaser: 
 classes: wide
 ---
 
-This is a production backend system I built (and I am still fine-tuning) for managing weekend ski course registrations. It handles real users, enforces quota limits (max 8 weekends per a kid signed up for a season course), and includes enrollment verification, concurrency control, and automated deadline enforcement.
+## Weekly Registration System for Ski School
 
-The system will go live in December 2025 and will be used by course participants to register for weekend ski sessions in Ski Zadov ski schol. It replaces manual spreadsheet management with a robust, automated solution that prevents double-bookings, enforces registration deadlines, and provides real-time attendance tracking.
+This project is application for a family business, production-ready web application developed for Ski Zadov, my family ski school, to automate and manage weekly registrations for their seasonal ski course. The system replaces a cumbersome manual check-up process, enabling customers to efficiently book their limited weekly lessons and allowing administrators to manage capacity and attendance.
 
----
+<img src="{{ 'images/registration_system.png' | relative_url }}" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
 
-## The Problem: Manual Registration Chaos
 
-The ski course runs every weekend from December to March—12 weekends total. Each kid can attend up to 8 weekends, choosing either Friday or Saturday. The previous system used Google Forms + manual spreadsheet check up, which created several problems:
+## Core Problem & Solution
 
-1. **No quota enforcement**: Students could accidentally register for more than 8 weekends
-2. **Late registrations**: No automated deadline cutoff (Wednesday before each weekend)
-3. **Manual verification**: Instructors had to cross-check enrollments against the official student list
-4. **No attendance tracking**: Extracting weekly attendance required manual CSV exports
+Problem
 
-This wasn't sustainable for a course with around 200 kids registering across 12 weekends.
+Customers purchase a season course, which offer them up to 8 lessons out of a total of 12 available weeks throughout the winter. The challenge was managing this constrints, preventing over-registration, handling multiple possible time slots per weekend, and providing a reliable cutoff time for weekly booking. The previous manual check-up process was time-consuming and error-prone.
 
----
+- manual registration check up
+- possibility to registr for 8 out of 12 weeks during the winter 
+- regitration always open till 24:00 wednesday every week
+- possibility to choose both friday and saturday given week
 
-## Technical Requirements
+## Architecture of the solution
 
-### Core Functionality
+I have decided to use railway app to deploy my system app which run on postgreSQl, as I thougth this would be the most relieable and suitable databese system. I developed a scalable Flask application that enforces the business logic while providing a clear and secure registration platform.
 
-- **Quota management**: Each student gets exactly 8 weekend slots (winter season: Dec 13, 2025 - Mar 7, 2026)
-- **Access control**: Only enrolled students (verified via website registration form exported CSV) can register
-- **Deadline enforcement**: Registrations close Wednesday before each weekend (3 days prior)
-- **Day selection**: Students choose Friday OR Saturday for each weekend
-- **Status tracking**: Submissions are either ACCEPTED or REJECTED (quota exceeded, late submission)
-- **Concurrency safety**: Multiple users registering simultaneously must not cause race conditions
-
-### Operational Requirements
-
-- **Real-time attendance**: Ski school office needs instant access to weekly participant lists on thursday in order to create groups for friday.
-- **CSV export**: Integration with Google Sheets for easy logistics planning
-- **Admin overrides**: Manual approval for edge cases (medical emergencies, system errors)
-- **Audit trail**: Track all submission attempts with timestamps and rejection reasons
-
----
-
-## Architecture & Implementation
-
-### Technology Stack
-
-**Backend**: Flask with SQLAlchemy ORM  
-**Database**: MySQL 
-**Deployment**: Docker Compose (multi-container setup)  
-**Frontend**: Vanilla HTML/CSS/JavaScript (server-rendered, no framework overhead)  
-**Infrastructure**: Wedos - shared DB 
-
-### Database Schema
-
-Three core tables with strategic indexing:
-
-**users**:
-- Stores basic user info (email as primary key, name, phone)
-- Prevents duplicate user creation via INSERT IGNORE
-
-**enrolled_students**:
-- Imported from CSV export (official course enrollment list)
-- Columns: email (PK), jmeno (first name), prijmeni (last name), is_active
-- Used for access control: only active enrollees can register
-
-### Concurrency Control: MySQL Named Locks
-
-The problem was **ensuring atomic quota checks**. Without locking, this race condition was possible:
-
-1. User A and User B both have 7 accepted weekends
-2. Both request their 8th weekend simultaneously
-3. Both read "7 accepted" → both think they're under the limit
-4. Both insert → User A and B both get 8 weekends (incorrect: only one should succeed)
-
-**Solution**: MySQL's `GET_LOCK()` function provides **user-level advisory locks**:
-```python
-def acquire_user_lock(session, user_id, timeout=5):
-    lock_name = f"user_lock_{user_id}"
-    res = session.execute(
-        text("SELECT GET_LOCK(:name, :t) AS got"), 
-        {"name": lock_name, "t": timeout}
-    ).fetchone()
-    return bool(res and (list(res)[0] == 1))
-```
-
-**How it works**:
-- Before processing any submission, acquire a lock on `user_lock_{user_id}`
-- Only one request per user can proceed at a time
-- Lock automatically releases on transaction commit/rollback
-- 5-second timeout prevents deadlocks
-
-This guarantees **serializable isolation per user** without global table locks (other users' submissions proceed in parallel).
-
-### Transaction Flow
-
-Every submission goes through `submit_transactional()`:
-
-1. **Enrollment check**: Verify email exists in `enrolled_students` table
-2. **Acquire user lock**: Prevent concurrent modifications for this user
-3. **Deadline validation**: Reject ANO answers after Wednesday cutoff (unless admin override)
-4. **Quota check**: Count existing ACCEPTED+ANO submissions in winter date range
-5. **State transition logic**:
-   - Existing submission: Update answer/status if changed
-   - New submission: Insert with appropriate status (ACCEPTED/REJECTED)
-   - ANO → NE: Always accepted (freeing up quota)
-   - NE → ANO: Check quota before accepting
-6. **Commit + release lock**: Transaction guarantees atomicity
-
-**Critical implementation detail**: SQLAlchemy auto-begins transactions, so calling `session.begin()` explicitly was causing nested transaction errors. The fix: trust the ORM's default behavior and only call `commit()` or `rollback()`.
-
----
-
-## Key Features
-
-### 1. Enrollment Verification
-
-Environment variable `REQUIRE_ENROLLMENT=true` enables access control:
-```python
-def is_user_enrolled(session, email):
-    if not REQUIRE_ENROLLMENT:
-        return True, None
-    
-    student = session.query(EnrolledStudent).filter_by(
-        id=email.lower().strip(),
-        is_active=True
-    ).first()
-    
-    return (True, f"{student.jmeno} {student.prijmeni}") if student else (False, None)
-```
-
-Frontend checks enrollment in real-time (AJAX call on email blur), displaying:
-- ✓ Green badge: "Email ověřen - registrován jako: Jan Novák"
-- ✗ Red badge: "Email není registrován v systému"
-
-This prevents non-students from accessing the system while providing clear feedback.
-
-### 2. Dynamic Weekend Generation
-
-Frontend auto-generates all winter Saturdays (Dec 13, 2025 - Mar 7, 2026):
-```javascript
-function generateWinterWeekends() {
-  const startDate = new Date('2025-12-13');
-  const endDate = new Date('2026-03-07');
-  const saturdays = [];
+- Management: Tracks the total number of lessons booked against the user's limit of 8 per season.
+- Time Slot Booking: Allows users to choose from specific, defined time slots (Friday 14:00, Saturday 08:15, Saturday 14:00), supporting more granular capacity planning than a simple "day choice."
+- Registration Deadline: Automatically enforces a weekly registration cutoff (e.g., Wednesday at 24:00).
+- Automated Admin Interface: Provides a streamlined way for administrators to check attendance via an optimized interface and Google Sheets integration.
   
-  let current = new Date(startDate);
-  while (current.getDay() !== 6) current.setDate(current.getDate() + 1);
-  
-  while (current <= endDate) {
-    saturdays.push(new Date(current));
-    current.setDate(current.getDate() + 7);
-  }
-  return saturdays;
-}
-```
+## Architecture and Technology Stack
 
-Past weekends are automatically disabled. The dropdown shows human-readable dates: "13. - 14. prosince 2025".
+- Database	PostgreSQL (Managed by Railway)
+- ORM	SQLAlchemy	Manages database interactions - defining models for User, Submission, and EnrolledStudent with complex constraints.
+- Deployment	Railway.app	Platform - for continuous deployment and hosting of the application and PostgreSQL database
+- Backend	Flask (Python)
+- html fscripts for UX - form and attendated
+- Google Sheets API	- Synchronizes attendance data for fast, real-time check-ins by ski school staff
+- importing csv from registrastion (eshop)
+- secure import 
 
-### 3. Google Sheets Integration
+Key Development Details
 
-### 4. Admin Override System
-
-## Deployment & Production Setup
-
-### Docker Compose Architecture
-
-Two-container setup with health checks:
-```yaml
-services:
-  db:
-    image: mysql:8.0
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      retries: 5
-  
-  app:
-    build: .
-    depends_on:
-      db:
-        condition: service_healthy  # Wait for DB before starting
-    environment:
-      DB_HOST: db
-      ADMIN_TOKEN: ${ADMIN_TOKEN}
-      REQUIRE_ENROLLMENT: "true"
-```
-
-The `depends_on` with `condition: service_healthy` prevents race conditions during startup (app attempting to connect before MySQL is ready).
-
-### Cloudflare Tunnel Setup
-
-### One-Click Setup Script
-
-`setup.sh` automates the entire deployment:
-
-1. Checks prerequisites (Docker, Python)
-2. Installs Python dependencies (SQLAlchemy, pymysql)
-3. Starts Docker containers
-4. Waits for MySQL health check
-5. Creates database tables
-6. Imports enrolled students from CSV
-7. Validates application is responding
-
-Run with: `bash setup.sh`
-
-Output includes:
-- Database credentials
-- Application URLs (form, attendance page)
-- Useful commands (view logs, restart, list students)
-
----
-
-## Challenges & Solutions
-
-### Problem 1: Transaction Nested Error
-
-**Symptom**: `sqlalchemy.exc.InvalidRequestError: A transaction is already begun`
-
-**Root cause**: Calling `session.begin()` explicitly when SQLAlchemy's sessionmaker already auto-begins transactions.
-
-**Fix**: Remove all `session.begin()` calls. Trust the ORM's default behavior—transactions start automatically on first query, commit with `session.commit()`.
-
-### Problem 2: Enum Column Mismatch
-
-**Symptom**: Database had `status ENUM('PENDING','ACCEPTED','REJECTED')` but code only used ACCEPTED/REJECTED
-
-**Root cause**: Legacy schema from earlier design where submissions could be "pending approval"
-
-**Fix**: Removed PENDING from enum definition. All submissions are immediately either ACCEPTED or REJECTED based on quota/deadline validation.
-
-### Problem 3: Timezone Handling
-
-**Issue**: Python's `datetime.now()` returns UTC, but course operates in Europe/Prague timezone
-
-**Solution**: Use `zoneinfo.ZoneInfo` for timezone-aware dates:
-```python
-from zoneinfo import ZoneInfo
-PRAGUE_TZ = ZoneInfo("Europe/Prague")
-
-def now_prague_date():
-    return datetime.now(PRAGUE_TZ).date()
-```
-
-Critical for deadline enforcement (Wednesday cutoff must be Prague time, not UTC).
-
-### Problem 4: CSV Import Character Encoding
-
-**Issue**: Wix exports used Windows-1250 encoding (Czech characters corrupted with UTF-8)
-
-**Solution**: Pandas `read_csv()` with explicit encoding:
-```python
-df = pd.read_csv(csv_path, encoding='windows-1250')
-```
-
-Handles Czech diacritics (ěščřžýáíé) correctly.
-
----
-
-## Results & Impact
-
-**System went live**: December 2025  
-**Current usage**: 50+ active students, 12 weekends of registrations  
-
-**Measurable improvements**:
-- **Zero manual quota tracking**: System enforces limits automatically
-- **100% deadline compliance**: Wednesday cutoff enforced server-side (no instructor intervention)
-- **Real-time attendance**: Instructors access live lists via `/attendance.html` or Google Sheets
-- **Audit trail**: Every submission logged with timestamp, status, and rejection reason
-- **Zero race conditions**: User-level locking guarantees data consistency
-
-**Before/after comparison**:
-
-| Task | Before (Manual) | After (Automated) |
-|------|----------------|-------------------|
-| Quota tracking | Manual spreadsheet counting | Automatic (SQL query) |
-| Deadline enforcement | Honor system | Server-enforced |
-| Attendance export | Manual CSV download | Live Google Sheets integration |
-| Enrollment verification | Manual cross-check | Automatic (database lookup) |
-| Concurrency handling | Spreadsheet conflicts | MySQL locks |
-
----
-
-## Technical Debt & Future Work
-
-**Current limitations**:
-
-1. **No email notifications**: Students don't receive confirmation emails after registration
-   - **Fix**: Integrate SendGrid or AWS SES for transactional emails
-
-2. **No payment tracking**: System doesn't track which weekends have been paid for
-   - **Fix**: Add `payment_status` column to submissions table
-
-3. **Admin UI is API-only**: Overrides require curl commands
-   - **Fix**: Build admin dashboard (Flask-Admin or custom React frontend)
-
-4. **No analytics dashboard**: Instructors can't see weekly trends (registration velocity, popular days)
-   - **Fix**: Add `/admin/analytics` endpoint with charts (Chart.js or Plotly)
-
-5. **Single-tenant only**: One course per deployment
-   - **Fix**: Add `course_id` foreign key for multi-tenant support
----
-
-**Tech Stack**: Flask, SQLAlchemy, MySQL, Docker, Cloudflare Tunnel  
-**Project Type**: Production backend system (live since December 2025)  
-**Role**: Solo developer (design, implementation, deployment, maintenance)
+- Database Migration: Implemented a dedicated migrate_to_timeslots.py script to safely transition the database schema from the old day_choice column to the new, more flexible, and constrained time_slot system without data loss.
+- Data Integrity: Utilized a Unique Constraint (ux_user_week_timeslot) to prevent duplicate submissions by the same user for the same weekend and time slot.
+- Secure Import: Developed a secure import_wix.py script to periodically import and update the master list of entitled students from an external CSV source (like an e-shop export), ensuring only registered students can participate.
+- Environment Configuration: Employed a robust config.py module to manage environment-specific settings (development, testing, production) and securely handle sensitive variables like ADMIN_TOKEN and database credentials.
