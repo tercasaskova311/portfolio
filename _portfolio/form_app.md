@@ -55,3 +55,9 @@ Key Development Details
 - Data Integrity: Utilized a Unique Constraint (ux_user_week_timeslot) to prevent duplicate submissions by the same user for the same weekend and time slot.
 - Secure Import: Developed a secure import_wix.py script to periodically import and update the master list of entitled students from an external CSV source (like an e-shop export), ensuring only registered students can participate.
 - Environment Configuration: Employed a robust config.py module to manage environment-specific settings (development, testing, production) and securely handle sensitive variables like ADMIN_TOKEN and database credentials.
+
+
+## Deployed webside
+
+You can check the webside here: https://vikendovelyzovani.zadov.cz/
+
