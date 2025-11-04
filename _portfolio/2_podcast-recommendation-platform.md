@@ -3,7 +3,7 @@ title: "Podcast Recommendation Platform"
 collection: portfolio
 permalink: /portfolio/podcast-platform/
 date: 2025-09-20
-excerpt: "Building a hybrid recommender that combines user behavior with content understanding—because sometimes the best next listen isn't just what similar users liked."
+excerpt: "Building a hybrid recommendation system that combines user events (behavior, actions )with podcasts transcripts similarities."
 repo: https://github.com/tercasaskova311/podcast-recommendation-platform
 tags: [Spark, Delta Lake, MongoDB, Recommender Systems, Airflow, NLP, Kafka]
 header:
@@ -13,11 +13,11 @@ classes: wide
 
 [View code on GitHub]({{ page.repo }}){: .btn .btn--primary target="_blank" }
 
-## The Core Question
+## Recommendation system for podcasts
 
-How do you recommend podcast episodes in almost real time based both on personal preferences and topic similarities? Pure collaborative filtering gives "more of the same," while content-based approaches ignore what users actually engage with. 
+How do you recommend podcast episodes based both on personal preferences and topic similarities? 
 
-This project is an end-to-end pipeline that treats recommendations as a data engineering problem first, and a modeling problem second. The goal was to combine user interaction patterns with semantic episode similarity—then serve it all through a clean, monitored system. This project was part of Big Data Technologies course at University of Trento and is a result of team effort, my part was mainly ingestion part as later on Kafka and Spark process, as well as text processing and training of data. 
+This project is an end-to-end pipeline with simple dashboard output. The goal was to combine user events patterns with semantic episode similarity—then serve it all through a clean working pipelines. This project was part of Big Data Technologies course at University of Trento and is a result of team effort, my part was mainly ingestion part as later on Kafka and Spark process, as well as text processing and training of data. 
 
 ---
 
@@ -34,7 +34,7 @@ Two parallel tracks:
 - User events aggregate into daily engagement scores (weighted by action type), then feed into Spark's ALS model for collaborative filtering. This gives me "episodes users like you enjoyed."
 
 **Serving**  
-The final recommendations are a weighted blend: `0.7 × ALS_score + 0.3 × content_similarity`. Everything lands in MongoDB for sub-100ms lookups, and built a Streamlit dashboard that runs DuckDB queries directly against Delta for live analytics—no need to spin up Spark just to check last hour's engagement.
+The final recommendations are a weighted: `0.7 × ALS_score + 0.3 × content_similarity`. Everything ends in MongoDB for sub-100ms lookups, and built a Streamlit dashboard.
 
 ![Architecture](images/Architecture.png)
 

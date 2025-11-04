@@ -3,7 +3,7 @@ title: "From CNNs to Transformers: Top-k Image Retrieval"
 collection: portfolio
 permalink: /portfolio/topk-image-retrieval/
 date: 2025-05-01
-excerpt: "Matching real celebrity photos to AI-generated portraits across massive style shifts—a transformer vs. CNN showdown that taught me why architecture alone isn't enough."
+excerpt: "Matching real celebrity photos to AI-generated portraits. Transformer vs. CNN. Image recognition ML compettion"
 repo: https://github.com/tercasaskova311/Top-k-Image-Retrieval-Image-recognition-
 tags: [Deep Learning, Computer Vision, Transformers, CNNs, Metric Learning, Image Retrieval]
 header:
@@ -14,7 +14,7 @@ classes: wide
 [View code on GitHub]({{ page.repo }}){: .btn .btn--primary target="_blank"}  
 [Read full paper (CVPR format)]({{ page.repo }}/blob/main/report/report_cvpr2025.pdf){: .btn .btn--light-outline target="_blank"}
 
-This was a competition project for our Machine Learning course—four of us had one goal: retrieve the top-10 most similar images for each query. Queries were real photos of celebrities, and the gallery was synthetic AI-generated portraits of the same people, but rendered in completely different artistic styles.
+This was a competition project for our Machine Learning course—four members team which the goal to: retrieve the top-10 most similar images for each query. Queries were real photos of celebrities, and the gallery was synthetic AI-generated portraits of the same people, but rendered in completely different artistic styles.
 
 This wasn't a pixel-matching problem. A real photo of someone in a suit and a cartoon-style portrait of the same person share almost nothing at the texture level. We needed semantic understanding—models that could reason about identity despite radical visual differences.
 
@@ -24,7 +24,7 @@ This wasn't a pixel-matching problem. A real photo of someone in a suit and a ca
 
 I worked in a team of four, and I focused mainly on two areas:
 
-**CLIP experimentation** — I ran the full suite of CLIP variants (ViT-B/32, B/16, L/14), handling both frozen and fine-tuned setups. This involved figuring out how to properly unfreeze transformer layers, tuning learning rates, and eventually discovering we'd been doing fine-tuning wrong the entire competition.
+**CLIP** — I ran the CLIP variants (ViT-B/32, B/16, L/14), handling both frozen and fine-tuned setups. This involved figuring out how to properly unfreeze transformer layers, tuning learning rates, and eventually discovering we'd been doing fine-tuning wrong the entire competition.
 
 **Metrics design** — We initially used generic retrieval metrics, but I realized we needed something aligned with the competition's weighted scoring system (600 points for Top-1, 300 for Top-5, 100 for Top-10). I built the evaluation pipeline that tracked this properly and helped us understand where models were actually failing.
 
