@@ -3,109 +3,120 @@ title: "Podcast Recommendation Platform"
 collection: portfolio
 permalink: /portfolio/podcast-platform/
 date: 2025-09-20
-excerpt: "Building a hybrid recommendation system that combines user events (behavior, actions )with podcasts transcripts similarities."
+excerpt: "Building a hybrid recommendation system that combines user events (behavior, actions) with podcast transcript similarities."
 repo: https://github.com/tercasaskova311/podcast-recommendation-platform
 tags: [Spark, Delta Lake, MongoDB, Recommender Systems, Airflow, NLP, Kafka]
 header:
-  teaser: _portfolio/project_architecture.png
+  teaser: /_portfolio/project_architecture.png
 classes: wide
 ---
 
 [View code on GitHub]({{ page.repo }}){: .btn .btn--primary target="_blank" }
 
-## Recommendation system for podcasts
+---
 
-How do you recommend podcast episodes based both on personal preferences and topic similarities? 
+## 🎧 Recommendation System for Podcasts
 
-This project is an end-to-end pipeline with simple dashboard output. The goal was to combine user events patterns with semantic episode similarity—then serve it all through a clean working pipelines. This project was part of Big Data Technologies course at University of Trento and is a result of team effort, my part was mainly ingestion part as later on Kafka and Spark process, as well as text processing and training of data. 
+How do you recommend podcast episodes based both on personal preferences **and** topic similarities?  
+
+This project is an end-to-end data pipeline with a simple dashboard output. The goal was to combine **user behavior patterns** with **semantic episode similarity**, then serve recommendations through a reliable and modular architecture.  
+
+This work was completed as part of the *Big Data Technologies* course at the **University of Trento**, as a team effort. My main focus was on **data ingestion**, **Kafka and Spark pipelines**, and **text processing + training** components.
 
 ---
 
-## System architecture
+## 🏗️ System Architecture
 
 A three-layer architecture that handles everything from raw audio ingestion to real-time serving:
 
 **Ingestion**  
-Pull trending episodes from PodcastIndex (the free alternative when you can't get Spotify API access), stream them through Kafka, and run Vosk speech-to-text to get transcripts. User events are simulated but follow realistic patterns—plays, likes, skips, completion rates—all flowing through Kafka into Delta Lake. We had opt for simulation, as we lacked real life user event data. 
+Pull trending episodes from *PodcastIndex* (the open alternative to Spotify’s API), stream them through **Kafka**, and use **Vosk** for speech-to-text transcription.  
+User events (plays, likes, skips, completions) are simulated following realistic behavior patterns, all flowing through Kafka into **Delta Lake**.  
+We opted for simulation due to lack of real user data.
 
 **Processing**  
-Two parallel tracks:
-- Transcripts get embedded with SentenceTransformers, then compute KNN similarities across the catalog. This gives me "episodes like this one" based purely on content. (For better scalability we would opt for ANN now.)
-- User events aggregate into daily engagement scores (weighted by action type), then feed into Spark's ALS model for collaborative filtering. This gives me "episodes users like you enjoyed."
+Two parallel pipelines:
+- **Content-based:** Transcripts embedded using SentenceTransformers, with KNN similarities across the catalog. (In production, this would be replaced with ANN for scalability.)
+- **Collaborative:** User events aggregated into daily engagement scores, feeding a **Spark ALS model** for collaborative filtering.
 
 **Serving**  
-The final recommendations are a weighted: `0.7 × ALS_score + 0.3 × content_similarity`. Everything ends in MongoDB for sub-100ms lookups, and built a Streamlit dashboard.
+Final recommendations combine both scores:  
+> `0.7 × ALS_score + 0.3 × content_similarity`
 
-![Architecture](images/Architecture.png)
+Results are stored in **MongoDB** for sub-100 ms lookups, and visualized in a **Streamlit dashboard**.
 
----
-
-## Interesting Problems We Ran Into
-
-### Making ALS Work with Implicit Feedback
-
-Collaborative filtering is straightforward when you have explicit ratings, but podcast listening is messy. Someone might play an episode for 10 seconds, or listen to 90% but never "like" it. 
-
-We ended up treating this as an implicit feedback problem where the rating is binary (did they interact? yes/no) but the confidence varies. A full listen with a like gets high confidence; a skip after 5% gets almost none. ALS handles this natively through its confidence weighting, but tuning those weights—and the regularization—took some iteration. I settled on alpha=40 and regParam=0.08 after watching how recommendations distributed across the catalog.
-
-### The Cold-Start Problem, Practically
-
-New episodes have zero interaction history. The usual answer is "use content-based until you have data," but that means maintaining two separate recommendation paths. Instead, I compute embeddings immediately on ingestion and store them alongside historical similarities in Mongo. The hybrid scoring naturally handles it: new episodes get full weight from content similarity and zero from ALS, then gradually shift as engagement builds up. It just works.
-
-### Multi-Language Variants Without Duplication
-
-PodcastIndex includes the same episode in multiple languages—same show, same content, different audio. If I naively recommended based on embeddings, users would see English, Italian, and French versions of the same episode in their top 10.
-
-The solution was surprisingly simple: PodcastIndex already provides episode and show IDs. I created a `canonical_episode_id` that groups language variants, then at serving time I filter to one variant per canonical ID based on user locale. No fancy NLP needed—just clean use of available metadata.
-
-### Building for A/B Testing from Day One
-
-We wanted to know if the hybrid approach actually beats ALS alone, so I designed the serving layer with sticky bucketing: `hash(user_id + experiment_id) % 100` splits users deterministically. Users 0-49 get hybrid recommendations, 50-99 get ALS-only. 
-
-The key insight was making this deterministic and sticky—same user always sees the same variant across sessions. This way you can measure metrics like catalog diversity, engagement rates, and session length per bucket without worrying about assignment drift.
+<p align="center">
+  <img src="{{ '/_portfolio/project_architecture.png' | relative_url }}" alt="Project Architecture Diagram" style="max-width: 85%; border-radius: 12px; box-shadow: 0 8px 22px rgba(0,0,0,0.2); margin-top: 1rem;"/>
+</p>
 
 ---
 
-## Tech Choices That Mattered
+## ⚙️ Interesting Problems
 
-**Kafka** for event transport because I wanted the option to replay and reprocess. In a real production system, being able to go back and say "let's recompute all of last week's aggregations" is worth the operational overhead.
+### 1. Making ALS Work with Implicit Feedback
 
-**Delta Lake** as the storage layer because schema evolution and time-travel made iteration way faster. I changed the event schema twice during development and just bumped the table version instead of rewriting everything.
+Collaborative filtering is simple when you have explicit ratings—but podcast listening is messy. Someone might play an episode for 10 seconds, or listen 90% and never “like” it.  
 
-**Spark for both streaming and batch** because I didn't want to maintain two separate processing frameworks. Same codebase handles micro-batch aggregations (user events) and distributed ML training (ALS).
+We treated this as an **implicit feedback problem** where the *rating* is binary (interacted = yes/no) but the *confidence* varies.  
+A full listen + like gets high confidence; a skip after 5% gets almost none.  
+After tuning, I found **alpha = 40** and **regParam = 0.08** produced balanced recommendations across the catalog.
 
-**Vosk instead of cloud STT** because this was a portfolio project and I wanted to show I could build the full stack without relying on external APIs. It's slower than Whisper, but it's local, free, and good enough for conversational audio.
+---
 
-**DuckDB for dashboard analytics** because spinning up a Spark cluster just to query "what happened in the last 10 minutes" felt ridiculous. DuckDB reads directly from Delta with zero infrastructure and sub-second query times.
+### 2. The Cold-Start Problem, Practically
+
+New episodes start with zero engagement data.  
+Instead of maintaining two paths (content vs. collaborative), I compute embeddings immediately on ingestion and store them in MongoDB.  
+The **hybrid scoring** handles this naturally: new episodes rely fully on content similarity until ALS data accumulates.
+
+---
+
+### 3. Multi-Language Variants Without Duplication
+
+PodcastIndex lists the same show in multiple languages. Without filtering, users saw multiple translations of the same episode.  
+
+The fix: define a `canonical_episode_id` grouping all variants, and at serving time filter by user locale.  
+No NLP magic — just smart metadata use.
+
+---
+
+### 4. Built-in A/B Testing
+
+We designed serving for early A/B tests.  
+A deterministic hash — `hash(user_id + experiment_id) % 100` — splits users into:
+- **0–49:** hybrid recommendations  
+- **50–99:** ALS-only  
+
+This keeps user variants *sticky* across sessions, ensuring consistent engagement metrics.
+
+---
+
+## Tech Choices 
+
+- **Kafka** – for replayable event transport and reproducibility.  
+- **Delta Lake** – for schema evolution and time-travel.  
+- **Spark** – unified framework for streaming + batch + ML.  
+- **Vosk** – local STT, showing end-to-end capability without external APIs.  
+- **DuckDB** – lightweight analytics directly from Delta with sub-second queries.
 
 ---
 
 ## What We'd Do Differently
 
-If We were productionizing this, I'd replace the simulated events with actual user tracking (probably Segment or Snowplow). The streaming pipeline is already built to handle real data—it's just a matter of swapping Kafka producers.
-
-We'd also add proper model monitoring. Right now I have recommendation diversity metrics in the dashboard, but no automated alerts if ALS starts overfitting or if content similarity scores drift. That's solvable with something like Evidently or custom Great Expectations checks.
-
-Finally, We'd split the monolithic Airflow DAG into smaller, more composable pieces. Right now the full pipeline runs as one DAG, which made development easier but isn't great for selective reruns or partial deployments.
-
----
-
-## Results
-
-![Dashboard](images/dashboard.png)
+If productionized:
+- Replace simulated events with real user tracking (Segment/Snowplow).  
+- Add **model monitoring** (drift, overfitting alerts via Evidently or Great Expectations).  
+- Refactor the monolithic **Airflow DAG** into smaller modular DAGs for selective runs.
 
 ---
 
-## Skills Showcased
+## 📊 Results
 
-I treat this project as a demonstration of data engineering fundamentals—building pipelines that are testable, observable, and maintainable. The ML is relatively simple (ALS isn't cutting-edge), but making it work at scale with proper orchestration, monitoring, and serving is where the real work lives.
-
-**Core competencies:**  
-Distributed computing (Spark), streaming architectures (Kafka), storage design (Delta Lake), workflow orchestration (Airflow), low-latency serving (MongoDB), and lightweight analytics (DuckDB).
-
-If you're curious about implementation details, the full code is on GitHub. The README walks through the architecture, and the `docs/` folder has deeper dives into the pipelines and modeling decisions.
+<p align="center">
+  <img src="{{ '/_portfolio/dashboard.png' | relative_url }}" alt="Streamlit Dashboard Screenshot" style="max-width: 85%; border-radius: 12px; box-shadow: 0 8px 22px rgba(0,0,0,0.2); margin-top: 1rem;"/>
+</p>
 
 ---
 
-📂 [View the repository]({{ page.repo }})  
-📊 [Architecture documentation]({{ page.repo }}/blob/main/docs/architecture.md)
+📂 [View the repository on GitHub]({{ page.repo }}){: .btn .btn--primary target="_blank" }  
+📘 [Read architecture documentation]({{ page.repo }}/blob/main/docs/architecture.md){: .btn .btn--secondary target="_blank" }
