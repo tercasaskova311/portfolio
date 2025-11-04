@@ -3,7 +3,7 @@ title: "Reddit & Conflict: Israel–Palestine Discourse Analysis"
 collection: portfolio
 permalink: /portfolio/reddit-conflict/
 date: 2025-06-30
-excerpt: "Temporal alignment of social media discourse with geopolitical events using cross-correlation analysis, LDA topic modeling, and time-series methods to quantify lagged responses in online public attention."
+excerpt: "Comparing social media conntent with geopolitical events using cross-correlation analysis, LDA topic modeling, and time-series methods to quantify lagged responses in online public attention towards the conflict in Palestine."
 repo: https://github.com/tercasaskova311/Israel-Palestine-CSS-project
 tags: [NLP, Computational Social Science, Topic Modeling, Time Series Analysis, Python]
 header:
@@ -14,7 +14,7 @@ classes: wide
 [View code on GitHub]({{ page.repo }}){: .btn .btn--primary}  
 [View visualizations]({{ page.repo }}/tree/main/plots){: .btn .btn--light-outline}
 
-This project investigates the temporal relationship between real-world conflict events and online discourse dynamics using cross-correlation analysis and unsupervised topic modeling. The central research question: **Do social media discussions respond to geopolitical violence in real-time?**
+This project focus on the relationship between real-world conflict events and online conntent on social media using cross-correlation analysis and unsupervised topic modeling. The central research question: **Do social media discussions respond to geopolitical violence in real-time?**
 
 We integrated two data sources—**Reddit comment streams** (unstructured social data) and **ACLED conflict events** (structured geopolitical data)—to quantify how online attention patterns correlate with offline violence in Gaza and the West Bank. The analysis revealed a **15-day lag** in peak discourse volume relative to conflict intensity, with evidence of selective amplification based on event severity.
 
