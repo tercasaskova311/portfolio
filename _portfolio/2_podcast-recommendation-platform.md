@@ -7,7 +7,7 @@ excerpt: "Building a hybrid recommendation system that combines user events (beh
 repo: https://github.com/tercasaskova311/podcast-recommendation-platform
 tags: [Spark, Delta Lake, MongoDB, Recommender Systems, Airflow, NLP, Kafka]
 header:
-  teaser: /_portfolio/project_architecture.png
+  teaser: /images/dashboard.png
 classes: wide
 ---
 
@@ -45,7 +45,7 @@ Final recommendations combine both scores:
 
 Results are stored in **MongoDB** for sub-100 ms lookups, and visualized in a **Streamlit dashboard**.
 
-<img src="{{ '/_portfolio/project_architecture.png' | relative_url }}" alt="Project Architecture Diagram" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);" />
+<img src="{{ 'images/sequence-diagram.png' | relative_url }}" alt="Project Architecture Diagram" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);" />
 
 
 ---
@@ -111,7 +111,7 @@ If productionized:
 
 ## 📊 Results
 
-<img src="{{ '/_portfolio/dashboard.png' | relative_url }}" alt="Streamlit Dashboard Screenshot" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);" />
+<img src="{{ 'images/dashboard.png' | relative_url }}" alt="Streamlit Dashboard Screenshot" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);" />
 
 ---
 
