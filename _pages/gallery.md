@@ -6,9 +6,11 @@ classes: wide
 author_profile: true
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/carousel.css' | relative_url }}">
+
 <section class="carousel-wrap" aria-label="Photo gallery">
   <div class="carousel" id="heroCarousel" data-interval="4000" data-autoplay="true" tabindex="0">
-    <!-- Slides (add or remove <div class="slide"> blocks as needed) -->
+    <!-- Slides -->
     <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
       <img src="{{ '/images/39745de9-1b01-4bae-87a1-bb5a33bd4466.JPG' | relative_url }}" alt="pic1">
     </div>
@@ -44,6 +46,5 @@ author_profile: true
   </noscript>
 </section>
 
-<!-- include carousel JS (you can also add this script to your main layout) -->
+<!-- include carousel JS -->
 <script src="{{ '/assets/js/carousel.js' | relative_url }}" defer></script>
-
