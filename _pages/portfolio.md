@@ -1,10 +1,11 @@
 ---
 title: "Portfolio"
-layout: collection            # use the theme's collection layout
+layout: collection
 permalink: /portfolio/
-collection: portfolio         # name of your collection
-entries_layout: list          # or "grid" (see CSS below)
+collection: portfolio
+entries_layout: list  # or "grid"
 classes: wide
 author_profile: false
+sort_by: date
+sort_order: reverse
 ---
-
