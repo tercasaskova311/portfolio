@@ -38,10 +38,10 @@ author_profile: true
   <!-- JS fallback: static grid when JS disabled -->
   <noscript>
     <div class="gallery-grid-noscript">
-      <img src="{{ '/images/gallery1.jpg' | relative_url }}" alt="pic1">
-      <img src="{{ '/images/canada_2.jpg' | relative_url }}" alt="pic2">
-      <img src="{{ '/images/gallery_3.jpg' | relative_url }}" alt="pic3">
-      <img src="{{ '/images/gallery_4.jpg' | relative_url }}" alt="pic4">
+      <img src="{{ '/images/gallery_4 2.jpg' | relative_url }}" alt="pic1">
+      <img src="{{ 'images/gallery_3.jpg' | relative_url }}" alt="pic2">
+      <img src="{{ 'images/gallery1.jpg' | relative_url }}" alt="pic3">
+      <img src="{{ 'images/canada.JPG' | relative_url }}" alt="pic4">
     </div>
   </noscript>
 </section>
