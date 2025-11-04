@@ -17,11 +17,10 @@ I'm **Tereza Sásková**, a Master of Science student in **Data Science at the U
 I’m currently working on two projects that combine my interests in **geospatial analysis** and **data engineering**:
 
 #### 🛰️ Geospatial Analysis & Remote Sensing
-Exploring **urban environment change prediction** using Sentinel satellite imagery from GEE — analyzing how cities evolve over time through Earth observation data and spatial modeling.
+Exploring **urban environment change prediction** using Sentinel satellite imagery, analyzing how cities evolve over time through Earth observation data and spatial modeling.
 
-#### ⚙️ Data Engineering & Pipeline Development
-Building **automated data pipelines** that connect Google Forms and HTML forms with PostgreSQL databases, streamlining participant registration for a ski school’s seasonal courses.  
-This system is containerized with **Docker** and hosted on **Wedos**, with built-in report generation for instructors.
+#### ⚙️ Data Engineering 
+A web app for Ski Zadov, automating weekly ski school registrations. A **Flask + PostgreSQL** web app, that automates registration limits (8 out of 12 weeks). Automatically closes registration every Wednesday at 24:00 and provides an admin dashboard with Google Sheets synchronization.
 
 These projects bring together my aim to learn more from **GIS technology**, **scalable data systems**, and **practical, real-world problem solving**.
 
