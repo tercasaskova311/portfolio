@@ -45,7 +45,7 @@ Final recommendations combine both scores:
 
 Results are stored in **MongoDB** for sub-100 ms lookups, and visualized in a **Streamlit dashboard**.
 
-<img src="{{ 'images/sequence-diagram.png' | relative_url }}" alt="Project Architecture Diagram" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);" />
+<img src="{{ '/images/sequence-diagram.png' | relative_url }}" alt="Project Architecture Diagram" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);" />
 
 
 ---
