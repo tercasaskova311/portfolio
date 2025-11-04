@@ -45,9 +45,8 @@ Final recommendations combine both scores:
 
 Results are stored in **MongoDB** for sub-100 ms lookups, and visualized in a **Streamlit dashboard**.
 
-<p align="center">
-  <img src="{{ '/_portfolio/project_architecture.png' | relative_url }}" alt="Project Architecture Diagram" style="max-width: 85%; border-radius: 12px; box-shadow: 0 8px 22px rgba(0,0,0,0.2); margin-top: 1rem;"/>
-</p>
+<img src="{{ '/_portfolio/project_architecture.png' | relative_url }}" alt="Project Architecture Diagram" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);" />
+
 
 ---
 
@@ -112,9 +111,7 @@ If productionized:
 
 ## 📊 Results
 
-<p align="center">
-  <img src="{{ '/_portfolio/dashboard.png' | relative_url }}" alt="Streamlit Dashboard Screenshot" style="max-width: 85%; border-radius: 12px; box-shadow: 0 8px 22px rgba(0,0,0,0.2); margin-top: 1rem;"/>
-</p>
+<img src="{{ '/_portfolio/dashboard.png' | relative_url }}" alt="Streamlit Dashboard Screenshot" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);" />
 
 ---
 
