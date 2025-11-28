@@ -16,8 +16,10 @@ I'm **Tereza Sásková**, a student of **Data Science Msc. at the University of 
 
 I’m currently working on two projects that combine my interests in **geospatial analysis** and **data engineering**:
 
-#### 🛰️ Geospatial Analysis & Remote Sensing
-Exploring **urban environment change prediction** using Sentinel satellite imagery, analyzing how cities evolve over time through Earth observation data and spatial modeling.
+#### 🛰️ Deforestation Monitoring in Šumava National Park
+Build an automated system to **detect logging/deforestation** events in Šumava National Park using satellite imagery from Sentinel2 and classical image processing techniques, train a ML model and design an architecture that can be deployed. 
+
+### Latest project 
 
 #### ⚙️ Data Engineering 
 A web app for Ski Zadov, automating weekly ski school registrations. A **Flask + PostgreSQL** web app, that automates registration limits (8 out of 12 weeks). Automatically closes registration every Wednesday at 24:00 and provides an admin dashboard with Google Sheets synchronization.
@@ -28,7 +30,7 @@ These projects bring together my aim to learn more from **GIS technology**, **sc
 
 ### 🎓 Currently
 - **Master of Science in Data Science**, *University of Trento (2024–2026)*  
-- **Marketing and Program Lead**, *Sport Šumava*  
+- **Marketing and Program Lead**, *Sport Šumava*  - Marketing & Database Coordinator for a ski & bike school
 
 
 ---
@@ -37,11 +39,11 @@ These projects bring together my aim to learn more from **GIS technology**, **sc
 
 | Category | Tools & Technologies |
 |-----------|----------------------|
-| **Programming Languages** | Python · SQL · R · C |
+| **Programming Languages** | Python · SQL · R · C (basics) |
 | **Data Engineering** | Apache Spark · Kafka · Docker · Delta Lakes · MongoDB · DuckDB · PostgreSQL |
-| **Geospatial & Remote Sensing** | GIS · Google Earth Engine · Sentinel imagery processing |
+| **Geospatial & Remote Sensing** | GIS · Google Earth Engine · Sentinel imagery processing (basics) |
 | **Machine Learning** | ML pipelines · Text Processing |
-| **Development Tools** | GitHub · Azure |
+| **Development Tools** | GitHub · Flask (basics) |
 
 ---
 
