@@ -6,7 +6,7 @@ author_profile: true
 ---
 <img src="{{ '/images/ALD76447e_data.jpg' | relative_url }}" alt="Tereza Sásková" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
 
-Master’s student in **Data Science** at the University of Trento, focusing on **geospatial analysis**, **data engineering**, and **machine learning**. Current projects include **urban change prediction** from satellite imagery and **automated data pipelines** for ski school management. Passionate about connecting data, technology, and real-world impact.  
+Master’s student in **Data Science** at the University of Trento, focusing on **data engineering** and interested in **geospatial analysis**. Current projects include **Deforestation Monitoring in Šumava National Park** and one of my lastest project is **Automated Online Form System** for ski school management. Passionate about connecting data, technology, and real-world impact.  
 
 *Former Junior Vice-World Champion in mountain biking.*
 
@@ -23,7 +23,7 @@ Relevant Coursework: Statistical Learning, Machine Learning, Big Data Technologi
 
 ## Current Work
 
-🛰️ **Urban Environment Prediction**  
+🛰️ **Deforestation Monitoring in Šumava National Park**  
 Remote sensing with Sentinel imagery & Google Earth Engine.  
 Developing predictive models for urban development in the Trentino region using satellite imagery.  
 
@@ -52,7 +52,7 @@ Creating a dynamic reporting system for weekly course participant tracking.
 ## 🛠️ Technical Skills
 
 > **Programming Languages**  
-> Python · SQL · R · C
+> Python · SQL · R · C (basics)
 >
 > **Data Engineering & Big Data**  
 > Apache Spark · Kafka · Docker · PostgreSQL · Delta Lake  
@@ -60,27 +60,31 @@ Creating a dynamic reporting system for weekly course participant tracking.
 >
 > **Geospatial & Remote Sensing**  
 > Google Earth Engine (GEE) · QGIS  
-> *Land-use change detection · Environmental monitoring workflows*
 >
 > **Machine Learning**  
 > Scikit-learn · PyTorch · NLP frameworks · SparkML
 >
 > **Development & DevOps Tools**  
-> GitHub · Azure  
-> *Version control · Containerization · Lightweight web deployment*
+> GitHub · Flask  
+> *Version control · Containerization *
 
 ---
 
 ## 💼 Professional Experience
 
 > **Marketing & Program Lead** — *Sport Šumava* (2023 – Present)  
-> • Marketing analytics, campaign design, data-driven performance evaluation  
+> • Marketing analytics, campaign design, data-driven performance evaluation
+> • Database coordinator 
 > • Led ski & MTB programs emphasizing safety, technique, and engagement
 
 ---
 
 ## 🌱 Other Experience & Community Involvement
-
+> **English Tutor** — *Freelance, ongoing*
+>
+> **Future Founder, NOI park**
+> Start-up ecosystem, testing ides, pitching challenges
+>
 > **Česko.Digital** — *Volunteer Content Creator*  
 > Contributed to web copy and social media content supporting civic-tech initiatives.
 >
@@ -89,8 +93,6 @@ Creating a dynamic reporting system for weekly course participant tracking.
 >
 > **University for Climate (Prague)** — *Student Member*  
 > Participated in interdisciplinary projects promoting environmental awareness and sustainability.
->
-> **English Tutor** — *Freelance, ongoing*
 >
 > **MTB Guide** — *Finale Ligure, Italy*  
 > Led technical mountain biking tours, ensuring rider safety and skill progression.
