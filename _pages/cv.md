@@ -12,12 +12,10 @@ Master’s student in **Data Science** at the University of Trento, focusing on 
 
 ---
 
-## 🎓 Education
+## 🎓 Ongoing education
 
 **MSc. in Data Science** — *University of Trento, Italy (2024–2026)*  
 Relevant Coursework: Statistical Learning, Machine Learning, Big Data Technologies, High Performance Computing, Foundation Models, Geospatial Analysis, Signal, Image, Video
-
-**BA in Marketing Communication** — *University of Finance and Administration, Prague (2020–2023)*  
 
 ---
 
@@ -72,10 +70,11 @@ Creating a dynamic reporting system for weekly course participant tracking.
 
 ## 💼 Professional Experience
 
-> **Marketing & Program Lead** — *Sport Šumava* (2023 – Present)  
-> • Marketing analytics, campaign design, data-driven performance evaluation
-> • Database coordinator 
+**Sport Šumava**  - Database Coordinator for a ski & bike school, Program lead (2023 - present) 
+> • Database coordinator - working with ski school registration system (SQL)
 > • Led ski & MTB programs emphasizing safety, technique, and engagement
+> • Marketing analytics, campaign design, data-driven performance evaluation
+
 
 ---
 

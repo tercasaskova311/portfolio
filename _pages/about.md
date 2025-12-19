@@ -30,8 +30,7 @@ These projects bring together my aim to learn more from **GIS technology**, **sc
 
 ### 🎓 Currently
 - **Master of Science in Data Science**, *University of Trento (2024–2026)*  
-- **Marketing and Program Lead**, *Sport Šumava*  - Marketing & Database Coordinator for a ski & bike school
-
+- **Sport Šumava**  - Database Coordinator for a ski & bike school, Program lead
 
 ---
 
@@ -57,7 +56,7 @@ These projects bring together my aim to learn more from **GIS technology**, **sc
 ---
 
 My path into **data science**  and tech world wasn’t a straight line. It began on mountain trails and race circuits.  
-Before I ever wrote a line of code, I was a **professional mountain biker** competing at the world cup level, where I became a **Junior Vice-World Champion** and multiple-time Czech national champion. Later, I studied **marketing**, learning how to tell the story behind numbers.  
+Before I ever wrote a line of code, I was a **professional mountain biker** competing at the world cup level, where I became a **Junior Vice-World Champion** and multiple-time Czech national champion. 
 
 These experiences might seem far apart. However they share the same foundation, real, lived discipline, focus, and the drive... For me, discipline isn’t a catch phrase. It’s something I’ve practiced daily. Through years of training, recovery, constant improvement.  
 That same mindset now stays with me, when I learn, build, and solve problems in data science. I simply do things with my all 100%. 
