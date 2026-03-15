@@ -310,7 +310,7 @@ button.greedy-nav__toggle::after {
 /* Add icon after link text */
 .archive .list__item .archive__item-excerpt a::after,
 .archive .list__item .page__content a::after {
-  content: "→";
+  content: "";
   font-size: 1.2em;
   transition: transform .3s ease;
 }
