@@ -13,9 +13,9 @@ author:
   teaser: "/images/profile.jpg"
   location: "Italy, Trento"
   employer: "University of Trento"
-  uri: "https://www.linkedin.com/in/tereza-saskova-527326235"
+  uri: "https://www.linkedin.com/in/tereza-saskova"
   email: "tereza.saskova@proton.me"
-  linkedin: "tereza-saskova-527326235"
+  linkedin: "tereza-saskova"
   github: "tercasaskova311"
   kaggle: "terezasaskova"
 
@@ -36,7 +36,7 @@ social:
   type: Person
   name: Tereza Sásková
   links:
-    - https://www.linkedin.com/in/tereza-saskova-527326235
+    - https://www.linkedin.com/in/tereza-saskova
     - https://github.com/tercasaskova311
     - https://www.kaggle.com/terezasaskova
 
@@ -135,7 +135,7 @@ permalink: /:categories/:title/
 timezone: Europe/Rome
 
 theme: ~                 # (= null) disables any gem theme if present
-remote_theme: "mmistakes/minimal-mistakes"
+remote_theme: mmistakes/minimal-mistakes@4.24.0
 
 plugins:
   - jekyll-feed
