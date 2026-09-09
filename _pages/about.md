@@ -14,23 +14,24 @@ I'm **Tereza Sásková**, a student of **Data Science Msc. at the University of 
 
 ### What I'm Working On
 
-I’m currently working on two projects that combine my interests in **geospatial analysis** and **data engineering**:
+I’m currently working on two projects that combine my interests in **geospatial analysis** and **earth observation**:
+
+#### Single Tree Detection from orthophotos
+Cheap detection, which can help to provide precise data about greenery coverage for cities. Combining Deepforest model (CNN based) & SAM2 - segmentation model for a quick, training free set up.
+
+
+### Latest project 
 
 #### 🛰️ Deforestation Monitoring in Šumava National Park
 Build an automated system to **detect logging/deforestation** events in Šumava National Park using satellite imagery from Sentinel2 and classical image processing techniques, train a ML model and design an architecture that can be deployed. 
 
-### Latest project 
 
-#### ⚙️ Data Engineering 
-A web app for Ski Zadov, automating weekly ski school registrations. A **Flask + PostgreSQL** web app, that automates registration limits (8 out of 12 weeks). Automatically closes registration every Wednesday at 24:00 and provides an admin dashboard with Google Sheets synchronization.
-
-These projects bring together my aim to learn more from **GIS technology**, **scalable data systems**, and **practical, real-world problem solving**.
 
 ---
 
 ### 🎓 Currently
-- **Master of Science in Data Science**, *University of Trento (2024–2026)*  
-- **Sport Šumava**  - Database Coordinator for a ski & bike school, Program lead
+- **Master of Science in Data Science**, *University of Trento *  
+- **Data Scientist Intership at FBK Trento (Digital Common Lab)**, Remote sensing & Geospatial analysis
 
 ---
 
@@ -49,9 +50,11 @@ These projects bring together my aim to learn more from **GIS technology**, **sc
 ### **Research Interests**
 
 > 🌍 Geospatial data analysis and Earth observation  
+> 🤖 Machine learning for environmental and social applications
+> Climate modeling, predictions
 > ⚙️ Data pipeline architecture and automation  
 > 💾 Big data processing and distributed computing  
-> 🤖 Machine learning for environmental and social applications
+
 
 ---
 
@@ -63,7 +66,7 @@ That same mindset now stays with me, when I learn, build, and solve problems in 
 
 A **career-ending injury** eventually pushed me to rethink and starts something new. This is something that shaped me and also the way how I hand work, having willingness to always learn new things and adapt well in changing enviroment.
 
-Today I'm particulary interested in projects where data engineering meets real-world impact. Whether that's **monitoring environmental changes from space or building systems that make organizations run more efficiently**. While I'm always open to exploring new domains and learning from different areas of data science. 
+Today I'm particulary interested in projects where  I can apply my data science skill in earth observation/geosaptial context. Whether that's **monitoring environmental changes from space or computer vision focu**. While I'm always open to exploring new domains and learning from different areas of data science. 
 
 ---
 <img src="{{ '/images/MS-mtb-juniorky_tereza-cil.jpg' | relative_url }}" alt="Tereza Sásková" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
@@ -74,4 +77,4 @@ Today I'm particulary interested in projects where data engineering meets real-w
 - Ski & MTB Instructor in Switzerland and Italy
 
 
-📄 [Download my CV]({{ "/files/TerezaSaskova_CV.pdf" | relative_url }})
+📄 [Download my CV]({{ "/files/Tereza_Saskova_CV.pdf" | relative_url }})
