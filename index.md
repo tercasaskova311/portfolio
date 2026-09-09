@@ -14,11 +14,11 @@ classes: wide home-hero
     <div class="hero-card__content">
       <p class="eyebrow">Hi, I’m</p>
       <h1><span class="accent">Tereza Sásková</span></h1>
-      <p class="lead">Data science student. Ex-pro MTB rider. From race lines to data pipelines.</p>
+      <p class="lead">Data science student | EO & ML | Ex-pro MTB rider</p>
 
       <div class="hero-card__actions">
         <a class="btn btn--burgundy" href="{{ '/portfolio/' | relative_url }}">See my work</a>
-        <a class="btn btn--light-outline" href="{{ '/files/TerezaSaskova_CV.pdf' | relative_url }}">Download CV</a>
+        <a class="btn btn--light-outline" href="{{ '/files/Tereza_Saskova_CV.pdf' | relative_url }}">Download CV</a>
       </div>
 
       <div class="hero-card__social" aria-label="Social links">

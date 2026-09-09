@@ -8,7 +8,7 @@ classes: wide
 
 <img src="{{ '/images/gallery_4 2.jpg' | relative_url }}" alt="Tereza Sásková" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
 
-I'm **Tereza Sásková**, a student of **Data Science Msc. at the University of Trento** and a former professional mountain biker.
+I'm **Tereza Sásková**, a student of **Data Science Msc. at the University of Trento**. My main fields of interest are: Earth Observation, Geospatial Analysis and ML & Computer Vision.
 
 ---
 
@@ -16,22 +16,18 @@ I'm **Tereza Sásková**, a student of **Data Science Msc. at the University of 
 
 I’m currently working on two projects that combine my interests in **geospatial analysis** and **earth observation**:
 
-#### Single Tree Detection from orthophotos
-Cheap detection, which can help to provide precise data about greenery coverage for cities. Combining Deepforest model (CNN based) & SAM2 - segmentation model for a quick, training free set up.
-
-
-### Latest project 
+#### 🌳 Single Tree Detection from Orthophotos
+Building a cheap, training-free pipeline to give cities precise data about greenery coverage, combining the **DeepForest** model (CNN-based tree detection) with **SAM2** (segmentation model).
 
 #### 🛰️ Deforestation Monitoring in Šumava National Park
-Build an automated system to **detect logging/deforestation** events in Šumava National Park using satellite imagery from Sentinel2 and classical image processing techniques, train a ML model and design an architecture that can be deployed. 
+An automated system to **detect logging and deforestation events** using Sentinel-2 satellite imagery and classical image processing - from building the dataset and training an ML model to designing a deployment-ready architecture.
 
 
 
 ---
-
 ### 🎓 Currently
-- **Master of Science in Data Science**, *University of Trento *  
-- **Data Scientist Intership at FBK Trento (Digital Common Lab)**, Remote sensing & Geospatial analysis
+- **Master of Science in Data Science**, *University of Trento*
+- **Data Science Intern at FBK – Fondazione Bruno Kessler, Trento (Digital Commons Lab)** — remote sensing & geospatial analysis
 
 ---
 
@@ -47,11 +43,11 @@ Build an automated system to **detect logging/deforestation** events in Šumava 
 
 ---
 
-### **Research Interests**
+### 📌 Research Interests
 
 > 🌍 Geospatial data analysis and Earth observation  
-> 🤖 Machine learning for environmental and social applications
-> Climate modeling, predictions
+> 🤖 Machine learning for environmental and social applications  
+> 🌡️ Climate modeling and prediction  
 > ⚙️ Data pipeline architecture and automation  
 > 💾 Big data processing and distributed computing  
 
