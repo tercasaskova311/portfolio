@@ -1,110 +1,84 @@
 ---
 layout: archive
-title: "Curriculum Vitae"
+title: "CV"
 permalink: /cv/
 author_profile: true
 ---
-<img src="{{ '/images/ALD76447e_data.jpg' | relative_url }}" alt="Tereza Sásková" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
 
-Master's student in **Data Science** at the University of Trento, focusing on **earth observation and its machine learning applications** and interested in **geospatial analysis**. Current projects include **Deforestation Monitoring in Šumava National Park** and **the 3-30-300 Index**, a multi-city remote-sensing framework for evaluating urban greenery access across Italian cities, developed in collaboration with Fondazione Bruno Kessler. Passionate about connecting data, technology, and real-world impact.
+**Data scientist** — machine learning, computer vision and data pipelines, with a focus on Earth observation and geospatial data.
 
-*Former Junior Vice-World Champion in mountain biking.*
-
----
-
-## 🎓 Ongoing education
-
-**MSc. in Data Science** — *University of Trento, Italy (2024–2026)*  
-Relevant Coursework: Statistical Learning, Machine Learning, Big Data Technologies, High Performance Computing, Foundation Models, Geospatial Analysis, Signal, Image, Video
+[Download CV (PDF)]({{ '/files/Tereza_Saskova_CV.pdf' | relative_url }}){: .btn .btn--primary}
 
 ---
 
-## Current Work
+## Experience
 
-🌳 **3-30-300 Index: Urban Greenery Remote Sensing Framework** *(with Fondazione Bruno Kessler)*  
-Built an end-to-end pipeline evaluating the 3-30-300 urban greenery standard across Italian cities from orthophoto and OpenStreetMap data. Combines zero-shot deep-learning tree detection (DeepForest + Segment Anything Model 2) with GDAL viewshed analysis for tree-visibility compliance, vegetation-index-based canopy extraction (ExG/NDVI) at the H3-hexagon level, and network-routed park-access analysis using OSM entrance detection and GraphHopper. Designed and ran the full data pipeline on GPU cloud infrastructure, including per-city model calibration and manual validation of detection accuracy against ground truth.  
-*Technologies:* *Python · PyTorch · DeepForest · SAM2 · DuckDB (spatial) · GeoPandas · GDAL · OSMnx*
+**Data Science Intern** — Fondazione Bruno Kessler (FBK), Digital Commons Lab · Trento, Italy  
+*Feb – Aug 2026 · continued as MSc thesis · TALEA project*
 
-🛰️ **Deforestation Monitoring in Šumava National Park**  
-Remote sensing with Sentinel imagery & Google Earth Engine, developing predictive models to detect and monitor forest cover change.
+- Built an end-to-end pipeline measuring the 3-30-300 urban-greenery rule across Italian cities from open orthophotos and OpenStreetMap
+- Individual tree detection without training labels: DeepForest detection + SAM2 segmentation, per-city calibration, manual validation against annotated ground truth; benchmarked against a fine-tuned detector
+- Tree visibility from every address with per-floor GDAL viewsheds; canopy cover from vegetation indices (ExG / NDVI) aggregated to H3 hexagons; park access via network routing (OSMnx, GraphHopper)
+- Data acquisition from regional WMS services, including detection and correction of wrong image resolutions and distorted pixels
+- Ran multi-city workloads on GPU cloud (RunPod) with DuckDB spatial as the analytical store, with resumable processing
 
-⚙️ **Automated Online Form System (PostgreSQL Based)**  
-Automated PostgreSQL system for ski school participant management.  
-Creating a dynamic reporting system for weekly course participant tracking.  
-*Technologies:* *PostgreSQL · Python · Flask · Data Automation*
+*Python · PyTorch · DeepForest · SAM2 · GDAL · rasterio · GeoPandas · DuckDB · OSMnx · QGIS*
 
----
+**Database Coordinator & Program Lead** — Sport Šumava & Ski Zadov (ski & bike schools) · South Bohemia, Czechia  
+*Sep 2023 – Dec 2025*
 
-👉 [**View Projects on GitHub »**](https://github.com/tercasaskova311)
-
----
-
-## 🛠️ Technical Skills
-
-> **Programming Languages**  
-> Python · SQL · R · C (basics)
->
-> **Data Engineering & Big Data**  
-> Apache Spark · Kafka · Docker · PostgreSQL · DuckDB · Delta Lake  
-> *Data pipeline design · Stream/batch processing · Scalable storage systems*
->
-> **Geospatial & Remote Sensing**  
-> Google Earth Engine (GEE) · QGIS · GDAL · GeoPandas · Rasterio · OSMnx · H3 spatial indexing
->
-> **Machine Learning**  
-> Scikit-learn · PyTorch · DeepForest · Segment Anything Model 2 (SAM2) · NLP frameworks · SparkML
->
-> **Development & DevOps Tools**  
-> GitHub · Flask · GPU cloud compute (RunPod)  
-> *Version control · Containerization*
+- Designed and built the weekend registration system for Ski Zadov (see Projects)
+- Cleaned and managed client data in SQL for registrations and marketing
+- Marketing analytics: campaign design and data-driven performance evaluation
+- Led ski and MTB programs, including the summer kids' program
 
 ---
 
-## 💼 Professional Experience
+## Projects
 
-**Foundazione Bruno Kessler - Digital Common Lab - Data Scientist intership** (2026)
-> • Computer vision, earth observation, geospatial analysis
-> • PyTorch, DuckDB, Python, SQL
+**Weekend Registration System** — Ski Zadov · *2025 – present* · [details](/portfolio/registration-system/)  
+Production booking app for a ski school. PostgreSQL schema with constraints and advisory locks enforcing season quotas, weekly cutoffs and sibling accounts; deployed on Railway; attendance feed to Google Sheets.  
+*Python · Flask · SQLAlchemy · PostgreSQL · Railway*
 
-**Sport Šumava**  - Database Coordinator for a ski & bike school, Program lead (2023 - 2025) 
-> • Database coordinator - working with ski school registration system (SQL)
-> • Led ski & MTB programs emphasizing safety, technique, and engagement
-> • Marketing analytics, campaign design, data-driven performance evaluation
+**Podcast Recommendation Platform** — University of Trento, team project · *2025* · [details](/portfolio/podcast-platform/)  
+Hybrid recommender: speech-to-text, transcript embeddings + KNN, and implicit-feedback ALS on streamed user events. Owned ingestion, Kafka/Spark pipelines and model training.  
+*Kafka · Spark (Streaming, ML) · Delta Lake · Airflow · MongoDB · DuckDB · Docker*
 
-
----
-
-## 🌱 Other Experience & Community Involvement
-> **MTB School Sport Šumava** - teaching kids mountain bike skills - founding member of the school and head of the summer program
-
-> **English Tutor** — *Freelance, ongoing*
->
-> **Future Founder, NOI park**
-> Start-up ecosystem, testing ides, pitching challenges
->
-> **Česko.Digital** — *Volunteer Content Creator*  
-> Contributed to web copy and social media content supporting civic-tech initiatives.
->
-> **180 Degrees Consulting** — *Student Consultant*  
-> Worked with NGOs on strategic and data-driven solutions to improve community impact.
->
-> **University for Climate (Prague)** — *Student Member*  
-> Participated in interdisciplinary projects promoting environmental awareness and sustainability.
->
-> **MTB Guide** — *Finale Ligure, Italy*  
-> Led technical mountain biking tours, ensuring rider safety and skill progression.
->
-> **Ski Instructor** — *Saas Fee, Switzerland (Viamond, International Schools)*  
-> Delivered lessons to international students of all ages, fostering confidence and snow proficiency.
+**Forest Loss Monitoring, Šumava National Park** — personal project · *ongoing*  
+Detecting logging and forest-cover change from Sentinel-2 imagery.  
+*Google Earth Engine · Sentinel-2 · Python*
 
 ---
 
-## 🏆 Athletic Achievements
+## Education
 
-> **Junior Vice-World Champion** — Mountain Biking  
-> **13th** U23 Overall standing MTB XCO World Cup  
-> **World Cup Winner** & Multiple-time Czech National Champion MTB XCO  
+**MSc Data Science** — University of Trento, Italy · *Sep 2024 – expected [month] 2026*  
+Specialisation: big data engineering and geospatial analysis  
+Coursework: Machine Learning · Statistical Learning · Foundation Models · Big Data Technologies · High Performance Computing · Geospatial Analysis · Signal, Image and Video Processing
+
+**Certificates:** Google Data Analytics Professional Certificate (Coursera, 2022), IBM - introduction to software engineering (Cousera, 2023)
 
 ---
 
-📄 [**Download Full CV (PDF)**]({{ "/files/Tereza_Saskova_CV.pdf" | relative_url }})
+## Skills
+
+| | |
+|---|---|
+| **Languages** | Python · SQL · R · C (basics) |
+| **ML & CV** | PyTorch · scikit-learn · Spark ML · DeepForest · SAM2 · sentence embeddings |
+| **Data engineering** | Spark · Kafka · Airflow · Delta Lake · DuckDB · PostgreSQL · MongoDB · Docker |
+| **Geospatial & EO** | GDAL · rasterio · GeoPandas · QGIS · Google Earth Engine · OSMnx · H3 |
+| **Deployment** | Flask · Railway · GPU cloud (RunPod) · Git / GitHub |
+
+---
+
+## Other experience
+
+- **180 Degrees Consulting** — student consultant, data-driven projects with NGOs (Oct 2023 – Jul 2024)
+- **Česko.Digital** — volunteer content creator for civic-tech initiatives
+- **Future Founder, NOI Techpark** — start-up programme: idea testing and pitching
+- **Ski instructor** — Viamode, Saas-Fee, Switzerland (May 2023 – Apr 2024); **MTB guide** — Finale Ligure, Italy; freelance English tutor
+
+## Sport
+
+Former professional XCO mountain biker: **Junior Vice-World Champion**, World Cup winner, 13th U23 World Cup overall, multiple Czech national champion.

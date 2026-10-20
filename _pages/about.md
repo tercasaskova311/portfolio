@@ -1,76 +1,47 @@
 ---
 layout: single
-title: "About Me"
+title: "About"
 permalink: /about/
 author_profile: true
 classes: wide
 ---
 
-<img src="{{ '/images/gallery_4 2.jpg' | relative_url }}" alt="Tereza Sásková" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
+<img src="{{ '/images/gallery_4 2.jpg' | relative_url }}" alt="Tereza Sásková" style="width:200px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px;">
 
-I'm **Tereza Sásková**, a student of **Data Science Msc. at the University of Trento**. My main fields of interest are: Earth Observation, Geospatial Analysis and ML & Computer Vision.
-
----
-
-### What I'm Working On
-
-I’m currently working on two projects that combine my interests in **geospatial analysis** and **earth observation**:
-
-#### 🌳 Single Tree Detection from Orthophotos
-Building a cheap, training-free pipeline to give cities precise data about greenery coverage, combining the **DeepForest** model (CNN-based tree detection) with **SAM2** (segmentation model).
-
-#### 🛰️ Deforestation Monitoring in Šumava National Park
-An automated system to **detect logging and deforestation events** using Sentinel-2 satellite imagery and classical image processing - from building the dataset and training an ML model to designing a deployment-ready architecture.
-
-
-
----
-### 🎓 Currently
-- **Master of Science in Data Science**, *University of Trento*
-- **Data Science Intern at FBK – Fondazione Bruno Kessler, Trento (Digital Commons Lab)** — remote sensing & geospatial analysis
+Hi, I'm Tereza. I'm a data scientist in Trento, finishing my master's — my thesis, with FBK, is about monitoring urban greenery, focused on detecting individual trees in aerial photos. Most of my work so far has been data projects in Python and SQL: database management, exploratory analysis, prediction and computer vision for remote sensing. Lately I'm especially interested in putting ML into real use: combining domain-specific and foundation models, designing data architectures, and lightweight analytics stacks like DuckDB and Parquet. Before all this, I raced mountain bikes professionally.
 
 ---
 
-### **Technical Skills**
+## What I work on
 
-| Category | Tools & Technologies |
-|-----------|----------------------|
-| **Programming Languages** | Python · SQL · R · C (basics) |
-| **Data Engineering** | Apache Spark · Kafka · Docker · Delta Lakes · MongoDB · DuckDB · PostgreSQL |
-| **Geospatial & Remote Sensing** | GIS · Google Earth Engine · Sentinel imagery processing (basics) |
-| **Machine Learning** | ML pipelines · Text Processing |
-| **Development Tools** | GitHub · Flask (basics) |
-
----
-
-### 📌 Research Interests
-
-> 🌍 Geospatial data analysis and Earth observation  
-> 🤖 Machine learning for environmental and social applications  
-> 🌡️ Climate modeling and prediction  
-> ⚙️ Data pipeline architecture and automation  
-> 💾 Big data processing and distributed computing  
-
+| Area | In practice |
+|---|---|
+| **Machine learning & computer vision** | Object detection and segmentation (DeepForest, SAM2), recommender systems (ALS, embeddings), model validation and calibration |
+| **Data engineering** | Batch and streaming pipelines (Spark, Kafka, Airflow), Delta Lake, DuckDB, PostgreSQL, Docker, GPU cloud compute |
+| **Geospatial & remote sensing** | Aerial and satellite imagery, GDAL / rasterio, GeoPandas, OSM data, H3 spatial indexing, Google Earth Engine, QGIS |
+| **Shipping to production** | Flask web apps, PostgreSQL schema design, deployment on Railway |
 
 ---
 
-My path into **data science**  and tech world wasn’t a straight line. It began on mountain trails and race circuits.  
-Before I ever wrote a line of code, I was a **professional mountain biker** competing at the world cup level, where I became a **Junior Vice-World Champion** and multiple-time Czech national champion. 
+## Selected projects
 
-These experiences might seem far apart. However they share the same foundation, real, lived discipline, focus, and the drive... For me, discipline isn’t a catch phrase. It’s something I’ve practiced daily. Through years of training, recovery, constant improvement.  
-That same mindset now stays with me, when I learn, build, and solve problems in data science. I simply do things with my all 100%. 
+- **[Annotation-free tree crown detection](/portfolio/singletree-detection/)** — finding individual trees in open aerial imagery across Italian cities with no training labels (DeepForest + SAM2). MSc thesis with FBK.
+- **[Podcast recommendation platform](/portfolio/podcast-platform/)** — hybrid recommender combining listening behaviour and transcript similarity on Kafka, Spark, Delta Lake and Airflow.
+- **[Weekend registration system](/portfolio/registration-system/)** — production booking app for a ski school; PostgreSQL enforces quotas, cutoffs and concurrency.
 
-A **career-ending injury** eventually pushed me to rethink and starts something new. This is something that shaped me and also the way how I hand work, having willingness to always learn new things and adapt well in changing enviroment.
-
-Today I'm particulary interested in projects where  I can apply my data science skill in earth observation/geosaptial context. Whether that's **monitoring environmental changes from space or computer vision focu**. While I'm always open to exploring new domains and learning from different areas of data science. 
+[All projects](/portfolio/){: .btn .btn--primary}
 
 ---
-<img src="{{ '/images/MS-mtb-juniorky_tereza-cil.jpg' | relative_url }}" alt="Tereza Sásková" style="width:240px; float:right; margin:0 0 1rem 1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
 
-### 🏔️ **Athletic Background**
-- Junior Vice-World Champion in MTB  
-- Multiple-time Czech National MTB Champion  
-- Ski & MTB Instructor in Switzerland and Italy
+## Now
 
+- **MSc thesis** with the FBK Digital Commons Lab: measuring the *3-30-300 rule* for urban greenery across Italian cities from open imagery and OpenStreetMap
+- **Ski Zadov registration system:** upgrading [last season's booking app](/portfolio/registration-system/) for the coming winter
 
-📄 [Download my CV]({{ "/files/Tereza_Saskova_CV.pdf" | relative_url }})
+---
+
+## Outside data
+
+Former professional cross-country mountain biker: **Junior Vice-World Champion**, World Cup winner and multiple Czech national champion. I still teach skiing and mountain biking.
+
+[Full CV](/cv/){: .btn .btn--inverse} [Download CV (PDF)]({{ '/files/Tereza_Saskova_CV.pdf' | relative_url }}){: .btn .btn--inverse}
