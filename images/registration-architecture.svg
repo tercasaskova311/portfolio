@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Ski school registration system architecture</title>
+  <desc id="d">Parents register on a custom domain served by a Flask web service on Railway, backed by PostgreSQL on Railway's private network. Enrolled students are imported once from the e-shop export. Staff read attendance in Google Sheets from token-protected endpoints and use admin overrides.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <style>
+      .h{font-size:14px;font-weight:600;fill:#111827}
+      .s{font-size:11.5px;fill:#4b5563}
+      .lb{font-size:11px;fill:#6b7280;font-style:italic}
+      .ln{stroke:#6b7280;stroke-width:1.6;fill:none;marker-end:url(#a)}
+      .two{marker-start:url(#a)}
+      .col{font-size:11px;fill:#9ca3af;font-weight:600;letter-spacing:.08em}
+    </style>
+  </defs>
+  <rect width="1000" height="460" fill="#ffffff"/>
+
+  <g class="col" text-anchor="middle">
+    <text x="110" y="22">USERS &amp; DATA IN</text><text x="515" y="22">RAILWAY PROJECT</text><text x="890" y="22">STAFF SIDE</text>
+  </g>
+
+  <!-- Railway boundary -->
+  <rect x="245" y="34" width="540" height="404" rx="14" fill="#f5f3ff" stroke="#c4b5fd" stroke-dasharray="6 4"/>
+  <text x="262" y="56" font-size="12.5" font-weight="700" fill="#6d28d9" letter-spacing=".05em">DEPLOYED FROM GITHUB · NIXPACKS BUILD</text>
+
+  <!-- left -->
+  <rect x="20" y="78" width="180" height="70" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="1.4"/>
+  <text x="110" y="106" text-anchor="middle" class="h">Parents</text>
+  <text x="110" y="125" text-anchor="middle" class="s">pick weekends + time slots</text>
+
+  <rect x="20" y="320" width="180" height="70" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="1.4"/>
+  <text x="110" y="348" text-anchor="middle" class="h">E-shop export</text>
+  <text x="110" y="367" text-anchor="middle" class="s">CSV of season-course buyers</text>
+
+  <!-- domain -->
+  <rect x="265" y="78" width="250" height="70" rx="10" fill="#fff" stroke="#6b7280" stroke-width="1.4"/>
+  <text x="390" y="106" text-anchor="middle" class="h">Custom domain + HTTPS</text>
+  <text x="390" y="125" text-anchor="middle" class="s">HSTS · CSP · rate limiting</text>
+
+  <!-- web -->
+  <rect x="265" y="182" width="250" height="100" rx="10" fill="#fff" stroke="#8b5cf6" stroke-width="1.6"/>
+  <text x="390" y="210" text-anchor="middle" class="h">Web service</text>
+  <text x="390" y="229" text-anchor="middle" class="s">Flask + SQLAlchemy on Gunicorn</text>
+  <text x="390" y="247" text-anchor="middle" class="s">booking rules · admin + Sheets API</text>
+  <text x="390" y="265" text-anchor="middle" class="s">/health check · restart on failure</text>
+
+  <!-- postgres -->
+  <rect x="565" y="182" width="200" height="100" rx="10" fill="#fff" stroke="#8b5cf6" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="665" y="210" text-anchor="middle" class="h">PostgreSQL</text>
+  <text x="665" y="229" text-anchor="middle" class="s">constraints + indexes</text>
+  <text x="665" y="247" text-anchor="middle" class="s">per-user advisory locks</text>
+  <text x="665" y="265" text-anchor="middle" class="s">enums for slots + status</text>
+
+  <!-- import -->
+  <rect x="265" y="320" width="250" height="70" rx="10" fill="#fff" stroke="#8b5cf6" stroke-width="1.4"/>
+  <text x="390" y="348" text-anchor="middle" class="h">One-off import job</text>
+  <text x="390" y="367" text-anchor="middle" class="s">railway run · idempotent upsert</text>
+
+  <!-- right -->
+  <rect x="810" y="182" width="170" height="70" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1.4"/>
+  <text x="895" y="210" text-anchor="middle" class="h">Google Sheets</text>
+  <text x="895" y="229" text-anchor="middle" class="s">weekly attendance lists</text>
+
+  <rect x="810" y="320" width="170" height="70" rx="10" fill="#fff" stroke="#10b981" stroke-width="1.4"/>
+  <text x="895" y="348" text-anchor="middle" class="h">Ski school staff</text>
+  <text x="895" y="367" text-anchor="middle" class="s">instructors + admin</text>
+
+  <g class="ln">
+    <path d="M200,113 H263"/>
+    <path d="M390,148 V180"/>
+    <path d="M200,355 H263"/>
+    <path class="ln two" d="M517,232 H563"/>
+    <path d="M515,350 C650,350 700,330 715,284"/>
+    <path d="M480,182 V166 H895 V180"/>
+    <path d="M895,252 V318"/>
+    <path d="M810,372 C640,430 560,300 500,286"/>
+  </g>
+  <text x="540" y="225" text-anchor="middle" class="lb">private</text>
+  <text x="540" y="250" text-anchor="middle" class="lb">network</text>
+  <text x="700" y="160" text-anchor="middle" class="lb">JSON feed per weekend (token)</text>
+  <text x="895" y="410" text-anchor="middle" class="lb">admin override (token)</text><text x="895" y="425" text-anchor="middle" class="lb">bypasses quota + cutoff, logs reason</text>
+</svg>
