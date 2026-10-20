@@ -40,18 +40,14 @@ author_profile: true
 </style>
 
 <div class="masonry-gallery">
-      <img src="{{ '/images/gallery_4 2.jpg' | relative_url }}" alt="pic1">
-      <img src="{{ '/images/gallery_3.jpg' | relative_url }}" alt="pic2">
-      <img src="{{ '/images/gallery1.jpg' | relative_url }}" alt="pic3">
       <img src="{{ '/images/canada.JPG' | relative_url }}" alt="pic4">
       <img src="{{ '/images/homepage.JPG' | relative_url }}" alt="pic5">
       <img src="{{ '/images/MS-mtb-juniorky_tereza-cil.jpg' | relative_url }}" alt="pic6">
-      <img src="{{ '/images/0fe88234-21a7-42d4-ad46-ad00cee64ee4.JPG' | relative_url }}" alt="pic7">
       <img src="{{ '/images/DSC00707.jpg' | relative_url }}" alt="pic8">
       <img src="{{ '/images/DSC00824.jpg' | relative_url }}" alt="pic9">
       <img src="{{ '/images/DSC00834.JPG' | relative_url }}" alt="pic10">
       <img src="{{ '/images/DSC00849.JPG' | relative_url }}" alt="pic11">
-      <img src="{{ '/images/IMG_4244.JPG' | relative_url }}" alt="pic12">
-      <img src="{{ '/images/IMG_8899.JPG' | relative_url }}" alt="pic13">
+
+
 </div>
 
