@@ -31,10 +31,10 @@ A tree detector knows **what** a tree is; a segmentation foundation model knows 
 
 ---
 
-## Step 1 — Propose: where are the trees?
+## Step 1 Propose: where are the trees?
 
 <figure>
-  <img src="{{ '/images/tree-detection-propose.jpg' | relative_url }}" alt="Aerial image of a residential area next to a wooded park, with red boxes around individual tree crowns" style="width:100%; border-radius:8px;">
+  <img src="{{ '/images/deepforest.png' | relative_url }}" alt="Aerial image of a residential area next to a wooded park, with red boxes around individual tree crowns" style="width:100%; border-radius:8px;">
   <figcaption>DeepForest's crown boxes over a mixed scene: houses and streets on the left, a wooded slope in the centre, open meadow on the right.</figcaption>
 </figure>
 
@@ -50,10 +50,10 @@ To make one detector work across cities, images are cut into tiles that always c
 
 ---
 
-## Step 2 — Delineate: what shape is each tree?
+## Step 2 Delineate: what shape is each tree?
 
 <figure>
-  <img src="{{ '/images/tree-detection-delineate.jpg' | relative_url }}" alt="The same aerial image with yellow outlines tracing the irregular shape of each tree crown" style="width:100%; border-radius:8px;">
+  <img src="{{ 'images/sam2.png' | relative_url }}" alt="The same aerial image with yellow outlines tracing the irregular shape of each tree crown" style="width:100%; border-radius:8px;">
   <figcaption>The same scene after SAM2: every box has become an outline of the actual crown.</figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ To keep this fast at city scale, each image chip is encoded by SAM2 **once**, an
 
 ---
 
-## Step 3 — Gate: keep or reject?
+## Step 3 Gate: keep or reject?
 
 No labels means no learned way to tell a good result from a bad one. Instead, every outline has to pass a few checks that any real tree crown satisfies:
 
