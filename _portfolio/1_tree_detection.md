@@ -26,7 +26,7 @@ This is the tree detection pipeline I built at the FBK Digital Commons Lab for p
 
 The pipeline combines two models that are each good at one thing:
 
-- **DeepForest** is a **domain-specific model**: a RetinaNet detector pretrained on tree crowns. It knows **what** a tree is, so it finds almost all of them. But it also finds things that only look like trees from above - this depending on the context, can introduce FP in for of for example rooftops. As well as DeepForest strugle to detect each single tree crown in dense area thanks to the nature of detection outputs - bounding boxes.
+- **DeepForest** is a **domain-specific model**: a RetinaNet detector pretrained on tree crowns. It knows **what** a tree is, so it finds almost all of them. However it also detect high number of FP - this depending on the context can be for example rooftops. Another common issue of DeepForest detection is high number of FN in dense area, thanks to the nature of detection outputs - bounding boxes.
 - **SAM2** (Segment Anything Model 2) is a **foundation model**: general-purpose, never trained on tree labels. It doesn't know what a tree is, but it knows **where** an object's edge is.
 
 Put together, DeepForest decides where to look and SAM2 draws what's really there. The crown outline SAM2 draws is then checked, and that's where the false positives get filtered out. A rooftop can be outlined perfectly, but it isn't green.
@@ -58,7 +58,7 @@ The principle: **recall first, filters after.** It's easier to remove a wrong de
 
 <figure>
   <img src="{{ '/images/3_bologna_deepforest_FP.png' | relative_url }}" alt="Aerial image of a residential area next to a wooded park, with red boxes around individual tree crowns" style="width:100%; border-radius:8px;">
-  <figcaption>DeepForest's crown boxes over a mixed scene: houses and streets on the left, a wooded slope in the centre, open meadow on the right.</figcaption>
+  <figcaption>DeepForest's crown bounding boxes - detection over housing area, mix on TP and FP.</figcaption>
 </figure>
 
 Each red box is a bounding box = output of DeepForest pretrained model - with no fine-tuning.
