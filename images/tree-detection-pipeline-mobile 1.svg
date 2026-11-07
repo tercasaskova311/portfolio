@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 842" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Annotation-free tree crown detection (vertical)</title>
+  <desc id="d">Two stages, no training labels. Stage 1, detection: DeepForest, a domain-specific model pretrained on tree crowns, proposes a box for every possible tree, with high recall and some false positives such as rooftops. Stage 2, segmentation: SAM2, a general-purpose foundation model, outlines the crown inside each box, and checks on that outline drop what isn&#x27;t a tree. The output is one polygon per tree.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <style>
+      .lane{font-size:13px;font-weight:700;letter-spacing:.06em}
+      .tag{font-size:11px;font-weight:600}
+      .q{font-size:12px;fill:#4b5563;font-style:italic}
+      .h{font-size:13.5px;font-weight:600;fill:#111827}
+      .s{font-size:11.5px;fill:#4b5563}
+      .ln{stroke:#6b7280;stroke-width:1.6;fill:none;marker-end:url(#a)}
+      .col{font-size:11px;fill:#9ca3af;font-weight:600;letter-spacing:.08em}
+      a rect{transition:stroke-width .15s}
+      a:hover rect, a:focus rect{stroke-width:2.6}
+    </style>
+  </defs>
+  <rect width="440" height="842" fill="#ffffff"/>
+  <a href="https://github.com/dclfbk/3-30-300-index/blob/main/notebooks/02_download_orthophotos.py" target="_top" aria-label="Orthophotos: open RGB aerial images. Open the code on GitHub">
+    <rect x="60.0" y="16" width="320" height="58" rx="9" fill="#ffffff" stroke="#9ca3af" stroke-width="1.4"/>
+    <text x="220.0" y="39.0" text-anchor="middle" class="h">Orthophotos</text>
+    <text x="220.0" y="57.0" text-anchor="middle" class="s">open RGB aerial images</text>
+  </a>
+  <path class="ln" d="M220.0,74 V96"/>
+  <rect x="10" y="100" width="420" height="290" rx="12" fill="#ecfdf5"/>
+  <text x="24" y="124" class="lane" fill="#047857">STAGE 1 · DETECTION</text>
+  <text x="24" y="142" class="tag" fill="#047857">domain-specific model</text>
+  <text x="24" y="159" class="q">find every possible tree</text>
+  <a href="https://github.com/dclfbk/3-30-300-index/blob/main/scr/tree_3/01_deepforest.py" target="_top" aria-label="Same-ground patches: same ground area in every city. Open the code on GitHub">
+    <rect x="60.0" y="172" width="320" height="58" rx="9" fill="#ffffff" stroke="#10b981" stroke-width="1.4"/>
+    <text x="220.0" y="195.0" text-anchor="middle" class="h">Same-ground patches</text>
+    <text x="220.0" y="213.0" text-anchor="middle" class="s">same ground area in every city</text>
+  </a>
+  <path class="ln" d="M220.0,230 V242"/>
+  <a href="https://github.com/dclfbk/3-30-300-index/blob/main/scr/tree_3/01_deepforest.py" target="_top" aria-label="DeepForest: RetinaNet · pretrained on tree crowns. Open the code on GitHub">
+    <rect x="60.0" y="244" width="320" height="58" rx="9" fill="#ffffff" stroke="#10b981" stroke-width="1.4"/>
+    <text x="220.0" y="267.0" text-anchor="middle" class="h">DeepForest</text>
+    <text x="220.0" y="285.0" text-anchor="middle" class="s">RetinaNet · pretrained on tree crowns</text>
+  </a>
+  <path class="ln" d="M220.0,302 V314"/>
+  <a href="https://github.com/dclfbk/3-30-300-index/blob/main/scr/tree_3/01_deepforest.py" target="_top" aria-label="Crown boxes: high recall, some false positives. Open the code on GitHub">
+    <rect x="60.0" y="316" width="320" height="58" rx="9" fill="#ffffff" stroke="#10b981" stroke-width="1.4"/>
+    <text x="220.0" y="339.0" text-anchor="middle" class="h">Crown boxes</text>
+    <text x="220.0" y="357.0" text-anchor="middle" class="s">high recall, some false positives</text>
+  </a>
+  <path class="ln" d="M220.0,390 V412"/>
+  <rect x="10" y="416" width="420" height="290" rx="12" fill="#eff6ff"/>
+  <text x="24" y="440" class="lane" fill="#1d4ed8">STAGE 2 · SEGMENTATION</text>
+  <text x="24" y="458" class="tag" fill="#1d4ed8">foundation model</text>
+  <text x="24" y="475" class="q">outline the crown, drop what isn&#x27;t a tree</text>
+  <a href="https://github.com/dclfbk/3-30-300-index/blob/main/scr/tree_3/02_sam2_inference.py" target="_top" aria-label="SAM2: each box used as a prompt. Open the code on GitHub">
+    <rect x="60.0" y="488" width="320" height="58" rx="9" fill="#ffffff" stroke="#3b82f6" stroke-width="1.4"/>
+    <text x="220.0" y="511.0" text-anchor="middle" class="h">SAM2</text>
+    <text x="220.0" y="529.0" text-anchor="middle" class="s">each box used as a prompt</text>
+  </a>
+  <path class="ln" d="M220.0,546 V558"/>
+  <a href="https://github.com/dclfbk/3-30-300-index/blob/main/scr/tree_3/02_sam2_inference.py" target="_top" aria-label="Crown outline: follows the real edge of the tree. Open the code on GitHub">
+    <rect x="60.0" y="560" width="320" height="58" rx="9" fill="#ffffff" stroke="#3b82f6" stroke-width="1.4"/>
+    <text x="220.0" y="583.0" text-anchor="middle" class="h">Crown outline</text>
+    <text x="220.0" y="601.0" text-anchor="middle" class="s">follows the real edge of the tree</text>
+  </a>
+  <path class="ln" d="M220.0,618 V630"/>
+  <a href="https://github.com/dclfbk/3-30-300-index/blob/main/scr/tree_3/02_sam2_inference.py" target="_top" aria-label="Filter: green? plausible size? sane shape?. Open the code on GitHub">
+    <rect x="60.0" y="632" width="320" height="58" rx="9" fill="#ffffff" stroke="#3b82f6" stroke-width="1.4"/>
+    <text x="220.0" y="655.0" text-anchor="middle" class="h">Filter</text>
+    <text x="220.0" y="673.0" text-anchor="middle" class="s">green? plausible size? sane shape?</text>
+  </a>
+  <path class="ln" d="M220.0,706 V728"/>
+  <a href="https://github.com/dclfbk/3-30-300-index/blob/main/scr/tree_3/02_sam2_inference.py" target="_top" aria-label="Tree crowns: one polygon per tree no labels used. Open the code on GitHub">
+    <rect x="60.0" y="732" width="320" height="64" rx="9" fill="#fefce8" stroke="#ca8a04" stroke-width="1.6"/>
+    <text x="220.0" y="750.0" text-anchor="middle" class="h">Tree crowns</text>
+    <text x="220.0" y="768.0" text-anchor="middle" class="s">one polygon per tree</text>
+    <text x="220.0" y="783.0" text-anchor="middle" class="s">no labels used</text>
+  </a>
+  <text x="220.0" y="824" text-anchor="middle" class="s">Recall first, filters after.</text>
+</svg>
