@@ -24,12 +24,12 @@ author_profile: true
 
 *Python · PyTorch · DeepForest · SAM2 · GDAL · rasterio · GeoPandas · DuckDB · OSMnx · QGIS*
 
-**Database Coordinator & Program Lead** — Sport Šumava & Ski Zadov (ski & bike schools) · South Bohemia, Czechia  
+**Data Systems Coordinator** — Ski Zadov (ski & bike school) · South Bohemia, Czechia  
 *Sep 2023 – Dec 2025*
 
-- Designed and built the weekend registration system for Ski Zadov (see Projects)
-- Cleaned and managed client data in SQL for registrations and marketing
-- Marketing analytics: campaign design and data-driven performance evaluation
+- Designed and built the weekend registration system parents use to book the season course: 8 lessons per child across a 12-weekend winter, chosen week by week in three time slots, with bookings closing Wednesday at midnight (see Projects)
+- Designed the PostgreSQL data model so the database enforces the course rules, even when parents book at the same time; enrolment is imported from the school's e-shop
+- Worked with marketing campaign data; cleaned, filtered and managed client data for marketing
 - Led ski and MTB programs, including the summer kids' program
 
 ---
